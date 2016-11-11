@@ -11,6 +11,7 @@
 \usepackage{enumitem}
 \usepackage{pstricks, pst-node}
 \usepackage{geometry}
+\usepackage{array}
 
 
 \geometry{margin = .75in}
@@ -73,18 +74,63 @@
 	Android development platform, Android user interface organization, and integrating the current giving platform will be researched and handled by Kevin Stine. 
 	Finally, cross-platform development,  integrating the recent sermons, and integrating the existing calendar will be researched and handled by Max Dimm. 
 	
-	\cite{ArticleLabel} testing bibtex.
 	 
 	\section{iOS Development Platform}
-	\subsection{Option \#1 replace with name of technology}
-	\subsection{Option \#2}
-	\subsection{Option \#3}
+	\subsection{Xcode using Swift}
+	The main technology used to develop iOS applications is Xcode. 
+	Xcode is a program that can be downloaded on any Mac OS platform and isn't able to be downloaded on Windows PCs.
+	It makes use of developer tools to allow users to create an iOS app that will work with all updated iOS devices. 
+	This tool uses the language of Swift, which is a new programming language that has been released by Apple \cite{AppleSwift}. 
+	For people who have never developed an app before, Swift is considered the easier language to learn \cite{CodeChris}. 
+	The tool allows the developer to use a simulator that will display the graphical interface that the user will see and makes the process of developing an app for iOS devices go smoothly. 
+	
+	\subsection{Xcode using Objective-C}
+	A different toolkit to use when developing iOS applications, is similar to the previous option and still takes advantage of the Xcode program, but instead uses the language Objective-C \cite{AppleObjC}. 
+	In order to build an app that will work with iOS 7, Objective-C is the language one would need to use. 
+	However, while there are some people who may want to use our app that still have a phone with iOS 7, the majority of users will more than likely be updated to iOS 9 or iOS 10. 
+	Not only is Swift recommended for newer versions of iOS devices, it's also suggested that Objective-C is a more difficult language to learn with little experience of app development \cite{CodeChris}. 
+	\subsection{iPhone App Builder}
+	The third option for a toolkit to build an iOS app is a program that will essentially build the app for you, leaving no need to learn how to code. 
+	One program, AppyPie \cite{AppyPie}, boasts that it will take all of the work out of creating an app and allow an unskilled user to get a working app quickly uploading to the App store.
+	This option would be useful for people who have no prior programming experience and are just looking to get an app produced with little effort. 
 	\subsection{Goals}
+	The goal for comparing iOS development tool is to acquire which way is most acceptable and makes most sense for developing an iOS application. 
+	We want to determine which option is relevant to current applications and which option will produce a valid application. 
 	\subsection{Criteria Evaluation}
-	e.g. cost, availability, speed, security.
+	The criteria used for each option is relevancy to current application development, ease of which one can learn how to use the programming language, and the level of difficulty one is looking for when developing the app.
 	\subsection{Table Comparison}
+	
+	\begin{table}[ht]
+	\caption{Comparison of iOS Development Platforms}
+	\begin{center}
+	\begin{tabular} { | m{3cm} | m{5cm} | m{5cm} | }
+	\hline\hline
+	Tool & Brief description & Rationale \\ [0.5ex]
+	%heading
+	\hline
+	Xcode using Swift & Using the Swift programming language to write the application using the program Xcode & Best option as it's the most recent and will allow us to actually learn how to develop an app \\
+	\hline
+	Xcode using Objective-C & Using the Objective-C programming language to write the application using the program Xcode & Would be a good option if we needed an iOS 7 app, but not if we want an app that supports recent iOS versions \\
+	\hline
+	iPhone App Builder & Using a third-party program to automatically build the app & A good option for people who have no programming experience and just want to quickly produce an app \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\end{table}
+	
 	\subsection{Discussion}
+	Using Xcode with Swift is a strong option for building iOS--some would say that it is one of the only options.
+	In order for an app to be backwards compatible with iOS 7, the app would need to be programmed with Objective-C. 
+	But noting the fact that iOS 7 is 3 years old and very few (if any) iOS devices are still running this software version, it's somewhat safe to say that having an app that can be downloaded on iOS 7 is of little concern. 
+	
+	The idea of using a third-party program to build the app automatically is tempting, but would defeat the purpose of learning how to develop an iOS app. 
+	If the objective of this project was to produce an iOS app within a matter of days or weeks, then this option could be considered useful. 
 	\subsection{Selection}
+	Because our main objective for this project is to learn the detail of producing an iOS app, it is best to choose Xcode with Swift. 
+	Swift is the most updated language for iOS development and using Xcode simplifies the process of building the application. 
+	With Xcode and Swift, we will be able to properly produce an application that can be submitted to the App Store for download. 
+	It will increase the likelihood of developing an app that is testable, useable, and visually appealing on an iOS device. 
+	Considering all of the options we have for building a native iOS application, it makes sense to choose Xcode and Swift. 
 	
 	\section{iOS User Interface Organization}
 	\subsection{Option \#1 - replace with name of technology}
