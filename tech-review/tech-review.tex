@@ -203,6 +203,7 @@
 			Appcelerator also comes with real-time mobile analytics for every native app - whether built on the Appcelerator Platform or directly via native SDK (iOS \& Android).
 			This provides a mobile lifecycle dashboard for visibility into all apps and performance and crash analytics.
 			This feature could be extremely helpful for the church so they can monitor who is using the app and get some visual feedback on it's success.
+
 		\subsection{Adobe PhoneGap}
 			PhoneGap is a platform used to create mobile apps that are powered by open web technology.
 			PhoneGap allows you quickly make hybrid applications build with HTML, CSS and JavaScript.
@@ -213,8 +214,19 @@
 			This could be a great resource to utilize since it's free, and the apps are created using HTML, CSS and JavaScript rather than Java.
 
 		\subsection{Goals}
+			The goal is to determine which development platform we would like to utilize for creating our Android version of the app.
+			Since we need to create an app for both Android and iOS, it's important to determine how we want to go about that.
+			We can create applications using the native SDK's through Android Studio and Java, or we could utilize a third party application such as Appcelerator or PhoneGap which will work using HTML, CSS and JavaScript.
+			The goal is to determine which method we think would be most effective for creating our application.
+
 		\subsection{Criteria Evaluation}
-		e.g. cost, availability, speed, security.
+			The criteria for determining which development platform we use will be based off:
+			\begin{enumerate}
+				\item \textbf{Usability:} Is the development platform user friendly, have the correct tools we need to utilize and allow for quick development.
+				\item \textbf{Price:} Is the development platform free and open source, is there an upfront one time cost, or a recurring cost.
+				\item \textbf{Language:} Does the development platform utilize programming languages which we are already familiar with, or will we have to learn a new language to create a mobile app.
+			\end{enumerate}
+
 		\subsection{Table Comparison}
 		\begin{table}[ht]
 			\caption{Comparison of Android Development Platforms}
@@ -224,17 +236,39 @@
 					Tool & Brief description & Rationale \\ [0.5ex]
 					%heading
 					\hline
-					Row 1 Col 1 & Col 2 & Col 3 \\
+					Android Studio & Using Android Studio and the native Android SDK & Best option for creating a native app built in Java that will be platform specific \\
 					\hline
-					Row 2 Col 1 & Col 2 & Col 3 \\
+					Appcelerator & Using the Appcelerator Platform to create an iOS and Android app in JavaScript & Best option for the number of features, can be written in JavaScript but is not free\\
 					\hline
-					Row 3 Col 1 & Col 2 & Col 3 \\
+					Adobe PhoneGap & Using the Adobe PhoneGap platform to creat an iOS and Android app build in HTML, CSS and JavaScript & Great option for usability since we can utilize previous Web Development skill \\
 					\hline
 				\end{tabular}
 			\end{center}
 		\end{table}
+
 		\subsection{Discussion}
+			Android Studio offers the most pure Android development experience as it utilizes the native Android SDK.
+			This makes it a strong contender for the platform we will choose for development.
+			In addition to utilizing the Android SDK, it has features such as Instant Run which would allow us to constantly make changes to the app while it is running to see the changes occur instantly.
+			This makes Android Studio very powerful and helpful through the development process.
+
+			Appcelerator is another strong contender as it provides a ton of functionality since it comes bundled with a few other features such as Titanium, Arrow and user analytics.
+			While this could provide a lot of good information for the church once the app is up and running, it does cost roughly \$400 dollars a year which is a bit pricey.
+			To get the most out of this platform and the best return on investment, it would require the church to have someone using all these features by actively monitoring analytics and crash reports.
+			We think that even though this looks like it's an incredibly poewrful platform, it would be underutilized and provide more functionality than needed for the scope of this app.
+
+			Adobe PhoneGap does seem like a very promising option as it allows the app to be developed in HTML, CSS and JavaScript.
+			This is a plus since our team is already familiar with these languages and there would be less of a learning curve then utilizing Java.
+			PhoneGap comes with a desktop app and mobile app for easy development.
+			Rather than having to deal with compiling the application PhoneGap handles that in the cloud.
+			This could be a really good option as it might be simpler to use with less of a learning curve than other platforms.
+
 		\subsection{Selection}
+			Based on the scope of this project, we've decided that utilizing Android Studio with the native Android SDK will be the best option moving forward.
+			Since the team joined this project in hopes of learning more about mobile app development, we think that utilizing the native Android SDK will give us the best learning experience.
+			While developing the app in Java may have a steeper learning curve than HTML or JavaScript, we believe that we will learn the most by using the language that most Android apps are written in.
+			We hope that we will also be able to create a smooth and well polished app using Android Studio and features that it comes with.
+			As Android Studio if the official IDE for Android, we believe it is the best platform to use.
 
 	\section{Android User Interface Organization}
 	\subsection{Option \#1 - replace with name of technology}
