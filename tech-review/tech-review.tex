@@ -132,7 +132,7 @@
 	Because our main objective for this project is to learn the detail of producing an iOS app, it is best to choose Xcode with Swift.
 	Swift is the most updated language for iOS development and using Xcode simplifies the process of building the application.
 	With Xcode and Swift, we will be able to properly produce an application that can be submitted to the App Store for download.
-	It will increase the likelihood of developing an app that is testable, useable, and visually appealing on an iOS device.
+	It will increase the likelihood of developing an app that is testable, usable, and visually appealing on an iOS device.
 	Considering all of the options we have for building a native iOS application, it makes sense to choose Xcode and Swift.
 
 	\section{iOS User Interface Organization}
@@ -294,32 +294,81 @@
 			As Android Studio if the official IDE for Android, we believe it is the best platform to use.
 
 	\section{Android User Interface Organization}
-	\subsection{Option \#1 - replace with name of technology}
-	\subsection{Option \#2}
-	\subsection{Option \#3}
-	\subsection{Goals}
-	\subsection{Criteria Evaluation}
-	e.g. cost, availability, speed, security.
-	\subsection{Table Comparison}
-	\begin{table}[ht]
-	\caption{Comparison of Android UI Organization}
-	\begin{center}
-	\begin{tabular} { | m{3cm} | m{5cm} | m{5cm} | }
-	\hline\hline
-	Tool & Brief description & Rationale \\ [0.5ex]
-	%heading
-	\hline
-	Row 1 Col 1 & Col 2 & Col 3 \\
-	\hline
-	Row 2 Col 1 & Col 2 & Col 3 \\
-	\hline
-	Row 3 Col 1 & Col 2 & Col 3 \\
-	\hline
-	\end{tabular}
-	\end{center}
-	\end{table}
-	\subsection{Discussion}
-	\subsection{Selection}
+		\subsection{Tab Navigation}
+			There are many different ways in which we can structure our Android app.
+			Navigating between pages and windows is a large part of the User Interface, and we want to make sure we are using the most intuitive method for navigation.
+			One method would be to use tabs which make it easy to explore and switch between different views.
+			Tabs enable content organization at a high level and can be used for switching between views, data sets, or functional aspects of an app. \cite{Material-Tabs}
+			The utilization of tabs would allow for swipe gestures between the various tabs of the application.
+			Because it uses swipe gestures, we would need to make sure to not use content which also supports swiping.
+			Tabs provide an easy to use and recognizable view which immediately lets users know that they can swipe between the content listed at the top.
+			Tabs are a good choice because it provides all of the content directly on the first page for users to see.
+			This would prevent users from getting confused since the navigation pane won't be hidden.
+
+		\subsection{Side Bar Navigation}
+			Side bar navigation is another UI layout which creates a navigation bar to the left of the content.
+			Side nav bars can be pinned for permanent display or can float temporarily as overlays. \cite{Material-Side-Nav}
+			Temporary nav drawers overlay the content canvas, which is likely how we would use a side nav bar in our application.
+			Side nav bars are an excellent option for navigation since it essentially hides the navigation pane until the user swipes in from the left of their screen.
+			This allows for the focus of the page to be on the content and would allow us to maximize the space that the user interacts with.
+			Instead of taking up screen space for a navigation pane, we can hide the navigation panel and have it accessible to the user from any page.
+			Side nav bars are extremely popular in most material design inspired applications, and would fit perfectly in our app as well.
+
+		\subsection{Bottom Navigation}
+			Bottom navigation make it easy to explore and switch between top-level views in a single tap.
+			Tapping on a bottom navigation icon takes you directly to the associated view or refreshes the currently active view. \cite{Material-Bottom-Nav}
+			This is a pretty standard UI layout that can be found on the majority of iOS applications.
+			This would be a great choice for being able to match the layout we use for our iOS application.
+			All of the pages are neatly laid out at the bottom of the screen, so it's easy for the user to know exactly which pages are available and how to access them.
+			The only downside of this layout would be for Android phones that have on-screen soft buttons rather than off-screen hardware buttons.
+			This could potentially provide an issue for users trying to access certain content but rather then clicking the page they want, they accidentily click the home button instead.
+			Despite this, bottom navigation would be a great option for continuity across both of our mobile applications.
+
+		\subsection{Goals}
+			Our goal is to determine which UI layout we want to use for our Android application.
+			We want to narrow down the three main UI layouts to determine which one will be most user friendly and most intuitive to app users.
+		\subsection{Criteria Evaluation}
+			The criteria for determining which UI layout we use will be based off:
+			\begin{enumerate}
+				\item \textbf{Continuity:} Does this layout provide a similar look and feel to our iOS application.
+				\item \textbf{Usability:} Is this layout easy to use and does it provide enough context for the user to know how to navigate the application.
+				\item \textbf{Intuitiveness:} Is this layout simple and easier for anyone to understand and are they able to navigate the various pages without being walked through the process.
+			\end{enumerate}
+
+		\subsection{Table Comparison}
+			\begin{table}[ht]
+			\caption{Comparison of Android UI Organization}
+				\begin{center}
+				\begin{tabular} { | m{3cm} | m{5cm} | m{5cm} | }
+					\hline\hline
+					Tool & Brief description & Rationale \\ [0.5ex]
+					%heading
+					\hline
+					Tab Navigation & Layout that includes tabs at the top of the page & A great option for being able to quickly swipe between pages \\
+					\hline
+					Side Bar Navigation & Layout that includes a nav drawer overlay & A great option to have a hidden navigation bar that is accessible from any page \\
+					\hline
+					Bottom Navigation & Layout that includes bottom buttons & Col 3 A great option for continuity with our iOS app and easily viewable information\\
+					\hline
+				\end{tabular}
+				\end{center}
+			\end{table}
+
+		\subsection{Discussion}
+			The use of tabs for the navigation of the app is a very intuitive and easy layout for people that are familiar with Android devices.
+			On Android, almost everything can be done by a simple swipe motion.
+			This is less common on iOS devices, so it could be confusing for people that are used to iOS instead of Android.
+			This is also true of the sidebar navigation pane, which is hidden be default unless the user swipes in from the left or clicks on the hamburger menu.
+			For continuity, the use of the bottom navigation would make the most sense as a user switching from iOS to Android will find it similar.
+			This does however cause issues with some Android users that have on-screen soft buttons.
+
+		\subsection{Selection}
+			While the sidebar can be a little less intuitive than other UI layouts, we think this will be the best option to use in our application.
+			With the navbar off to the left side of the page, it will allow us to focus on the clarity of the content that we are presenting to the user.
+			This frees up screen space by not using it for tabs or buttons.
+			This also allows the user to easily get to the settings and access all other pages by swiping in from the left.
+			We believe that the side navigation bar will be the most intuitive and easiest to use once people use it for the first time.
+
 
 	\section{Cross-Platform Development}
 	\subsection{Option \#1 - replace with name of technology}
