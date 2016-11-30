@@ -43,11 +43,11 @@
 	\title{\huge \team \\ Design Document \\ CS 461 Fall 2016}
 	\author{\large \name \\ \grp}
 
-	
+
 
 	\maketitle
 
-	
+
 		\begin{abstract}The purpose of this project is to produce an iOS/Android application for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
 		The Church's current website does not provide an interface where current members of the church can very quickly access important information such as events, bulletins, and messages from the service.
 		The desired application will be simple enough for anyone to use while providing back end access for staff to easily upload new information to the app.
@@ -61,55 +61,55 @@
 	\tableofcontents
 
 	\clearpage
-	
+
 	\section{Overview}
-	
+
 		\subsection{Scope}
-			We will be implementing a mobile application for both iOS and Android platforms. 
-			This app will provide the members of Calvary Chapel Corvallis a centralized hub that will allow them to access the most important information about the church. 
-			Users will be able to view announcements, a calendar, e-bulletins, and sermons. 
-			Users will also be able to donate to the church. 
-			Three people will be involved in the implementation of this software and it will be done during October 2016 and June 2017. 
-		
+			We will be implementing a mobile application for both iOS and Android platforms.
+			This app will provide the members of Calvary Chapel Corvallis a centralized hub that will allow them to access the most important information about the church.
+			Users will be able to view announcements, a calendar, e-bulletins, and sermons.
+			Users will also be able to donate to the church.
+			Three people will be involved in the implementation of this software and it will be done during October 2016 and June 2017.
+
 		\subsection{Purpose}
-			The purpose of this design document is to detail how the application software will be designed. 
-			We will discuss how we will meet the requirements for our church application and discuss the structure of the application. 
+			The purpose of this design document is to detail how the application software will be designed.
+			We will discuss how we will meet the requirements for our church application and discuss the structure of the application.
 		\subsection{Intended Audience}
-			The intended audience of this design document will be our clients, the teachers of CS 461, as well as the teacher's assistants. 
-	
-		
+			The intended audience of this design document will be our clients, the teachers of CS 461, as well as the teacher's assistants.
+
+
 	\section{Definitions}
-	
+
 	\section{Conceptual model for software design descriptions}
-	
+
 		\subsection{Software design in context}
-		
+
 		\subsection{Software design descriptions within the life cycle}
-		
+
 			\subsubsection{Influences on SDD preparation}
-				The key influence on this software design document is the software requirements specification document (SRS) that has previously been documented. 
-				The requirements listed in the SRS will greatly determine the design of the software and how we implement this project. 
-			
+				The key influence on this software design document is the software requirements specification document (SRS) that has previously been documented.
+				The requirements listed in the SRS will greatly determine the design of the software and how we implement this project.
+
 			\subsubsection{Influences on software life cycle products}
-				This software design document may lead to necessary changes in the SRS. 
-				Throughout development, it's possible that there will be design changes that require us to change details in the SRS. 
-				Testing may also be changed based on the design document. 
-				
+				This software design document may lead to necessary changes in the SRS.
+				Throughout development, it's possible that there will be design changes that require us to change details in the SRS.
+				Testing may also be changed based on the design document.
+
 			\subsubsection{Design verification and design role in validation}
-				In order to determine if the application has met requirements, we will perform user testing. 
-				This will involve having users try to use the software in the intended manner and see if they are successful. 
-				Success will be determined by how many users are successfully able to use the application without errors or issues. 
-	
+				In order to determine if the application has met requirements, we will perform user testing.
+				This will involve having users try to use the software in the intended manner and see if they are successful.
+				Success will be determined by how many users are successfully able to use the application without errors or issues.
+
 	\section{Design description information content}
-	
+
 		\subsection{Introduction}
-			Within this design document, there are many required contents. 
-			We will identify the software design document and it's stakeholders. 
-			We will discuss design concerns and selected design viewpoints. 
-			We will also discuss design views, design overlays, and the design rationale. 
-		
+			Within this design document, there are many required contents.
+			We will identify the software design document and it's stakeholders.
+			We will discuss design concerns and selected design viewpoints.
+			We will also discuss design views, design overlays, and the design rationale.
+
 		\subsection{SDD Identification}
-			A valid software design document includes the following parts: 
+			A valid software design document includes the following parts:
 			\begin{itemize}
 				\item{Date of issue and status}
 				\item{Scope}
@@ -123,74 +123,76 @@
 				\item{Glossary}
 				\item{Change history}
 			\end{itemize}
-	
+
 		\subsection{Design stakeholders and their concerns}
-			The design stakeholders of the Calvary Chapel of Corvallis application are the developers of the app and the team at the church. 
-			Design concerns of the stakeholders include creating an application that is user-friendly and very simplistic in design features.  
-			The final application will be designed in a way that will ease this concern, as the intended design will be a very easy-to-use application. 
-		
+			The design stakeholders of the Calvary Chapel of Corvallis application are the developers of the app and the team at the church.
+			Design concerns of the stakeholders include creating an application that is user-friendly and very simplistic in design features.
+			The final application will be designed in a way that will ease this concern, as the intended design will be a very easy-to-use application.
+
 		\subsection{Design views}
-		We will use Unified Model Language (UML) diagrams in order to describe and represent the views of our system. 
-		
+		We will use Unified Model Language (UML) diagrams in order to describe and represent the views of our system.
+
 		\subsection{Design viewpoints}
-		There are many viewpoints that will be covered in this document including: context, composition, logical, dependency, state, and interaction viewpoints. 
-		They each mean different things, for example the context viewpoint will cover what type of users will be using the app and the perceptions they should have over it. 
-		The composition viewpoint will cover what information and content will be hosted within the app. 
-		The logical viewpoint will cover what purpose the app will serve and how it will accomplish those purposes. 
-		Dependency will be the things the app needs in order for it to work as designed and the integration of it with other applications. 
-		State dynamics will talk about the different forms the functionality of the app will take shape in. 
-		Finally, we will conclude with the interaction viewpoint witch will cover how people will use our app and how it will interact with various other technologies. 
-		
+		There are many viewpoints that will be covered in this document including: context, composition, logical, dependency, state, and interaction viewpoints.
+		They each mean different things, for example the context viewpoint will cover what type of users will be using the app and the perceptions they should have over it.
+		The composition viewpoint will cover what information and content will be hosted within the app.
+		The logical viewpoint will cover what purpose the app will serve and how it will accomplish those purposes.
+		Dependency will be the things the app needs in order for it to work as designed and the integration of it with other applications.
+		State dynamics will talk about the different forms the functionality of the app will take shape in.
+		Finally, we will conclude with the interaction viewpoint witch will cover how people will use our app and how it will interact with various other technologies.
+
 		\subsection{Design rationale}
-		Two of the primary focuses in our design rationale are to keep it simple for the users, and to keep is simple for the church management team. 
-		The client wants the app to be as user friendly for the congregation at possible, along with keeping the back end work to a minimum. 
-		If the app is too confusing for the users or the team, then the whole purpose of this app will be voided by their inability to use it. 
-		Secondary to these points is maximizing speed and adding additional small features. 
-		We should be creating an efficient app that can have helpful functionality for the users. 
-		
+		Two of the primary focuses in our design rationale are to keep it simple for the users, and to keep is simple for the church management team.
+		The client wants the app to be as user friendly for the congregation at possible, along with keeping the back end work to a minimum.
+		If the app is too confusing for the users or the team, then the whole purpose of this app will be voided by their inability to use it.
+		Secondary to these points is maximizing speed and adding additional small features.
+		We should be creating an efficient app that can have helpful functionality for the users.
+
 		\subsection{Design languages}
-		The design language that we will use in this document will be UML. 
-		
+		The design language that we will use in this document will be UML.
+
 	\section{Design Viewpoints}
-	
+
 		\subsection{Introduction}
-		
+
 		\subsection{Context Viewpoint}
-		The purpose we are trying to fill with this app is to be the go to information hub of the average Calvary Chapel member. 
-		The app will be used primarily by middle aged users who may or may not be technologically savvy. 
-		Because of this we will try to keep our layout intuitive and simplistic to appease our user base. 
-		If the information that our users is not quick and easy to access, they would simply find other ways to find it such as the website or calling the church.
-		
+		Included in the app are four primary functionalities: calendar, sermons, donations, and bulletin.
+		The reason being is that these are the four primary things that our client believes their users will be looking to access from the app.
+		The schedule will be there to allow users to see what is going on within the church in the long-term.
+		The sermon functionality will allow people to view past sermons in case they missed them or simply want to recap a message they enjoyed.
+		In this church and many others donating is a major part of what they do.
+		Making this easier for the users of our app is crucial.
+		Now they can do it from home or any time because the app will allow them to give without the need of cash on hand.
+		Finally the last functionality that we want to include is the bulletin.
+		This will be a place for the users to grab quick info that would normally be handed out on a piece of paper inside the building.
+		his will allow them to view the bulletin from anywhere at any time and reduce costs for the church to prevent the need of printing off pamphlets.
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics{UseCase.jpg}
 			\caption{Use Case Diagram}
 			\label{fig:usecase1}
 		\end{figure}
-	
-	
-		
+
 		\subsection{Composition Viewpoint}
-		Included in the app are four primary functionalities: calendar, sermons, donations, and bulletin. 
-		The reason being is that these are the four primary things that our client believes their users will be looking to access from the app. 
-		The schedule will be there to allow users to see what is going on within the church in the long-term. 
-		The sermon functionality will allow people to view past sermons in case they missed them or simply want to recap a message they enjoyed. 
-		In this church and many others donating is a major part of what they do. 
-		Making this easier for the users of our app is crucial. 
-		Now they can do it from home or any time because the app will allow them to give without the need of cash on hand. 
-		Finally the last functionality that we want to include is the bulletin. 
-		This will be a place for the users to grab quick info that would normally be handed out on a piece of paper inside the building. 
-		his will allow them to view the bulletin from anywhere at any time and reduce costs for the church to prevent the need of printing off pamphlets. 
+			Our system is composed of four components which are an iOS Client, an Android Client, a Database Server and a Web Server. 
+
+			The purpose we are trying to fill with this app is to be the go to information hub of the average Calvary Chapel member.
+			The app will be used primarily by middle aged users who may or may not be technologically savvy.
+			Because of this we will try to keep our layout intuitive and simplistic to appease our user base.
+			If the information that our users is not quick and easy to access, they would simply find other ways to find it such as the website or calling the church.
+
+
 		\subsection{Logical Viewpoint}
-		
+
 		\subsection{Dependency Viewpoint}
-		
+
 		\subsection{State Dynamics Viewpoint}
-		
+
 		\subsection{Interaction Viewpoint}
-		
+
 	\section{Conclusion}
-	
-	
+
+
 
 \end{document}
