@@ -161,7 +161,7 @@
 	\section{Design Viewpoints}
 
 		\subsection{Introduction}
-		In this section, we will discuss seven design viewpoints including: 
+		In this section, we will discuss seven design viewpoints including:
 			\begin{itemize}
 				\item{Context Viewpoint}
 				\item{Composition Viewpoint}
@@ -184,87 +184,111 @@
 		This will be a place for the users to grab quick info that would normally be handed out on a piece of paper inside the building.
 		his will allow them to view the bulletin from anywhere at any time and reduce costs for the church to prevent the need of printing off pamphlets.
 
-		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[natwidth=462, natheight=585]{UseCase.png}
 			\caption{Use Case Diagram}
 			\label{fig:usecase}
 		\end{figure}
-		
+
 		\subsection{Composition Viewpoint}
 			Our system is composed of four components which are an iOS Client, an Android Client, a Database Server and a Web Server.
 			The Database Server which we connect to is through Church Community Builder.
 			The Web Server which we connect to is Calvary Chapel's current website.
 			Client components are comprised of smartphone applications, based on their operating system.
 			Our iOS and Android Clients will be able to pull information from both CCB as well as the church's current website.
-		
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[natwidth=552, natheight=245]{Deployment.png}
 			\caption{Deployment Diagram}
 			\label{fig:deployment}
 		\end{figure}
-		
 
 		\subsection{Logical Viewpoint}
 
 		\subsection{Dependency Viewpoint}
-	The app will have a couple interconnections with other apps/plugins. 
-	The first and foremost will be with church community builder. 
-	Most of the information we will be pulling from continuously will be from CCB, such as the schedule and bulletin.  
-	Also we will need to work with livestreams API to get a functional video/audio player for the sermons section. 
-	Our client already uses foxycart for their donation service so we will integrate their service to our app using their published API. 
-	We will be sending information to their servers so we will also need to find a way to encrypt the data being sent because it is highly personal info. 
+			The app will have a couple interconnections with other apps/plugins.
+			The first and foremost will be with church community builder.
+			Most of the information we will be pulling from continuously will be from CCB, such as the schedule and bulletin.
+			Also we will need to work with livestreams API to get a functional video/audio player for the sermons section.
+			Our client already uses foxycart for their donation service so we will integrate their service to our app using their published API.
+			We will be sending information to their servers so we will also need to find a way to encrypt the data being sent because it is highly personal info.
 
 		\subsection{Patterns use viewpoint}
 			Our system will make use of the Model-View-Controller (MVC) design pattern.
+			The MVC design pattern assigns objects in an application with one of three roles: model, view or controller.
+			In addition to defining the roles the objects play in the application, it also defines the way objects communicate with each other.
+			For example when the user refreshes the sermons page to get the latest sermons, the model object changes and notifies the controller object which will then update the sermons view objects.
+
+			\subsubsection{Model Objects}
+				Model objects encapsulate the data specific to the application and define the logic and computation that manipulate and process the data.
+				In our application, there will be data specific to donations, calendar, e-bulletins and messages.
+				This will strictly be the data that we pull from the CCB database and the Church's website and will not be concerned with user-interface and presentation issues.
+				We will parse the CCB information as XML and read that into our application as XML.
+				The model object will strictly deal with data pulled from the CCB database.
+				Once the data has been retrieved, it will notify the controller object to begin the process of updating the user's view.
+				This object is hidden via an abstraction layer, ensuring that the user is only able to view the information we provide them in a clean and concise view.
+
+			\subsubsection{View Objects}
+				The view object is an object in an application that the users can see.
+				Our application will utilize the view objects to display data from our model object which is pulled from CCB.
+				This object is what the user will see and interact with through our application.
+				View objects will be consistent across pages to ensure the most navigable UI for the user.
+				An example of the view object would be when the user wants to view the calendar for events.
+				If they are in the month of December and want to look ahead to January, they will tap to proceed to the next month, which will notify the controller object letting the model object know to pull January's data from the database.
+
+			\subsubsection{Controller Objects}
+				The controller object will act as an intermediary between our applications views and its model objects.
+				The controller will be a conduit through which view objects learn about changes in model objects and vice versa.
+				In addition to communication between the view and model objects, the controller object will also perform setup, coordinate tasks and manage the life cycle of other objects.
+				When the model object is updated with the month of January, the controller object communicates the new data to the view objects so they can be displayed to the user.
+
 
 		\subsection{Interface viewpoint}
-The interface as stated above is planned to be simple. 
-For navigation we will be using a sidebar most likely for both IOS and Android for continuity. 
-For IOS we will be using interface builder to simplify the process of designing the layout and from there we will try to carry over a lot of the format to android keeping the design elements that make sense. 
-The app will accept input in the form of clicking and text for the purpose of selections and donations respectively. 
-We will pull banners and seasonal stylings from the client’s website to stay up-to-date with their webpage. 
-The sermons functionality of the app will list different messages that were most recently uploaded on livestream. 
-Once selected will automatically play from the livestream plugin we will integrate with the app. 
+			The interface as stated above is planned to be simple.
+			For navigation we will be using a sidebar most likely for both IOS and Android for continuity.
+			For IOS we will be using interface builder to simplify the process of designing the layout and from there we will try to carry over a lot of the format to android keeping the design elements that make sense.
+			The app will accept input in the form of clicking and text for the purpose of selections and donations respectively.
+			We will pull banners and seasonal stylings from the client’s website to stay up-to-date with their webpage.
+			The sermons functionality of the app will list different messages that were most recently uploaded on livestream.
+			Once selected will automatically play from the livestream plugin we will integrate with the app.
 
 
 		\subsection{Interaction Viewpoint}
-			The Interaction viewpoint describes the high-level functionality of each part of the app. 
-			There are four different functionalities that will be addressed: viewing the calendar, reading the bulletin, donating to the church, and watching the message. 
-			
+			The Interaction viewpoint describes the high-level functionality of each part of the app.
+			There are four different functionalities that will be addressed: viewing the calendar, reading the bulletin, donating to the church, and watching the message.
+
 			\subsubsection{Viewing the Calendar}
 				\begin{enumerate}
-					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application. 
-					\item \textbf{Click Calendar:} After opening the application, the user will see the menu and choose the option to view the calendar. 
+					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application.
+					\item \textbf{Click Calendar:} After opening the application, the user will see the menu and choose the option to view the calendar.
 					\item \textbf{Pull Calendar:} Once the user has clicked on the calendar, the application will fetch the calendar from the database, Church Community Builder.
-					\item \textbf{Return and Display Calendar:} The database will then display the calendar on the application. 
+					\item \textbf{Return and Display Calendar:} The database will then display the calendar on the application.
 				\end{enumerate}
-				
+
 			\subsubsection{Reading the Bulletin}
 				\begin{enumerate}
-					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application. 
-					\item \textbf{Click Bulletin:} After opening the application, the user will see the menu and choose the option to open the bulletin. 
+					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application.
+					\item \textbf{Click Bulletin:} After opening the application, the user will see the menu and choose the option to open the bulletin.
 					\item \textbf{Pull Bulletin:} Once the user has clicked on the bulletin, the application will fetch the e-bulletin from the database, Church Community Builder.
-					\item \textbf{Return and Display Bulletin:} The database will then display the e-bulletin on the application. 
+					\item \textbf{Return and Display Bulletin:} The database will then display the e-bulletin on the application.
 				\end{enumerate}
-				
+
 			\subsubsection{Donating to the Church}
 				\begin{enumerate}
-					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application. 
-					\item \textbf{Click Bulletin:} After opening the application, the user will see the menu and choose the option to donate. 
-					\item \textbf{Load Donation Page:} Once the user has clicked on the donate button, a page will load that will connect the user to Calvary Chapel of Corvallis' webpage that will display the donation page. 
-					The user will then follow the instructions on the page to continue making a donation to the church. 
+					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application.
+					\item \textbf{Click Bulletin:} After opening the application, the user will see the menu and choose the option to donate.
+					\item \textbf{Load Donation Page:} Once the user has clicked on the donate button, a page will load that will connect the user to Calvary Chapel of Corvallis' webpage that will display the donation page.
+					The user will then follow the instructions on the page to continue making a donation to the church.
 				\end{enumerate}
-				
+
 			\subsubsection{Watching the Message}
 				\begin{enumerate}
-					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application. 
-					\item \textbf{Click Messages:} After opening the application, the user will see the menu and choose the option to open the messages. 
+					\item \textbf{Open Application:} The interaction begins with the user open the iOS or Android application.
+					\item \textbf{Click Messages:} After opening the application, the user will see the menu and choose the option to open the messages.
 					\item \textbf{Pull Messages:} Once the user has clicked on the messages, the application will fetch the message from LiveStream.
-					\item \textbf{Return and Display Message:} LiveStream will then display the recent video message. 
+					\item \textbf{Return and Display Message:} LiveStream will then display the recent video message.
 				\end{enumerate}
 
 
