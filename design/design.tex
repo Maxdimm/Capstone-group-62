@@ -205,6 +205,7 @@
 			\label{fig:usecase}
 		\end{figure}
 
+
 		\subsection{Composition Viewpoint}
 			Our system is composed of four components which are an iOS Client, an Android Client, a Database Server and a Web Server.
 			The Database Server which we connect to is through Church Community Builder.
@@ -273,13 +274,29 @@
 
 
 		\subsection{Interface viewpoint}
-			The interface as stated above is planned to be simple.
-			For navigation we will be using a sidebar most likely for both IOS and Android for continuity.
-			For IOS we will be using interface builder to simplify the process of designing the layout and from there we will try to carry over a lot of the format to android keeping the design elements that make sense.
-			The app will accept input in the form of clicking and text for the purpose of selections and donations respectively.
-			We will pull banners and seasonal stylings from the client’s website to stay up-to-date with their webpage.
-			The sermons functionality of the app will list different messages that were most recently uploaded on livestream.
-			Once selected will automatically play from the livestream plugin we will integrate with the app.
+			Our system will utilize tabbed applications to allow for easy navigation through the pages.
+			For both iOS and Android, we will have persistent buttons at the bottom of the screen giving the user an efficient and discoverable navigation pane.
+			This allows for the most discoverability, as the user can interact with each page directly from the home page but clicking any of the icons at the bottom of the screen.
+			Rather than having the user swipe in from the side to access a side bar menu, we want to give the users a consistent view across platforms that it easily recognizable.
+			By tapping on a bottom navigation icon, the user will be directly taken to that associated view, or have the currently active page refreshed.
+			Our application will make use of the following five navigable options:
+			\begin{itemize}
+				\item Home
+				\item Events
+				\item Bulletin
+				\item Donate
+				\item Sermons
+			\end{itemize}
+
+			A tabbed application is a built-in layout for Xcode and will be utilized through Apple's Interface Builder.
+			Through the Interface Builder we will make use of the following storyboard controllers:
+			\begin{itemize}
+				\item Table View Controller
+				\item Navigation Controller
+				\item Tab Bar Controller
+			\end{itemize}
+			We will add relationships between the initial storyboard view and the other tab pages, to allow for smooth transitions between various pages. 
+
 
 
 		\subsection{Interaction Viewpoint}
@@ -322,14 +339,14 @@
 
 
 	\section{Conclusion}
-		The application we are building is a very user-friendly, simple app that will allow the members of the Calvary Chapel of Corvallis to access the most important pieces of their main website. 
-		This design document describes how our system for the application is going to work. 
-		It details the different parts of the system and how they will interact with each other. 
-		Additionally it describes how each part will work with the church's database, Church Community Builder. 
-		The design document provides a design framework for how the application is going to be implemented and will continue to change depending on the implementation of the project. 
-		
-	
-		
+		The application we are building is a very user-friendly, simple app that will allow the members of the Calvary Chapel of Corvallis to access the most important pieces of their main website.
+		This design document describes how our system for the application is going to work.
+		It details the different parts of the system and how they will interact with each other.
+		Additionally it describes how each part will work with the church's database, Church Community Builder.
+		The design document provides a design framework for how the application is going to be implemented and will continue to change depending on the implementation of the project.
+
+
+
 
 
 \end{document}
