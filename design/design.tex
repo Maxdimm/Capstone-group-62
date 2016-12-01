@@ -159,6 +159,15 @@
 		Finally, we will conclude with the interaction viewpoint witch will cover how people will use our app and how it will interact with various other technologies.
 
 		\subsection{Design elements}
+			Because the purpose of this design is to create a simplistic app that will not require the user to do much searching, the elements we will incorporate into the design are somewhat simplistic as well.
+			When the user opens the app, the first thing she will see is a homepage that mimics their current website--white background with their logo at the top of the page.
+			There will be a banner that is displayed which will frequently change and will be pulled from their website.
+			There will be a menu with four buttons: messages, give, bulletin, and events.
+			The menu will be available on each additional page.
+
+			As far as design constraints go, this application is going to be best suitable for current versions of both iOS and Android smartphones.
+			For the iOS application, the screen resolution will be based off current screen sizes, approximately 4.7 inches and 5.5 inches (diagonal), though the app will adjust to smaller and larger screens, allowing users to access the app on older phone models as well as iPads.
+			For the Android application, the screen resolution will adapt to all screen sizes, including tablets.
 
 		\subsection{Design overlays}
 
@@ -226,6 +235,7 @@
 			In this section, we will describe the details of what each class will do.
 
 			\subsubsection{Events Class}
+<<<<<<< HEAD
 				The events class will handle pulling the calendar from the church's database and displaying it on the app for the user to see.
 
 			\subsubsection{Messages}
@@ -235,11 +245,31 @@
 			\subsubsection{Bulletins}
 
 
+=======
+				The events class will handle pulling the calendar from the church's database and displaying it on the app for the user to see.
+				The adding and updating of events will be handled by the staff on the database, Church Community Builder.
+				All changes will then be pushed to the app.
+
+
+			\subsubsection{Messages}
+				The messages class will handle displaying the recent sermon in either video or audio form.
+				The video will be pulled from the church's existing system, LiveStream.
+
+			\subsubsection{Donations}
+				The donations class will handle the interface for users to make a donation to the church.
+				We will connect this page to the church's existing donation system, Authorize.net, which will allows the users to make a secure donation.
+
+			\subsubsection{Bulletins}
+				The bulletins class will handle displaying the current bulletin on the application.
+				The bulletin will be pulled from the database, Church Community Builder, and displayed on the app.
+				In order to update the bulletin, the staff at Calvary Chapel of Corvallis will update the information on their database, which will push the changes to the app.
+
+>>>>>>> master
 		\subsection{Dependency Viewpoint}
 			The app will have a couple interconnections with other apps/plugins.
 			The first and foremost will be with church community builder.
 			Most of the information we will be pulling from continuously will be from CCB, such as the schedule and bulletin.
-			Also we will need to work with livestreams API to get a functional video/audio player for the sermons section.
+			Also we will need to work with LiveStream's API to get a functional video/audio player for the sermons section.
 			Our client already uses foxycart for their donation service so we will integrate their service to our app using their published API.
 			We will be sending information to their servers so we will also need to find a way to encrypt the data being sent because it is highly personal info.
 
@@ -300,8 +330,6 @@
 				\item Tab Bar Controller
 			\end{itemize}
 			We will add relationships between the initial storyboard view and the other tab pages, to allow for smooth transitions between various pages.
-
-
 
 		\subsection{Interaction Viewpoint}
 			The Interaction viewpoint describes the high-level functionality of each part of the app.
