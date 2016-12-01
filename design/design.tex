@@ -79,6 +79,10 @@
 
 
 	\section{Definitions}
+		\begin{itemize}
+			\item \textbf{Model-View-Controller:} A design pattern that assigns objects in an application one of three roles: model, view, or controller. Also called MVC.
+		\end{itemize}
+
 
 	\section{Conceptual model for software design descriptions}
 
@@ -141,6 +145,10 @@
 		State dynamics will talk about the different forms the functionality of the app will take shape in.
 		Finally, we will conclude with the interaction viewpoint witch will cover how people will use our app and how it will interact with various other technologies.
 
+		\subsection{Design elements}
+
+		\subsection{Design overlays}
+
 		\subsection{Design rationale}
 		Two of the primary focuses in our design rationale are to keep it simple for the users, and to keep is simple for the church management team.
 		The client wants the app to be as user friendly for the congregation at possible, along with keeping the back end work to a minimum.
@@ -167,28 +175,39 @@
 		This will be a place for the users to grab quick info that would normally be handed out on a piece of paper inside the building.
 		his will allow them to view the bulletin from anywhere at any time and reduce costs for the church to prevent the need of printing off pamphlets.
 
+		\iffalse
 		\begin{figure}[H]
 			\centering
-			\includegraphics{UseCase.jpg}
+			\includegraphics[natwidth=462, natheight=585]{UseCase.jpg}
 			\caption{Use Case Diagram}
 			\label{fig:usecase1}
 		\end{figure}
-
+		\fi
 		\subsection{Composition Viewpoint}
 			Our system is composed of four components which are an iOS Client, an Android Client, a Database Server and a Web Server.
 			The Database Server which we connect to is through Church Community Builder.
 			The Web Server which we connect to is Calvary Chapel's current website.
 			Client components are comprised of smartphone applications, based on their operating system.
-			Our iOS and Android Clients will be able to pull information from both CCB as well as the church's current website. 
+			Our iOS and Android Clients will be able to pull information from both CCB as well as the church's current website.
 
 
 		\subsection{Logical Viewpoint}
 
 		\subsection{Dependency Viewpoint}
 
-		\subsection{State Dynamics Viewpoint}
+		\subsection{Information viewpoint}
+
+		\subsection{Patterns use viewpoint}
+			Our system will make use of the Model-View-Controller (MVC) design pattern.
+
+		\subsection{Interface viewpoint}
+
+		\subsection{Structure viewpoint}
 
 		\subsection{Interaction Viewpoint}
+
+		\subsection{State Dynamics Viewpoint}
+
 
 	\section{Conclusion}
 
