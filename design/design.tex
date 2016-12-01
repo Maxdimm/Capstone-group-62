@@ -222,19 +222,19 @@
 
 		\subsection{Logical Viewpoint}
 			There will be four main classes which make up the bulk of this application.
-			These classes include: events, messages, donations, and the bulletin. 
-			In this section, we will describe the details of what each class will do. 
-			
+			These classes include: events, messages, donations, and the bulletin.
+			In this section, we will describe the details of what each class will do.
+
 			\subsubsection{Events Class}
-				The events class will handle pulling the calendar from the church's database and displaying it on the app for the user to see. 
-				
+				The events class will handle pulling the calendar from the church's database and displaying it on the app for the user to see.
+
 			\subsubsection{Messages}
-			
+
 			\subsubsection{Donations}
-			
+
 			\subsubsection{Bulletins}
-			
-			
+
+
 		\subsection{Dependency Viewpoint}
 			The app will have a couple interconnections with other apps/plugins.
 			The first and foremost will be with church community builder.
@@ -276,16 +276,20 @@
 		\subsection{Interface viewpoint}
 			Our system will utilize tabbed applications to allow for easy navigation through the pages.
 			For both iOS and Android, we will have persistent buttons at the bottom of the screen giving the user an efficient and discoverable navigation pane.
-			This allows for the most discoverability, as the user can interact with each page directly from the home page but clicking any of the icons at the bottom of the screen.
+			This allows for the most discoverability, as the user can interact with each page directly from the home page by clicking any of the icons at the bottom of the screen.
 			Rather than having the user swipe in from the side to access a side bar menu, we want to give the users a consistent view across platforms that it easily recognizable.
 			By tapping on a bottom navigation icon, the user will be directly taken to that associated view, or have the currently active page refreshed.
+
 			Our application will make use of the following five navigable options:
 			\begin{itemize}
-				\item Home
-				\item Events
-				\item Bulletin
-				\item Donate
-				\item Sermons
+				\item \textbf{Home:} The main page that users will see when they open the application. Should show some basic data pulled from either CCB or the website such as the logo, banner, and potentially any updates/news.
+				\item \textbf{Events:} The events page will show the user a calendar view that will get pulled down from the CCB database.
+				\item \textbf{Bulletin:} The page to allow the user to view updates and announcements in the form of a bulletin. Will pull the bulletin from the CCB database and pushed to the view object.
+				\item \textbf{Donate:} The page to allow users to donate to the church. We will link in directly to the Church's donation vendor (Foxycart) and utilize their API to make calls when users want to donate.
+					Our fallback method will be to utilize an in-app browser that will bring the user to the donation page.
+				\item \textbf{Sermons:} This page will bring up the past sermons from the Church's Database, either through CCB or a third party site such as livestream or YouTube..
+					This is still under discussion, however if the sermons are uploaded to CCB, we can just pull those in from the database and display them using the respective built-in video players.
+					If the Church decides to use a different platform such as YouTube
 			\end{itemize}
 
 			A tabbed application is a built-in layout for Xcode and will be utilized through Apple's Interface Builder.
@@ -295,7 +299,7 @@
 				\item Navigation Controller
 				\item Tab Bar Controller
 			\end{itemize}
-			We will add relationships between the initial storyboard view and the other tab pages, to allow for smooth transitions between various pages. 
+			We will add relationships between the initial storyboard view and the other tab pages, to allow for smooth transitions between various pages.
 
 
 
