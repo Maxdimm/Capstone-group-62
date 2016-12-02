@@ -121,7 +121,7 @@
 
 		\subsection{Software design descriptions within the life cycle}
 
-		
+
 			\subsubsection{Influences on \gls{sdd} preparation}
 			\glsreset{sdd}
 			\glsreset{srs}
@@ -180,17 +180,36 @@
 		Finally, we will conclude with the interaction viewpoint witch will cover how people will use our \gls{App} and how it will interact with various other technologies.
 
 		\subsection{Design elements}
-			Because the purpose of this design is to create a simplistic \gls{App} that will not require the user to do much searching, the elements we will incorporate into the design are somewhat simplistic as well. 
-			When the user opens the \gls{App}, the first thing she will see is a homepage that mimics their current website--white background with their logo at the top of the page. 
-			There will be a banner that is displayed which will frequently change and will be pulled from their website. 
-			There will be a menu with four buttons: messages, give, bulletin, and events. 
-			The menu will be available on each additional page. 
-			
-			As far as design constraints go, this \gls{App} is going to be best suitable for current versions of both \gls{iOS} and \gls{Android} smartphones. 
-			For the \gls{iOS} \gls{App}, the screen resolution will be based off current screen sizes, approximately 4.7 inches and 5.5 inches (diagonal), though the \gls{App} will adjust to smaller and larger screens, allowing users to access the \gls{App} on older phone models as well as iPads. 
-			For the \gls{Android} \gls{App}, the screen resolution will adapt to all screen sizes, including tablets. 
-		
+<<<<<<< HEAD
+			Because the purpose of this design is to create a simplistic \gls{App} that will not require the user to do much searching, the elements we will incorporate into the design are somewhat simplistic as well.
+			When the user opens the \gls{App}, the first thing she will see is a homepage that mimics their current website--white background with their logo at the top of the page.
+			There will be a banner that is displayed which will frequently change and will be pulled from their website.
+			There will be a menu with four buttons: messages, give, bulletin, and events.
+			The menu will be available on each additional page.
+
+			As far as design constraints go, this \gls{App} is going to be best suitable for current versions of both \gls{iOS} and \gls{Android} smartphones.
+			For the \gls{iOS} \gls{App}, the screen resolution will be based off current screen sizes, approximately 4.7 inches and 5.5 inches (diagonal), though the \gls{App} will adjust to smaller and larger screens, allowing users to access the \gls{App} on older phone models as well as iPads.
+			For the \gls{Android} \gls{App}, the screen resolution will adapt to all screen sizes, including tablets.
+
+=======
+			Because the purpose of this design is to create a simplistic app that will not require the user to do much searching, the elements we will incorporate into the design are somewhat simplistic as well.
+			When the user opens the app, the first thing she will see is a homepage that mimics their current website--white background with their logo at the top of the page.
+			There will be a banner that is displayed which will frequently change and will be pulled from their website.
+			There will be a menu with four buttons: messages, give, bulletin, and events.
+			The menu will be available on each additional page.
+
+			As far as design constraints go, this application is going to be best suitable for current versions of both iOS and Android smartphones.
+			For the iOS application, the screen resolution will be based off current screen sizes, approximately 4.7 inches and 5.5 inches (diagonal), though the app will adjust to smaller and larger screens, allowing users to access the app on older phone models as well as iPads.
+			For the Android application, the screen resolution will adapt to all screen sizes, including tablets.
+
+>>>>>>> master
 		\subsection{Design overlays}
+		When using the app we want to create a sense of continuity between the existing infrastructure and the app we are creating.
+		We will be pulling the seasonal banner from the site purely as a stylistic decision.
+		We will be keeping the color scheme simple, down to around 3 main colors matching those on their new unlisted website.
+		The transition screen or loading screen for the app will be a simple black with the center being the Calvary Corvallis flame logo.
+		This will also be used for the backdrop for our main pages of the app too but with the logo faded out as to not take away from the info on screen.
+		Additionally we can create an overlay for the schedule and calendar that are simplistic and identify the information to the user such as a title at the top of the page.
 
 		\subsection{Design rationale}
 		Two of the primary focuses in our design rationale are to keep it simple for the users, and to keep is simple for the church management team.
@@ -235,6 +254,7 @@
 			\label{fig:usecase}
 		\end{figure}
 
+
 		\subsection{Composition Viewpoint}
 		\glsreset{ccb}
 			Our system is composed of four components which are an \gls{iOS} Client, an \gls{Android} Client, a Database Server and a Web Server.
@@ -252,28 +272,27 @@
 
 		\subsection{Logical Viewpoint}
 			There will be four main classes which make up the bulk of this \gls{App}.
-			These classes include: events, messages, donations, and the bulletin. 
-			In this section, we will describe the details of what each class will do. 
-			
+			These classes include: events, messages, donations, and the bulletin.
+			In this section, we will describe the details of what each class will do.
+
 			\subsubsection{Events Class}
-				The events class will handle pulling the calendar from the church's database and displaying it on the \gls{App} for the user to see. 
-				The adding and updating of events will be handled by the staff on the database, \gls{ccb}. 
-				All changes will then be pushed to the \gls{App}. 
-				
-				
+				The events class will handle pulling the calendar from the church's database and displaying it on the \gls{App} for the user to see.
+				The adding and updating of events will be handled by the staff on the database, \gls{ccb}.
+				All changes will then be pushed to the \gls{App}.
+
 			\subsubsection{Messages}
-				The messages class will handle displaying the recent sermon in either video or audio form. 
+				The messages class will handle displaying the recent sermon in either video or audio form.
 				The video will be pulled from the church's existing system, LiveStream.
-				
+
 			\subsubsection{Donations}
 				The donations class will handle the interface for users to make a donation to the church.
-				We will connect this page to the church's existing donation system, Authorize.net, which will allows the users to make a secure donation. 
-				
+				We will connect this page to the church's existing donation system, Authorize.net, which will allows the users to make a secure donation.
+
 			\subsubsection{Bulletins}
-				The bulletins class will handle displaying the current bulletin on the \gls{App}. 
-				The bulletin will be pulled from the database, \gls{ccb}, and displayed on the \gls{App}. 
-				In order to update the bulletin, the staff at Calvary Chapel of Corvallis will update the information on their database, which will push the changes to the \gls{App}. 
-			
+				The bulletins class will handle displaying the current bulletin on the \gls{App}.
+				The bulletin will be pulled from the database, \gls{ccb}, and displayed on the \gls{App}.
+				In order to update the bulletin, the staff at Calvary Chapel of Corvallis will update the information on their database, which will push the changes to the \gls{App}.
+
 		\subsection{Dependency Viewpoint}
 			The \gls{App} will have a couple interconnections with other \glspl{App} plugins.
 			The first and foremost will be with \gls{ccb}.
@@ -316,16 +335,32 @@
 
 
 		\subsection{Interface viewpoint}
-			The interface as stated above is planned to be simple.
-			For navigation we will be using a sidebar most likely for both \gls{iOS} and \gls{Android} for continuity.
-			The navigation bar being off to the side will allow us to focus the user on the central content on the page by freeing up more screen space. 
-			For \gls{iOS} we will be using interface builder to simplify the process of designing the layout and from there we will try to carry over a lot of the format to \gls{Android} keeping the design elements that make sense.
-			The \gls{App} will accept input in the form of clicking and text for the purpose of selections and donations respectively.
-			We will pull banners and seasonal stylings from the client'€™s website to stay up-to-date with their webpage.
-			The sermons functionality of the \gls{App} will list different messages that were most recently uploaded on livestream.
-			Once selected will automatically play from the livestream plugin we will integrate with the \gls{App}.
-			The bulletin will be pulled from the CCB site as \gls{xml} as that makes the most sense and will be easy for our client to update on their end.
+			Our system will utilize tabbed applications to allow for easy navigation through the pages.
+			For both \gls{iOS} and \gls{Android}, we will have persistent buttons at the bottom of the screen giving the user an efficient and discoverable navigation pane.
+			This allows for the most discoverability, as the user can interact with each page directly from the home page by clicking any of the icons at the bottom of the screen.
+			Rather than having the user swipe in from the side to access a side bar menu, we want to give the users a consistent view across platforms that it easily recognizable.
+			By tapping on a bottom navigation icon, the user will be directly taken to that associated view, or have the currently active page refreshed.
 
+			Our application will make use of the following five navigable options:
+			\begin{itemize}
+				\item \textbf{Home:} The main page that users will see when they open the application. Should show some basic data pulled from either CCB or the website such as the logo, banner, and potentially any updates/news.
+				\item \textbf{Events:} The events page will show the user a calendar view that will get pulled down from the CCB database.
+				\item \textbf{Bulletin:} The page to allow the user to view updates and announcements in the form of a bulletin. Will pull the bulletin from the CCB database and pushed to the view object.
+				\item \textbf{Donate:} The page to allow users to donate to the church. We will link in directly to the Church's donation vendor (Foxycart) and utilize their API to make calls when users want to donate.
+					Our fallback method will be to utilize an in-app browser that will bring the user to the donation page.
+				\item \textbf{Sermons:} This page will bring up the past sermons from the Church's Database, either through CCB or a third party site such as livestream or YouTube..
+					This is still under discussion, however if the sermons are uploaded to CCB, we can just pull those in from the database and display them using the respective built-in video players.
+					If the Church decides to use a different platform such as YouTube
+			\end{itemize}
+
+			A tabbed application is a built-in layout for Xcode and will be utilized through Apple's Interface Builder.
+			Through the Interface Builder we will make use of the following storyboard controllers:
+			\begin{itemize}
+				\item Table View Controller
+				\item Navigation Controller
+				\item Tab Bar Controller
+			\end{itemize}
+			We will add relationships between the initial storyboard view and the other tab pages, to allow for smooth transitions between various pages.
 
 		\subsection{Interaction Viewpoint}
 			The Interaction viewpoint describes the high-level functionality of each part of the \gls{App}.
@@ -368,14 +403,11 @@
 
 	\section{Conclusion}
 	\glsreset{ccb}
-		The \gls{App} we are building is a very user-friendly, simple app that will allow the members of the Calvary Chapel of Corvallis to access the most important pieces of their main website. 
-		This design document describes how our system for the \gls{App} is going to work. 
-		It details the different parts of the system and how they will interact with each other. 
-		Additionally it describes how each part will work with the church's database, \gls{ccb}. 
-		The design document provides a design framework for how the \gls{App} is going to be implemented and will continue to change depending on the implementation of the project. 
-		
-	
-		
+		The \gls{App} we are building is a very user-friendly, simple app that will allow the members of the Calvary Chapel of Corvallis to access the most important pieces of their main website.
+		This design document describes how our system for the \gls{App} is going to work.
+		It details the different parts of the system and how they will interact with each other.
+		Additionally it describes how each part will work with the church's database, \gls{ccb}.
+		The design document provides a design framework for how the \gls{App} is going to be implemented and will continue to change depending on the implementation of the project.
 
 
 \end{document}
