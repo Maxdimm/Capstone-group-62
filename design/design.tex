@@ -22,26 +22,16 @@
 
 \makeglossaries
 
-\newglossaryentry{iOS}{name={iOS}, description={A mobile operating system created and developed by Apple Inc. exclusively for Apple's hardware.}}
-
-\newglossaryentry{ModelVC}{name={Model-View-Controller}, description={A design pattern that assigns objects in an application one of three roles: model, view, or controller. Also called MVC.}}
-
-\newglossaryentry{Android}{name={Android}, description={A mobile operating system developed by Google, based on the Linux Kernel and designed primarily for touchscreen mobile devices.}}
-
-\newglossaryentry{App}{name={app}, description={A software application designed to run on mobile devices such as smartphones or tablet computers.}}
-
+\newglossaryentry{iOS}{name={iOS}, description={A mobile operating system created and developed by Apple Inc. exclusively for Apple's hardware}}
+\newglossaryentry{ModelVC}{name={Model-View-Controller}, description={A design pattern that assigns objects in an application one of three roles: model, view, or controller. Also called MVC}}
+\newglossaryentry{Android}{name={Android}, description={A mobile operating system developed by Google, based on the Linux Kernel and designed primarily for touchscreen mobile devices}}
+\newglossaryentry{App}{name={app}, description={A software application designed to run on mobile devices such as smartphones or tablet computers}}
 \newacronym{ccb}{CCB}{Church Community Builder}
-
 \newacronym{sdd}{SDD}{Software Design Document}
-
 \newacronym{srs}{SRS}{Software Requirements Specification}
-
 \newacronym{uml}{UML}{Unified Model Language}
-
 \newacronym{mvc}{MVC}{Model-View-Controller}
-
 \newacronym{xml}{XML}{EXtensible Markup Language}
-
 \newacronym{ui}{UI}{User Interface}
 
 \newcommand*{\signature}[1]{%
@@ -72,7 +62,7 @@
 	\maketitle
 
 
-		\begin{abstract}The purpose of this project is to produce an \gls{iOS} \gls{Android} \gls{App} for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
+		\begin{abstract}The purpose of this project is to produce an \gls{iOS}/\gls{Android} \gls{App} for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
 		The Church's current website does not provide an interface where current members of the church can very quickly access important information such as events, bulletins, and messages from the service.
 		The desired \gls{App} will be simple enough for anyone to use while providing back end access for staff to easily upload new information to the \gls{App}.
 		The priorities lie in maximizing the usability of the \gls{App} and providing bulletin, schedule, video, and giving functionality.
@@ -102,12 +92,13 @@
 		\subsection{Scope}
 			We will be implementing a mobile \gls{App} for both \gls{iOS} and \gls{Android} platforms.
 			This \gls{App} will provide the members of Calvary Chapel Corvallis a centralized hub that will allow them to access the most important information about the church.
-			Users will be able to view announcements, a calendar, e-bulletins, and sermons.
+			Users will be able to view a calendar, e-bulletins, and sermons.
 			Users will also be able to donate to the church.
 			Three people will be involved in the implementation of this software and it will be done during October 2016 and June 2017.
 
 		\subsection{Purpose}
-			The purpose of this design document is to detail how the \gls{App} software will be designed.
+		\glsreset{sdd}
+			The purpose of this \gls{sdd} is to detail how the \gls{App} software will be designed.
 			We will discuss how we will meet the requirements for our church \gls{App} and discuss the structure of the \gls{App}.
 		\subsection{Intended Audience}
 			The intended audience of this design document will be our clients, the teachers of CS 461, as well as the teacher's assistants.
@@ -119,9 +110,7 @@
 
 		\subsection{Software design descriptions within the life cycle}
 
-
 			\subsubsection{Influences on \gls{sdd} preparation}
-			\glsreset{sdd}
 			\glsreset{srs}
 				The key influence on this \gls{sdd} is the \gls{srs} document that has previously been documented.
 				The requirements listed in the \gls{srs} will greatly determine the design of the software and how we implement this project.
@@ -129,7 +118,7 @@
 			\subsubsection{Influences on software life cycle products}
 				This \gls{sdd} may lead to necessary changes in the \gls{srs}.
 				Throughout development, it's possible that there will be design changes that require us to change details in the \gls{srs}.
-				Testing may also be changed based on the design document.
+				Testing may also be changed based on the \gls{sdd}.
 
 			\subsubsection{Design verification and design role in validation}
 				In order to determine if the \gls{App} has met requirements, we will perform user testing.
@@ -139,7 +128,7 @@
 	\section{Design description information content}
 
 		\subsection{Introduction}
-			Within this design document, there are many required contents.
+			Within this \gls{sdd}, there are many required contents.
 			We will identify the \gls{sdd} and it's stakeholders.
 			We will discuss design concerns and selected design viewpoints.
 			We will also discuss design views, design overlays, and the design rationale.
@@ -167,33 +156,34 @@
 
 		\subsection{Design views}
 		\glsreset{uml}
-		We will use \gls{uml} diagrams in order to describe and represent the views of our system.
+		We will use \gls{uml} diagrams in order to describe and represent some of the views of our system.
 
 		\subsection{Design viewpoints}
-		There are many viewpoints that will be covered in this document including: context, composition, logical, dependency, and interaction viewpoints.
-		They each mean different things, for example the context viewpoint will cover what type of users will be using the \gls{App} and the perceptions they should have over it.
+		There are many viewpoints that will be covered in this document including: context, composition, logical, dependency, patterns use, interface, and interaction viewpoints.
+		They each detail a slightly different view of the system.
+		 For example, the context viewpoint will cover what type of users will be using the \gls{App} and the perceptions they should have over it.
 		The composition viewpoint will cover what information and content will be hosted within the \gls{App}.
 		The logical viewpoint will cover what purpose the \gls{App} will serve and how it will accomplish those purposes.
-		The dependency viewpoint will be the things the \gls{App} needs in order for it to work as designed and the integration of it with other \glspl{App}.
+		The dependency viewpoint will be the outside parts the \gls{App} needs in order for it to work as designed and the integration of it with other \glspl{App}.
 		Finally, we will conclude with the interaction viewpoint witch will cover how people will use our \gls{App} and how it will interact with various other technologies.
 
 		\subsection{Design elements}
-			Because the purpose of this design is to create a simplistic \gls{App} that will not require the user to do much searching, the elements we will incorporate into the design are somewhat simplistic as well.
-			When the user opens the \gls{App}, the first thing she will see is a homepage that mimics their current website--white background with their logo at the top of the page.
-			There will be a banner that is displayed which will frequently change and will be pulled from their website.
-			There will be a menu with four buttons: messages, give, bulletin, and events.
-			The menu will be available on each additional page.
+		Because the purpose of this design is to create a simplistic \gls{App} that will not require the user to do much searching, the elements we will incorporate into the design are somewhat simplistic as well.
+		When the user opens the \gls{App}, the first thing he/she will see is a homepage that mimics their current website--a white background with their logo at the top of the page.
+		There will be a banner that is displayed which will frequently change and will be pulled from their website.
+		There will be a menu with four buttons: messages, give, bulletin, and events.
+		The menu will be available on each additional page.
 
-			As far as design constraints go, this \gls{App} is going to be best suitable for current versions of both \gls{iOS} and \gls{Android} smartphones.
-			For the \gls{iOS} \gls{App}, the screen resolution will be based off current screen sizes, approximately 4.7 inches and 5.5 inches (diagonal), though the \gls{App} will adjust to smaller and larger screens, allowing users to access the \gls{App} on older phone models as well as iPads.
-			For the \gls{Android} \gls{App}, the screen resolution will adapt to all screen sizes, including tablets.
+		As far as design constraints go, this \gls{App} is going to be best suitable for current versions of both \gls{iOS} and \gls{Android} smartphones.
+		For the \gls{iOS} \gls{App}, the screen resolution will be based off current screen sizes, approximately 4.7 inches and 5.5 inches (diagonal), though the \gls{App} will adjust to smaller and larger screens, allowing users to access the \gls{App} on older phone models as well as iPads.
+		For the \gls{Android} \gls{App}, the screen resolution will adapt to all screen sizes, including tablets.
 
 		\subsection{Design overlays}
-		When using the app we want to create a sense of continuity between the existing infrastructure and the app we are creating.
+		When using the app, we want to create a sense of continuity between the existing infrastructure and the new app we are creating.
 		We will be pulling the seasonal banner from the site purely as a stylistic decision.
-		We will be keeping the color scheme simple, down to around 3 main colors matching those on their new unlisted website.
+		We will be keeping the color scheme simple, using approximately 3 main colors matching those on their new unlisted website.
 		The transition screen or loading screen for the app will be a simple black with the center being the Calvary Corvallis flame logo.
-		This will also be used for the backdrop for our main pages of the app too but with the logo faded out as to not take away from the info on screen.
+		This will also be used for the backdrop for our main pages of the app too but with the logo faded out as to not distract from the info on screen.
 		Additionally we can create an overlay for the schedule and calendar that are simplistic and identify the information to the user such as a title at the top of the page.
 
 		\subsection{Design rationale}
@@ -225,12 +215,12 @@
 		The reason being is that these are the four primary things that our client believes their users will be looking to access from the \gls{App}.
 		The schedule will be there to allow users to see what is going on within the church in the long-term.
 		The sermon functionality will allow people to view past sermons in case they missed them or simply want to recap a message they enjoyed.
-		In this church and many others donating is a major part of what they do.
+		In this church and many others receiving donations is a major part of what they do.
 		Making this easier for the users of our \gls{App} is crucial.
 		Now they can do it from home or any time because the \gls{App} will allow them to give without the need of cash on hand.
 		Finally the last functionality that we want to include is the bulletin.
 		This will be a place for the users to grab quick info that would normally be handed out on a piece of paper inside the building.
-		his will allow them to view the bulletin from anywhere at any time and reduce costs for the church to prevent the need of printing off pamphlets.
+		This will allow them to view the bulletin from anywhere at any time and reduce costs for the church to prevent the need of printing off pamphlets.
 
 		\begin{figure}[H]
 			\centering
@@ -246,7 +236,7 @@
 			The Database Server which we connect to is through \gls{ccb}.
 			The Web Server which we connect to is Calvary Chapel's current website.
 			Client components are comprised of smartphone \glspl{App}, based on their operating system.
-			Our \gls{iOS} and \gls{Android} Clients will be able to pull information from both CCB as well as the church's current website.
+			Our \gls{iOS} and \gls{Android} Clients will be able to pull information from both \gls{ccb} as well as the church's current website.
 
 		\begin{figure}[H]
 			\centering
@@ -271,7 +261,7 @@
 
 			\subsubsection{Donations}
 				The donations class will handle the interface for users to make a donation to the church.
-				We will connect this page to the church's existing donation system, Authorize.net, which will allows the users to make a secure donation.
+				We will connect this page to the church's existing donation system, Foxycart, which will allows the users to make a secure donation.
 
 			\subsubsection{Bulletins}
 				The bulletins class will handle displaying the current bulletin on the \gls{App}.
@@ -281,7 +271,7 @@
 		\subsection{Dependency Viewpoint}
 			The \gls{App} will have a couple interconnections with other \glspl{App} plugins.
 			The first and foremost will be with \gls{ccb}.
-			Most of the information we will be pulling from continuously will be from CCB, such as the schedule and bulletin.
+			Most of the information we will be pulling from continuously will be from \gls{ccb}, such as the schedule and bulletin.
 			Also we will need to work with LiveStream's API to get a functional video/audio player for the sermons section.
 			Our client already uses foxycart for their donation service so we will integrate their service to our \gls{App} using their published API.
 			We will be sending information to their servers so we will also need to find a way to encrypt the data being sent because it is highly personal info.
