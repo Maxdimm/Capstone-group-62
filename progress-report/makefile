@@ -37,6 +37,6 @@ showps: $(PSF)
 all: pdf
 
 clean:
-	rm -f *.pdf *.synctex.gz *.ps *.dvi *.out *.log *.aux *.bbl *.blg *.pyg *.toc
+	rm -f *.synctex.gz *.ps *.dvi *.out *.log *.aux *.bbl *.blg *.pyg *.toc
 
 .PHONY: all show clean ps pdf showps
