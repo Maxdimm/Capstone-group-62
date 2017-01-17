@@ -43,7 +43,7 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="second" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,7 +83,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Announcements" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Announcements" image="Announcements" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,7 +145,7 @@
                             <constraint firstItem="obU-tQ-bk1" firstAttribute="centerY" secondItem="8An-2M-4Sw" secondAttribute="centerY" id="aTi-aV-4AP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Events" image="second" id="dgg-B0-AH9"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="Events" id="dgg-B0-AH9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYM-B1-ets" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,7 +185,7 @@
                             <constraint firstItem="abx-MA-OcF" firstAttribute="top" secondItem="g63-VG-9E4" secondAttribute="bottom" constant="8" symbolic="YES" id="weX-TX-HIi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sermons" image="second" id="343-gO-EhR"/>
+                    <tabBarItem key="tabBarItem" title="Sermons" image="Sermons" id="343-gO-EhR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCf-BM-S9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,7 +225,7 @@
                             <constraint firstItem="1Km-3C-qQU" firstAttribute="centerY" secondItem="qcb-gc-bZt" secondAttribute="centerY" id="d2q-H5-Hlz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Donations" image="second" id="Tnm-NL-76S"/>
+                    <tabBarItem key="tabBarItem" title="Donations" image="Donations" id="Tnm-NL-76S"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWp-zQ-11j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -233,6 +233,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="Announcements" width="25" height="25"/>
+        <image name="Donations" width="25" height="25"/>
+        <image name="Events" width="25" height="25"/>
+        <image name="Home" width="25" height="25"/>
+        <image name="Sermons" width="25" height="25"/>
     </resources>
 </document>
