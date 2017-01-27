@@ -22,29 +22,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Home View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="96.5" y="313.5" width="183.5" height="41.5"/>
+                                <rect key="frame" x="96" y="313" width="184" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="90.5" y="363" width="194.5" height="17"/>
+                                <rect key="frame" x="90" y="363" width="195" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-mk-rL9">
-                                <rect key="frame" x="37" y="28" width="300" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-mk-rL9">
+                                <rect key="frame" x="37" y="45" width="300" height="70"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstItem="xDw-mk-rL9" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="25" id="K7N-cr-H3a"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="xDw-mk-rL9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="i9x-bV-bkK"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="acW-dT-cKf"/>
@@ -66,27 +67,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Bulletin View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="85.5" y="313" width="205.5" height="41.5"/>
+                                <rect key="frame" x="85" y="313" width="206" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="362.5" width="215" height="17"/>
+                                <rect key="frame" x="80" y="363" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-MI-0Lm">
-                                <rect key="frame" x="37" y="28" width="300" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-MI-0Lm">
+                                <rect key="frame" x="37" y="45" width="300" height="70"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
+                            <constraint firstItem="gb5-MI-0Lm" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="cYb-Us-l01"/>
+                            <constraint firstItem="gb5-MI-0Lm" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="25" id="gGa-HL-T4F"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
@@ -132,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Events View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-tQ-bk1">
-                                <rect key="frame" x="89" y="313" width="197.5" height="41.5"/>
+                                <rect key="frame" x="89" y="313" width="198" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -144,17 +146,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-Cd-oG1">
-                                <rect key="frame" x="37" y="28" width="300" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-Cd-oG1">
+                                <rect key="frame" x="37" y="45" width="300" height="70"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="lLA-Cd-oG1" firstAttribute="centerX" secondItem="8An-2M-4Sw" secondAttribute="centerX" id="LZx-kF-VaH"/>
                             <constraint firstItem="9ut-in-uwJ" firstAttribute="centerX" secondItem="obU-tQ-bk1" secondAttribute="centerX" id="QcN-gi-N1p"/>
                             <constraint firstItem="obU-tQ-bk1" firstAttribute="centerX" secondItem="8An-2M-4Sw" secondAttribute="centerX" id="TLa-ma-YXA"/>
                             <constraint firstItem="9ut-in-uwJ" firstAttribute="top" secondItem="obU-tQ-bk1" secondAttribute="bottom" constant="8" symbolic="YES" id="YbS-sO-gaZ"/>
                             <constraint firstItem="obU-tQ-bk1" firstAttribute="centerY" secondItem="8An-2M-4Sw" secondAttribute="centerY" id="aTi-aV-4AP"/>
+                            <constraint firstItem="lLA-Cd-oG1" firstAttribute="top" secondItem="Srx-dc-spE" secondAttribute="bottom" constant="25" id="tl8-cF-Avp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" image="Events" id="dgg-B0-AH9"/>
@@ -188,9 +191,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-wy-dNW">
-                                <rect key="frame" x="37" y="28" width="300" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-wy-dNW">
+                                <rect key="frame" x="37" y="45" width="300" height="70"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -198,7 +200,9 @@
                             <constraint firstItem="abx-MA-OcF" firstAttribute="centerX" secondItem="QC7-Rw-pK3" secondAttribute="centerX" id="IYb-ks-Wjs"/>
                             <constraint firstItem="g63-VG-9E4" firstAttribute="centerY" secondItem="QC7-Rw-pK3" secondAttribute="centerY" id="Mod-EP-CRI"/>
                             <constraint firstItem="g63-VG-9E4" firstAttribute="centerX" secondItem="QC7-Rw-pK3" secondAttribute="centerX" id="USy-3v-Cy8"/>
+                            <constraint firstItem="uDF-wy-dNW" firstAttribute="centerX" secondItem="QC7-Rw-pK3" secondAttribute="centerX" id="VcA-IM-J7A"/>
                             <constraint firstItem="abx-MA-OcF" firstAttribute="top" secondItem="g63-VG-9E4" secondAttribute="bottom" constant="8" symbolic="YES" id="weX-TX-HIi"/>
+                            <constraint firstItem="uDF-wy-dNW" firstAttribute="top" secondItem="g5E-Hn-dfZ" secondAttribute="bottom" constant="25" id="xgf-Ns-H96"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" image="Sermons" id="343-gO-EhR"/>
@@ -232,9 +236,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Ax-yW-sYh">
-                                <rect key="frame" x="37" y="28" width="300" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Ax-yW-sYh">
+                                <rect key="frame" x="37" y="45" width="300" height="70"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -243,6 +246,8 @@
                             <constraint firstItem="R2a-fE-55l" firstAttribute="centerX" secondItem="qcb-gc-bZt" secondAttribute="centerX" id="FvE-P3-anI"/>
                             <constraint firstItem="R2a-fE-55l" firstAttribute="top" secondItem="1Km-3C-qQU" secondAttribute="bottom" constant="8" symbolic="YES" id="MkT-Iw-dRA"/>
                             <constraint firstItem="1Km-3C-qQU" firstAttribute="centerY" secondItem="qcb-gc-bZt" secondAttribute="centerY" id="d2q-H5-Hlz"/>
+                            <constraint firstItem="2Ax-yW-sYh" firstAttribute="centerX" secondItem="qcb-gc-bZt" secondAttribute="centerX" id="guc-lp-Bzl"/>
+                            <constraint firstItem="2Ax-yW-sYh" firstAttribute="top" secondItem="6qi-bA-Y3B" secondAttribute="bottom" constant="25" id="nbT-pZ-otY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Donations" image="Donations" id="Tnm-NL-76S"/>
