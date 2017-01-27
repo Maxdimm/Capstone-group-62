@@ -158,7 +158,6 @@
 				TargetAttributes = {
 					0A44E3671E26A86D0066E65C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SG9F2QBA8C;
 						ProvisioningStyle = Automatic;
 					};
 					0A44E37D1E26A86D0066E65C = {
@@ -357,7 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SG9F2QBA8C;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Calvary Chapel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Calvary-Chapel";
@@ -370,7 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SG9F2QBA8C;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Calvary Chapel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Calvary-Chapel";
@@ -428,6 +427,7 @@
 				0A44E3891E26A86D0066E65C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A44E38A1E26A86D0066E65C /* Build configuration list for PBXNativeTarget "Calvary ChapelTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +436,7 @@
 				0A44E38C1E26A86D0066E65C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
