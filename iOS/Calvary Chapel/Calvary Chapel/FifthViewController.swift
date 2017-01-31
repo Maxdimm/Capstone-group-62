@@ -1,6 +1,6 @@
 //
 //  FifthViewController.swift
-//  Calvary Chapel
+//  Calvary Chapel - Messages
 //
 //  Created by Kevin Stine on 1/11/17.
 //  Copyright © 2017 Capstone Group 62. All rights reserved.
