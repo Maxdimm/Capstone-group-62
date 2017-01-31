@@ -84,6 +84,14 @@
                                     <action selector="JSONData:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="icK-AZ-efF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a21-7W-oiL">
+                                <rect key="frame" x="59" y="210" width="244" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.79209844559585496" green="0.79209844559585496" blue="0.79209844559585496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -92,6 +100,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bulletin" image="Announcements" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="jsonlabel" destination="a21-7W-oiL" id="oca-Nh-HHd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
