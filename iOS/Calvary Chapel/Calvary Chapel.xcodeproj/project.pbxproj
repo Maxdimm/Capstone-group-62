@@ -17,6 +17,8 @@
 		0A44E38E1E26AC290066E65C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44E38D1E26AC290066E65C /* ThirdViewController.swift */; };
 		0A44E3901E26AC680066E65C /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44E38F1E26AC680066E65C /* FourthViewController.swift */; };
 		0A44E3921E26AC7D0066E65C /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44E3911E26AC7D0066E65C /* FifthViewController.swift */; };
+		0AB79EC81E412B1000A2ADC2 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */; };
+		0AB79ECC1E41334400A2ADC2 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB79ECB1E41334400A2ADC2 /* EventTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		0A44E38D1E26AC290066E65C /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		0A44E38F1E26AC680066E65C /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		0A44E3911E26AC7D0066E65C /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
+		0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
+		0AB79ECB1E41334400A2ADC2 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				0A44E38F1E26AC680066E65C /* FourthViewController.swift */,
 				0A44E3911E26AC7D0066E65C /* FifthViewController.swift */,
 				0A44E3711E26A86D0066E65C /* Main.storyboard */,
+				0AB79ECB1E41334400A2ADC2 /* EventTableViewController.swift */,
+				0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */,
 				0A44E3741E26A86D0066E65C /* Assets.xcassets */,
 				0A44E3761E26A86D0066E65C /* LaunchScreen.storyboard */,
 				0A44E3791E26A86D0066E65C /* Info.plist */,
@@ -213,6 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A44E3921E26AC7D0066E65C /* FifthViewController.swift in Sources */,
+				0AB79EC81E412B1000A2ADC2 /* EventsTableViewCell.swift in Sources */,
+				0AB79ECC1E41334400A2ADC2 /* EventTableViewController.swift in Sources */,
 				0A44E3701E26A86D0066E65C /* SecondViewController.swift in Sources */,
 				0A44E36C1E26A86D0066E65C /* AppDelegate.swift in Sources */,
 				0A44E38E1E26AC290066E65C /* ThirdViewController.swift in Sources */,

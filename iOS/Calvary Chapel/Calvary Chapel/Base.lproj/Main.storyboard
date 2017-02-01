@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -120,9 +120,9 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="5cJ-uZ-gRc" kind="relationship" relationship="viewControllers" id="AwP-sp-6K3"/>
                         <segue destination="1DH-bW-leN" kind="relationship" relationship="viewControllers" id="SoG-bg-1Ql"/>
                         <segue destination="drA-Nz-MSK" kind="relationship" relationship="viewControllers" id="qMA-pK-198"/>
+                        <segue destination="LQE-xW-AfN" kind="relationship" relationship="viewControllers" id="gmZ-1c-oVK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -141,38 +141,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Events View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-tQ-bk1">
-                                <rect key="frame" x="89" y="313" width="198" height="42"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by ThirdViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ut-in-uwJ">
-                                <rect key="frame" x="80" y="362" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-Cd-oG1">
-                                <rect key="frame" x="37" y="45" width="300" height="70"/>
-                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mE9-Jr-cEm">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="lLA-Cd-oG1" firstAttribute="centerX" secondItem="8An-2M-4Sw" secondAttribute="centerX" id="LZx-kF-VaH"/>
-                            <constraint firstItem="9ut-in-uwJ" firstAttribute="centerX" secondItem="obU-tQ-bk1" secondAttribute="centerX" id="QcN-gi-N1p"/>
-                            <constraint firstItem="obU-tQ-bk1" firstAttribute="centerX" secondItem="8An-2M-4Sw" secondAttribute="centerX" id="TLa-ma-YXA"/>
-                            <constraint firstItem="9ut-in-uwJ" firstAttribute="top" secondItem="obU-tQ-bk1" secondAttribute="bottom" constant="8" symbolic="YES" id="YbS-sO-gaZ"/>
-                            <constraint firstItem="obU-tQ-bk1" firstAttribute="centerY" secondItem="8An-2M-4Sw" secondAttribute="centerY" id="aTi-aV-4AP"/>
-                            <constraint firstItem="lLA-Cd-oG1" firstAttribute="top" secondItem="Srx-dc-spE" secondAttribute="bottom" constant="25" id="tl8-cF-Avp"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" image="Events" id="dgg-B0-AH9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYM-B1-ets" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="0.0"/>
+            <point key="canvasLocation" x="1116" y="-0.44977511244377816"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="HRv-cZ-2ZW">
+            <objects>
+                <tableViewController id="LQE-xW-AfN" customClass="Event" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EeJ-9h-c3j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="SmL-2R-p6d" customClass="EventsTableViewCell" customModule="Calvary_Chapel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SmL-2R-p6d" id="bvZ-ZJ-cO4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O31-J6-KEY">
+                                            <rect key="frame" x="8" y="8" width="277" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUf-Kl-Ayu">
+                                            <rect key="frame" x="293" y="8" width="74" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXC-rK-ACr">
+                                            <rect key="frame" x="293" y="50" width="74" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="bvZ-ZJ-cO4" id="yvj-SJ-toc"/>
+                                    <outlet property="eventLabel" destination="bvZ-ZJ-cO4" id="XQl-mZ-P8h"/>
+                                    <outlet property="eventName" destination="O31-J6-KEY" id="J4U-0e-n6t"/>
+                                    <outlet property="monthLabel" destination="bvZ-ZJ-cO4" id="tal-AX-goO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LQE-xW-AfN" id="ge4-By-sFp"/>
+                            <outlet property="delegate" destination="LQE-xW-AfN" id="deU-NR-JdU"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Events" image="Events" id="WNT-L7-kgI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3X3-Kw-r2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="-1.3493253373313345"/>
         </scene>
         <!--Fifth-->
         <scene sceneID="Xhb-SC-Buw">
