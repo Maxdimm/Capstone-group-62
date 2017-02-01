@@ -10,7 +10,8 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var jsonlabel: UILabel!
+    
+    @IBOutlet weak var jsontext: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +72,7 @@ class SecondViewController: UIViewController {
                 }
                 //NEW CODE
                 DispatchQueue.main.async{
-                    self.jsonlabel.text = todoTitle
+                    self.jsontext.text = todo.description
                 }
                 
                 print("The title is: " + todoTitle)
