@@ -132,7 +132,7 @@
         <!--Third-->
         <scene sceneID="syo-2L-Auu">
             <objects>
-                <viewController id="5cJ-uZ-gRc" userLabel="Third" sceneMemberID="viewController">
+                <viewController id="5cJ-uZ-gRc" userLabel="Third" customClass="ThirdViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Srx-dc-spE"/>
                         <viewControllerLayoutGuide type="bottom" id="XGF-yt-FDn"/>
@@ -177,7 +177,7 @@
         <!--Fifth-->
         <scene sceneID="Xhb-SC-Buw">
             <objects>
-                <viewController id="drA-Nz-MSK" userLabel="Fifth" sceneMemberID="viewController">
+                <viewController id="drA-Nz-MSK" userLabel="Fifth" customClass="FifthViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g5E-Hn-dfZ"/>
                         <viewControllerLayoutGuide type="bottom" id="zbB-iz-kAP"/>
@@ -222,7 +222,7 @@
         <!--Fourth-->
         <scene sceneID="kH1-jJ-zCf">
             <objects>
-                <viewController id="1DH-bW-leN" userLabel="Fourth" sceneMemberID="viewController">
+                <viewController id="1DH-bW-leN" userLabel="Fourth" customClass="FourthViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6qi-bA-Y3B"/>
                         <viewControllerLayoutGuide type="bottom" id="Coo-7T-evK"/>
