@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="1116" y="-645.42728635682158"/>
         </scene>
-        <!--Events-->
+        <!--Church Wide Events-->
         <scene sceneID="2hU-sX-bSn">
             <objects>
                 <tableViewController id="JmD-Oq-MTN" customClass="EventsTableViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
@@ -161,6 +161,7 @@
                                     <outlet property="dateLabel" destination="zBK-5Q-4lc" id="rAw-a1-2B6"/>
                                     <outlet property="eventLabel" destination="tDT-R8-YVw" id="bTx-Hp-hFD"/>
                                     <outlet property="monthLabel" destination="gCA-0H-lsf" id="Ncn-ou-gTZ"/>
+                                    <segue destination="gD7-AL-bi3" kind="show" id="Su3-eh-zyQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -170,11 +171,39 @@
                             <outlet property="delegate" destination="JmD-Oq-MTN" id="erw-XD-eHb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Events" image="Events" id="nOU-NT-45D"/>
+                    <navigationItem key="navigationItem" title="Church Wide Events" id="ooP-VO-p0E"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LE1-nu-Vfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896.5" y="-0.5"/>
+            <point key="canvasLocation" x="2199" y="-2"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VCC-dP-OcV">
+            <objects>
+                <viewController id="gD7-AL-bi3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lV1-TR-mpN"/>
+                        <viewControllerLayoutGuide type="bottom" id="EpY-fh-sYS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NsV-pF-gu5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bm-ka-QEm">
+                                <rect key="frame" x="16" y="72" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bvP-Kx-cgq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="104-eL-l6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2941.5" y="-1.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -191,7 +220,7 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="1DH-bW-leN" kind="relationship" relationship="viewControllers" id="SoG-bg-1Ql"/>
                         <segue destination="drA-Nz-MSK" kind="relationship" relationship="viewControllers" id="qMA-pK-198"/>
-                        <segue destination="JmD-Oq-MTN" kind="relationship" relationship="viewControllers" id="ega-CH-Y1x"/>
+                        <segue destination="AQb-4c-7Js" kind="relationship" relationship="viewControllers" id="ega-CH-Y1x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -295,6 +324,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWp-zQ-11j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="645"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="vy8-Or-GMf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AQb-4c-7Js" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Events" image="Events" id="nOU-NT-45D"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ipZ-ac-XBx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JmD-Oq-MTN" kind="relationship" relationship="rootViewController" id="VFB-eU-WPh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fm3-tD-uIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="-1"/>
         </scene>
     </scenes>
     <resources>
