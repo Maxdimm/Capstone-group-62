@@ -11,9 +11,10 @@ import UIKit
 class EventsTableViewCell: UITableViewCell {
     
     //MARK: Properties
-    @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
