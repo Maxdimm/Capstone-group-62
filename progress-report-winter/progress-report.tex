@@ -216,8 +216,25 @@
 	As I followed the swift guide I ran into a few issues getting the tableViewController to work properly with the eventViewController that I had created.
 	Since I haven't had much experience working with mobile development in the past, I struggled to figure out how the two were supposed to interact with each other.
 	Despite trying to troubleshoot and debug for a while, I was still unable to get the tableViewController working correctly, so I just need to spend some time reading through documentation to figure out how the table class should interact with the view controller.
-	
 
+	After getting frustrated with the tableViewController not working with the tableViewCell, I started working on the second part of the events page which was the code to parse the xml data from CCB.
+	We got the admin credentials from our client which allowed us to pull information from the public calendar of Church Community Builder.
+	I wrote a quick python program that connected to CCB and got the file and was able to parse the event names, dates and times.
+	I began writing this in swift using a playground for testing purposes which allowed me to see quick updates as I made changes.
+	The basic thought behind the XML parser is that I need to be able to first connect with the CCB api in order to access the public calendar.
+	To do this, I'm using the builtin URLSession and passing in the full length URL to connect to the database.
+	The way that the API for the public calendar is setup, I need to pass in the start date (or end date if needed) to the URL so that it knows which date to grab the events from.
+	In order to do this, I'm using the NSDate() and DateFormatter() to get the date to be formatted in a yyyy-MM-dd configuration (year, month, day).
+	This is the way that the CCB api needs to have the date, so I get the current days date and append it in the correct format the URL.
+	Swift has a little more complex way of parsing through data than python, so I'm still currently working on getting the functionality behind the actual parse to work.
+	I'll need to implement a way to parse through the XML and grab the event name, month and day for the initial list view.
+	If the user decides to click on the event to see more details, I'll parse through the XML and grab any more detailed information that might be relevant.
+
+	Since I haven't done any mobile development before, it's taken a bit of time for me to get comfortable using Xcode, understanding Swift and figuring out the builtin functions that we have at our disposal.
+	Now that I feel like I have a pretty comfortable grasp on things, I just need to sit down and dedicate time to getting the XML data parsed and getting the tableViewController working.
+	Once I've got that done it should be pretty simple to get those values passed over to the IBOutlets and into the text placeholders which will display the information to the users.
+	After getting that completed I'm going to begin on the Android version of the app which will hopefully go a bit smoother since we now have some basic mobile development practice.
+	I'll likely spend most of my time getting a table view setup for Android and will hopefully be able to port over the XML parsing program without having to redesign it too much.
 
 
 	\subsection{Extra}
