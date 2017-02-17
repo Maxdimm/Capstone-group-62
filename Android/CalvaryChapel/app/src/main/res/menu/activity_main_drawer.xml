@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_layout"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Bulletins" />
+        <item
+            android:id="@+id/nav_second_layout"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Events" />
+        <item
+            android:id="@+id/nav_third_layout"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Donations" />
+        <item
+            android:id="@+id/nav_fourth_layout"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Messages" />
+    </group>
+
+
+</menu>

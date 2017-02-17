@@ -38,7 +38,7 @@
 }
 
 \begin{document}
-	\title{\huge \team \\ Technology Review \\ CS 461 Fall 2016}
+	\title{\huge \team \\ Technology Review \\ CS 462 Winter 2017}
 	\author{\large \name \\ \grp}
 
 	
@@ -586,14 +586,17 @@
 	\subsection{Discussion}
 	Contentful would be a good option if we were developing a more complex app.
 	Because we are only looking to integrate this type of content for the bulletins, Contentful might be a bit too powerful for our purposes.
+	Church Community Builder works well because they are already using this software for other parts of their website. 
+	However, they are not currently using Church Community Builder for their bulletin page on the website which would mean they would have to change how they are presenting the bulletins on their website, or they would have to update the bulletins in two different places. 
 	Wordpress is a better option for a less complex app if one is already familiar with how Wordpress works and if they were utilizing that tool in their existing website.
-	Because they are not using Wordpress at all in their website, it may be too complicated to add another tool for them to keep track of.
-	Church Community Builder seems to make the most sense because they already use this system.
-	Their staff already knows how to use it and there would not be as much of a learning curve to learn how to update the e-bulletins.
+	Recently, the church has completely overhauled their website and are now using Wordpress. 
+	If we are granted access to their website, we can use REST API from Wordpress to directly pull the content from the Bulletin page on the website to the Bulletin page on the app. 
 
 	\subsection{Selection}
-	For this project, the option that will work best is Church Community Builder.
-	While the other options offer useful features, the Church already utilizes Church Community Builder so there will be no additional costs or learning to integrate the e-bulletins using this program.
+	For this project, the option that will work best is Wordpress. 
+	Because the church has recently changed their website to use Wordpress, we can use REST API from Wordpress free of charge. 
+	We will need to enable REST API on their website and then we can pull the information directly from the website.
+	This will allow the web development team to only have to update the bulletin page as normal on their website and the changes will be reflected on the app as well. 
 
 	\section{Integrating the Sermon Platform}
 	\subsection{LiveStream}
@@ -729,7 +732,7 @@
 	We will organize the Android app using a sidebar organization layout. 
 	
 	Because Calvary Chapel Corvallis already uses Authorize.net for their giving platform, we have decided it is the best option for the donation page on the app as well. 
-	Similarly, Calvary Chapel Corvallis uses the Church management system, Church Community Builder, so we will continue to use this system to present the e-bulletins on the app. 
+	With the church's updated website, they are now using Wordpress so we will make use of Wordpress API for the e-bulletins.
 	The technology we will use to display the sermons is LiveStream. 
 	This will work well despite its price, because Calvary Chapel Corvallis has already chosen to use this technology. 
 	Finally, we will once again be using Church Community Builder to display the calendar and events on the app. 

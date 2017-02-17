@@ -1,0 +1,189 @@
+\documentclass[letterpaper,10pt,draftclsnofoot,onecolumn,titlepage]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{pstricks, pst-node}
+\usepackage{geometry}
+\usepackage{array}
+
+
+\geometry{margin = .75in}
+
+\usepackage{hyperref}
+
+
+
+\newcommand*{\signature}[1]{%
+	\par\noindent\makebox[3.5in]{\hrulefill} \hfill\makebox[3.0in]{\hrulefill}%
+	\par\noindent\makebox[3.5in][l]{#1}	    \hfill\makebox[3.0in][l]{Date}%
+}%
+
+\def\name{Kevin Stine, Courtney Bonn, Maxwell Dimm}
+\def\team{Calvary Chapel Corvallis}
+\def\grp{Group \#62}
+
+\hypersetup{
+	colorlinks = true,
+	urlcolor = black,
+	linkcolor = black,
+	pdfauthor = {\name},
+	pdftitle = {CS461 Design Document},
+	pdfsubject = {CS461 Design Document},
+	pdfpagemode = UseNone
+}
+
+\begin{document}
+	\title{\huge \team \\ Progress Report\\ CS 461 Winter 2017}
+	\author{\large \name \\ \grp}
+
+
+
+	\maketitle
+
+		\begin{abstract}The purpose of this project is to produce an iOS/Android application for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
+		The Church's current website does not provide an interface where current members of the church can very quickly access important information such as events, bulletins, and messages from the service.
+		The desired application will be simple enough for anyone to use while providing back end access for staff to easily upload new information to the app.
+		The priorities lie in maximizing the usability of the app and providing bulletin, schedule, video, and giving functionality.
+		We will work with the existing Calvary Chapel web development team to create a product that is seamlessly integrated with their already existing network.
+		\end{abstract}
+
+		\clearpage
+
+		\section{Purpose and Goals}
+		The purpose of our project is to create an application for Calvary Corvallis Church that will act as a connection between the congregation and the administration.
+		The church already has a website that has some of this information, but they want the website and app to serve different functions. 
+		The website will be to introduce people to the church.
+		The app will be used for the existing congregation as the go to place to access the most commonly used or needed information.
+		Some of the features being provided within the app are: having sermons available, listing the bulletin, having the church schedule, and allowing members to donate to the church.
+		Our client explained to us that these were the features that they wanted in the app as they are the most needed services by their members.
+
+		Our client has requested that the app be as automated as possible in regards to updating the information hosted within it as to reduce any upkeep as much as possible.
+		So we will be working with their existing infrastructure as much as possible to pull our information from.
+		We are also creating both an iOS and Android application and we want to make the applications as functionally similar as possible.
+		This will allow for greater understanding of the app across users who may or may not be super tech savvy.
+		Our final goal in this project is to reduce costs wherever possible for our client.
+		If that means suggesting newer cheaper infrastructure or setting up our app in a way that reduces how often it will need to be updated, we want to do it.
+
+		\section{Progress report}
+			\subsection{Fall 2016}
+		Currently, we are still in the planning phase of the project. 
+		We have just finished the design document which detailed how we plan on implementing our app and how it will be designed. 
+		However, we have not begun the actual implementation of either app quite yet. 
+		Our immediate plans include extensive research on iOS and Android app development which we will focus on during Winter break.
+		
+			\subsection{Winter 2017}
+		In the past few weeks, we have begun the development of the iOS Application. 
+		It took about two weeks to get the basic skeleton up and running with each page set up with it's own View Controller. 
+		Once the outline was taken care of, we added Calvary Corvallis' logo to each page of the application.
+		On the Bulletin page, we have added code to fetch and parse JSON data and print it onto the app. 
+		Just recently we were given administrative access to Church Community Builder's API. 
+		There was a delay in getting this information, so that has slowed progress. 
+		Once that information was received, we began working on fetching the Calendar data so that can be printed onto the app. 
+		We are also waiting for the administrative access to the church's Wordpress API, which, once received, will replace the current JSON data that is being printed on the bulletin page. 
+		The donation page will be a UIWebView that connects to their existing donation platform, Authorize.net. 
+		The messages page will be a UIWebView where the video of the most recent message will play. 
+		
+		Currently, we have not started development on the Android application. 
+		Rather than trying to completely finish the iOS application first, as was our original plan, we are now going to begin the implementation of the Android app concurrently. 
+		
+
+		\section{Problems}
+			\subsection{Fall 2016}
+		One of the first issues we ran into was the fact that there are multiple platforms to run an app on. 
+		At first our client did not know, but it became quickly apparent that they wanted their app to be available to all their members. 
+		This meant that we had to switch from creating just one app, to developing two apps that will perform the same task. This adds a substantial amount of work to our project. 
+		We are looking into coding platforms that will allow us to reuse some of our code if possible but it seems we will just need to budget more time to this project to develop for both Android and IOS. 
+
+	The rest of our problems ended up being small things like needing to change the name of the project in the requirements doc or figuring out which platform we will be coding on. 
+	These all had simple solutions like going in and adjusting the name and looking up the pros and cons of the different platforms. 
+	Occasionally we had the problem of running a little close on the due date of papers and had a struggle of getting them out and signed in time. 
+	This was solved by communicating with our client in advance so they knew we were on a tight timeline and having quick turnaround on when the documents were sent and received. 
+
+	Finally, our last thing we need to work on is learning about app development. 
+	Notice, I did not say that this was a problem. 
+	I would say it is more of a hurdle that we need to get over. 
+	We have all of winter break to get the fundamentals down along with starting the framework of our app. 
+	I think come early January that we will be set up well with our project. 
+
+		\subsection{Winter 2017}
+		Despite the overall simplicity of the applications we are planning, we have run in to quite a few issues since starting development. 
+		First off, mobile development is much harder than any of us had anticipated. 
+		While we are familiar with many coding languages, learning a new language (Swift) has taken more time than expected. 
+		Secondly, we have not had the information we need from our client as quickly as we need it. 
+		While the client has been very good at getting back to us, she is coordinating with other people in her own team who have not always responded right away. 
+		This issue led us not getting access to the required APIs until week 4. 
+		Currently, we are still waiting for access to the Wordpress API which has stalled part of the iOS app. 
+		
+		When developing the video player on the sermons page Max ran into issues with linking the storyboard ViewControllers to the actual viewcontroller codebases. 
+		This took a while for him to diagnose the issue as he had not worked with xcode or swift before and had a hard time locating resources to troubleshoot the problem. 
+		He was able to figure out the issue by week 4 and quickly implement the desired function because he had worked on it in a seperate project file.
+		However this did take a significant portion of time off the table for him.
+		
+		Finally, we have not even begun the Android development portion of this application. 
+		After doing a lot of research in the beginning of this project, we decided to implement two native applications, rather than attempting a cross-development app. 
+		While this is giving us the opportunity to learn both iOS and Android development, it has also proven to be more time-consuming and work than we imagined. 
+		At this point in the project, it is not ideal to switch to a cross-development platform versus continuing to develop both native applications at the same time.
+
+
+
+		\section{Reflection}
+			\begin{table}[H]
+			\caption{Retrospective on Fall 2016}
+			\begin{center}
+				\begin{tabular}{| p{0.06\linewidth} | p{0.28\linewidth} | p{0.28\linewidth} | p{0.28\linewidth} | }
+					\hline
+					\textbf{Time} & \textbf{Positives} & \textbf{Deltas} & \textbf{Actions} \\ [0.5ex]
+					%heading
+					\hline
+					Week 3 & We met with our client for the first time in week 3. We found out a more detailed idea of what they wanted from us. Also we got to meet 2/3 of their development team.  & No changes needed as of week 3 & We needed to become more familiar with working with LaTeX. \\
+					\hline
+					Week 4 & We had a second meeting with our client. We met the last developer on their team. He had minimal app experience but had an apple developer account. & No changes needed as of week 4 & We need to start thinking about problem statement document. \\
+					\hline
+					Week 5 & We met our TA, Vee, for the first time. We also finished up our problem statement. & No changes needed as of week 5. & We need to figure out if we need to develop one or two apps for the different platforms. \\
+					\hline
+					Week 6 & We focused on finishing our requirements document and planning a timeline for the rest of the project. & Our client wanted us to change the app name to its official name in the requirements document. & We need to start researching our technology review and begin the design document. \\
+					\hline
+					Week 7 & We began working on our technology review and splitting up the parts of our system. & No changes as of week 7 & We need to continue researching the different technologies and keep researching our respective parts. \\
+					\hline
+					Week 8 & We finished our technology review and began looking into the design document. & No changes as of week 8 & We have to put a lot of effort in our design document in order to get it to our client on time. \\
+					\hline
+					Week 9 & We got a headstart on the design document, but didn't get as far because of the Holiday. & No changes as of week 9 & With the term coming to an end, we have to finish up the design document and send it to our client. \\
+					\hline
+					Week 10 & We finished up the design document and met with our client for the last time until January & We do not have much knowledge in mobile development & We need to continue researching iOS and Android app development so we are more prepared for the project. \\
+					\hline
+
+				\end{tabular}
+			\end{center}
+			\end{table}
+
+
+		\begin{table}[H]
+			\caption{Retrospective on Winter 2016}
+			\begin{center}
+				\begin{tabular}{| p{0.06\linewidth} | p{0.28\linewidth} | p{0.28\linewidth} | p{0.28\linewidth} | }
+					\hline
+					\textbf{Time} & \textbf{Positives} & \textbf{Deltas} & \textbf{Actions} \\ [0.5ex]
+					%heading
+					\hline
+					Week 0 & Got the framework started and began learning xcode & This notes the start of our IOS development & We all began the process of framiliarizing ourselves with x-code and Kevin started the IOS project \\
+					\hline
+					Week 1 & Courtney and Max tested our ability to build the framework kevin had created and added our work to github & no code changes this week & Got the starting code distributed to the whole team \\
+					\hline
+					Week 2 & We delegated which parts each of us were to complete & We now have direction and started researching relevent methods to accomplish our goals & Began the process of teaching ourselves the relevent swift functionality \\
+					\hline
+					Week 3 & Began development of main pages & have functioning homepage, bullatin (awaiting wordpress API) and running into issues with sermons page & Closer to our goals with a few hiccups \\
+					\hline
+					Week 4 & Figured out issues with sermons functionality and began progress report & Overall tuning of the app and still awaiting client to send us more info that we need to continue & Beginning android project and the donations page \\
+					\hline
+					
+\end{tabular}
+			\end{center}
+			\end{table}
+\end{document}
