@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="1116" y="-645.42728635682158"/>
         </scene>
-        <!--Church Wide Events-->
+        <!--Church Events-->
         <scene sceneID="2hU-sX-bSn">
             <objects>
                 <tableViewController id="JmD-Oq-MTN" customClass="EventsTableViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                             <outlet property="delegate" destination="JmD-Oq-MTN" id="erw-XD-eHb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Church Wide Events" id="ooP-VO-p0E"/>
+                    <navigationItem key="navigationItem" title="Church Events" id="ooP-VO-p0E"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LE1-nu-Vfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
