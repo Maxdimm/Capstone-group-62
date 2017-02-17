@@ -129,32 +129,6 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Third-->
-        <scene sceneID="syo-2L-Auu">
-            <objects>
-                <viewController id="5cJ-uZ-gRc" userLabel="Third" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Srx-dc-spE"/>
-                        <viewControllerLayoutGuide type="bottom" id="XGF-yt-FDn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8An-2M-4Sw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mE9-Jr-cEm">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Events" image="Events" id="dgg-B0-AH9"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PYM-B1-ets" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1116" y="-0.44977511244377816"/>
-        </scene>
         <!--Events-->
         <scene sceneID="HRv-cZ-2ZW">
             <objects>

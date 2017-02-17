@@ -28,7 +28,7 @@ class Event: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // Load the sample data
-        loadSampleEvents()
+        //loadSampleEvents()
         
     }
     
@@ -114,7 +114,7 @@ class Event: UITableViewController {
      */
     
     //Mark: Private Methods
-    
+    /*
     private func loadSampleEvents() {
         
         guard let event1 = Event(name: "Sunday Service", date: "4", month: "Febuary") else {
@@ -134,5 +134,5 @@ class Event: UITableViewController {
         print(events)
     }
     
-    
+    */
 }
