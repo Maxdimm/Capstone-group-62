@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,10 +29,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4i0-pM-EF8">
                                 <rect key="frame" x="29" y="123" width="317" height="433"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="52L-Ko-EKP">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="52L-Ko-EKP">
                                         <rect key="frame" x="0.0" y="0.0" width="317" height="247"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                         <rect key="frame" x="0.0" y="255" width="317" height="42"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
@@ -118,6 +118,35 @@
             </objects>
             <point key="canvasLocation" x="1116" y="-645.42728635682158"/>
         </scene>
+        <!--Events-->
+        <scene sceneID="2hU-sX-bSn">
+            <objects>
+                <tableViewController id="JmD-Oq-MTN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cKF-Xm-5Bm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CYR-xr-JXl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYR-xr-JXl" id="kVm-0b-oeT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JmD-Oq-MTN" id="64I-fe-Wsp"/>
+                            <outlet property="delegate" destination="JmD-Oq-MTN" id="erw-XD-eHb"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Events" image="Events" id="nOU-NT-45D"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LE1-nu-Vfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897" y="0.0"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -131,59 +160,14 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="5cJ-uZ-gRc" kind="relationship" relationship="viewControllers" id="AwP-sp-6K3"/>
                         <segue destination="1DH-bW-leN" kind="relationship" relationship="viewControllers" id="SoG-bg-1Ql"/>
                         <segue destination="drA-Nz-MSK" kind="relationship" relationship="viewControllers" id="qMA-pK-198"/>
+                        <segue destination="JmD-Oq-MTN" kind="relationship" relationship="viewControllers" id="ega-CH-Y1x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--Third-->
-        <scene sceneID="syo-2L-Auu">
-            <objects>
-                <viewController id="5cJ-uZ-gRc" userLabel="Third" customClass="ThirdViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Srx-dc-spE"/>
-                        <viewControllerLayoutGuide type="bottom" id="XGF-yt-FDn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8An-2M-4Sw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Events View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-tQ-bk1">
-                                <rect key="frame" x="89" y="313" width="198" height="42"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by ThirdViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ut-in-uwJ">
-                                <rect key="frame" x="80" y="362" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lLA-Cd-oG1">
-                                <rect key="frame" x="37" y="45" width="300" height="70"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="lLA-Cd-oG1" firstAttribute="centerX" secondItem="8An-2M-4Sw" secondAttribute="centerX" id="LZx-kF-VaH"/>
-                            <constraint firstItem="9ut-in-uwJ" firstAttribute="centerX" secondItem="obU-tQ-bk1" secondAttribute="centerX" id="QcN-gi-N1p"/>
-                            <constraint firstItem="obU-tQ-bk1" firstAttribute="centerX" secondItem="8An-2M-4Sw" secondAttribute="centerX" id="TLa-ma-YXA"/>
-                            <constraint firstItem="9ut-in-uwJ" firstAttribute="top" secondItem="obU-tQ-bk1" secondAttribute="bottom" constant="8" symbolic="YES" id="YbS-sO-gaZ"/>
-                            <constraint firstItem="obU-tQ-bk1" firstAttribute="centerY" secondItem="8An-2M-4Sw" secondAttribute="centerY" id="aTi-aV-4AP"/>
-                            <constraint firstItem="lLA-Cd-oG1" firstAttribute="top" secondItem="Srx-dc-spE" secondAttribute="bottom" constant="25" id="tl8-cF-Avp"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Events" image="Events" id="dgg-B0-AH9"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PYM-B1-ets" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1116" y="0.0"/>
         </scene>
         <!--Fifth-->
         <scene sceneID="Xhb-SC-Buw">
