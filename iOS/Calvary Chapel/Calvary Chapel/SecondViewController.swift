@@ -16,16 +16,11 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         restapisample()
+        
         
     }
     
-    @IBAction func JSONData(_ sender: UIButton) {
-        
-        restapisample()
-
-
-    }
- 
 
     
     func restapisample() {
