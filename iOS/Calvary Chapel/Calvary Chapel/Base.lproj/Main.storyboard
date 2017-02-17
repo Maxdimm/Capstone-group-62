@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,30 +26,43 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-mk-rL9">
                                 <rect key="frame" x="37" y="45" width="300" height="70"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4i0-pM-EF8">
-                                <rect key="frame" x="29" y="123" width="317" height="297"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4i0-pM-EF8">
+                                <rect key="frame" x="29" y="123" width="317" height="433"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="52L-Ko-EKP">
                                         <rect key="frame" x="0.0" y="0.0" width="317" height="247"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                        <rect key="frame" x="0.0" y="255" width="317" height="41.5"/>
+                                        <rect key="frame" x="0.0" y="255" width="317" height="42"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J0p-Fe-Ajd">
+                                        <rect key="frame" x="0.0" y="305" width="317" height="128"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                        <string key="text">CALVARY WELCOME MESSAGE WILL REPLACE THE FOLLOWING TEXT. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="52L-Ko-EKP" secondAttribute="bottom" constant="10" id="lqn-H3-IWO"/>
+                                    <constraint firstAttribute="width" secondItem="4i0-pM-EF8" secondAttribute="height" multiplier="317:433" id="tbE-ew-6ja"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4i0-pM-EF8" secondAttribute="trailing" constant="13" id="CJ9-p1-Om3"/>
                             <constraint firstItem="xDw-mk-rL9" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="25" id="K7N-cr-H3a"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="4i0-pM-EF8" secondAttribute="bottom" constant="62" id="QZ7-aA-fje"/>
+                            <constraint firstItem="4i0-pM-EF8" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="13" id="VcT-Mq-9MM"/>
+                            <constraint firstItem="4i0-pM-EF8" firstAttribute="top" secondItem="xDw-mk-rL9" secondAttribute="bottom" constant="8" id="f22-HA-WFI"/>
                             <constraint firstItem="xDw-mk-rL9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="i9x-bV-bkK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4i0-pM-EF8" secondAttribute="trailing" constant="13" id="lm2-RM-jfF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="acW-dT-cKf"/>
@@ -81,6 +96,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Hx-yi-bxh">
                                 <rect key="frame" x="37" y="190" width="300" height="420"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
