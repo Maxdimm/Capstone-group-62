@@ -54,9 +54,6 @@ class SecondViewController: UIViewController {
                         print("error trying to convert data to JSON")
                         return
                 }
-                // now we have the todo
-                // let's just print it to prove we can access it
-                print("The todo is: " + todo.description)
                 
                 // the todo object is a dictionary
                 // so we just access the title using the "title" key
@@ -67,10 +64,10 @@ class SecondViewController: UIViewController {
                 }
                 //NEW CODE
                 DispatchQueue.main.async{
-                    self.jsontext.text = todo.description
+                  //  self.jsontext.text = todo.description
+                    self.jsontext.text = "The title is: " + todoTitle
                 }
                 
-                print("The title is: " + todoTitle)
             } catch  {
                 print("error trying to convert data to JSON")
                 return
