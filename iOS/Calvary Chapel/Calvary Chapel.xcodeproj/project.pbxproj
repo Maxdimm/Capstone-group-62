@@ -19,6 +19,7 @@
 		0A44E3921E26AC7D0066E65C /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44E3911E26AC7D0066E65C /* FifthViewController.swift */; };
 		0AB79EC81E412B1000A2ADC2 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */; };
 		0AE09C171E57865C00F00D31 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */; };
+		501619F31E64DDB000FA3FAB /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501619F21E64DDB000FA3FAB /* SixthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		0A44E3911E26AC7D0066E65C /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		501619F21E64DDB000FA3FAB /* SixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				0A44E38F1E26AC680066E65C /* FourthViewController.swift */,
 				0A44E3911E26AC7D0066E65C /* FifthViewController.swift */,
 				0A44E3711E26A86D0066E65C /* Main.storyboard */,
+				501619F21E64DDB000FA3FAB /* SixthViewController.swift */,
 				0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */,
 				0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */,
 				0A44E3741E26A86D0066E65C /* Assets.xcassets */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A44E3921E26AC7D0066E65C /* FifthViewController.swift in Sources */,
+				501619F31E64DDB000FA3FAB /* SixthViewController.swift in Sources */,
 				0AE09C171E57865C00F00D31 /* EventsTableViewController.swift in Sources */,
 				0AB79EC81E412B1000A2ADC2 /* EventsTableViewCell.swift in Sources */,
 				0A44E3701E26A86D0066E65C /* SecondViewController.swift in Sources */,
