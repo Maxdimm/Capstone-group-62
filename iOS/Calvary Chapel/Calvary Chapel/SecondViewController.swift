@@ -8,15 +8,18 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UIWebViewDelegate {
 
     
     @IBOutlet weak var jsontext: UITextView!
     
+    lazy var webView : UIWebView = UIWebView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         restapisample()
+        
+        restapisample()
         
         
     }
@@ -25,8 +28,8 @@ class SecondViewController: UIViewController {
     
     func restapisample() {
         // Set up URL request
-        let todoEndpoint: String = "https://jsonplaceholder.typicode.com/todos/1"
-        guard let url = URL(string: todoEndpoint) else {
+        let bulletinPage: String = "https://calvarycorvallis.org/wp-json/wp/v2/pages/1038"
+        guard let url = URL(string: bulletinPage) else {
             print("Error: cannot create URL")
             return
         }
@@ -38,7 +41,7 @@ class SecondViewController: UIViewController {
             (data, response, error) in
             // check for any errors
             guard error == nil else {
-                print("error calling GET on /todos/1")
+                print("error calling GET on /pages/1038")
                 print(error!)
                 return
             }
@@ -49,23 +52,26 @@ class SecondViewController: UIViewController {
             }
             // parse the result as JSON, since that's what the API provides
             do {
-                guard let todo = try JSONSerialization.jsonObject(with: responseData, options: [])
-                    as? [String: Any] else {
+                guard let bulletin = try JSONSerialization.jsonObject(with: responseData, options: [])
+                as? [String: AnyObject] else {
                         print("error trying to convert data to JSON")
                         return
                 }
                 
-                // the todo object is a dictionary
-                // so we just access the title using the "title" key
-                // so check for a title and print it if we have one
-                guard let todoTitle = todo["title"] as? String else {
-                    print("Could not get todo title from JSON")
+              //  print(bulletin)
+                
+                guard let bulletinContent = bulletin["content"]?["rendered"] as? String else {
+                    print("Could not get bulletin content from JSON")
                     return
                 }
+                
+                let actualContent = bulletinContent.replacingOccurrences(of: "<[^>]*.", with: "", options: .regularExpression, range: nil)
+                
+                
                 //NEW CODE
                 DispatchQueue.main.async{
                   //  self.jsontext.text = todo.description
-                    self.jsontext.text = "The title is: " + todoTitle
+                    self.jsontext.text = actualContent
                 }
                 
             } catch  {
@@ -75,6 +81,7 @@ class SecondViewController: UIViewController {
         }
         task.resume()
     }
+
 
     
     override func didReceiveMemoryWarning() {
