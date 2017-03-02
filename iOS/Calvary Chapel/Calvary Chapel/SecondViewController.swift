@@ -11,9 +11,8 @@ import UIKit
 class SecondViewController: UIViewController, UIWebViewDelegate {
 
     
-    @IBOutlet weak var jsontext: UITextView!
     
-    lazy var webView : UIWebView = UIWebView()
+    @IBOutlet weak var bulletinWeb: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,21 +57,14 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
                         return
                 }
                 
-              //  print(bulletin)
-                
                 guard let bulletinContent = bulletin["content"]?["rendered"] as? String else {
                     print("Could not get bulletin content from JSON")
                     return
                 }
                 
-                let actualContent = bulletinContent.replacingOccurrences(of: "<[^>]*.", with: "", options: .regularExpression, range: nil)
-                
-                
-                //NEW CODE
-                DispatchQueue.main.async{
-                  //  self.jsontext.text = todo.description
-                    self.jsontext.text = actualContent
-                }
+
+                let htmlCode  = "<!DOCTYPE HTML><html><head><title></title><link rel='stylesheet' href='calvarystyle.css'></head><body>" + bulletinContent + "</body></html>"
+                self.bulletinWeb.loadHTMLString(htmlCode, baseURL: nil)
                 
             } catch  {
                 print("error trying to convert data to JSON")

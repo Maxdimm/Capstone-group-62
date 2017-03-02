@@ -20,6 +20,7 @@
 		0AB79EC81E412B1000A2ADC2 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */; };
 		0AE09C171E57865C00F00D31 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */; };
 		501619F31E64DDB000FA3FAB /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501619F21E64DDB000FA3FAB /* SixthViewController.swift */; };
+		F172F16A1E67EC0300CF90DD /* calvarystyle.css in Resources */ = {isa = PBXBuildFile; fileRef = F172F1691E67EC0300CF90DD /* calvarystyle.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		501619F21E64DDB000FA3FAB /* SixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
+		F172F1691E67EC0300CF90DD /* calvarystyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = calvarystyle.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				0A44E3741E26A86D0066E65C /* Assets.xcassets */,
 				0A44E3761E26A86D0066E65C /* LaunchScreen.storyboard */,
 				0A44E3791E26A86D0066E65C /* Info.plist */,
+				F172F1691E67EC0300CF90DD /* calvarystyle.css */,
 			);
 			path = "Calvary Chapel";
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				0A44E3781E26A86D0066E65C /* LaunchScreen.storyboard in Resources */,
 				0A44E3751E26A86D0066E65C /* Assets.xcassets in Resources */,
+				F172F16A1E67EC0300CF90DD /* calvarystyle.css in Resources */,
 				0A44E3731E26A86D0066E65C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
