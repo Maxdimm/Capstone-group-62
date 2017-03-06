@@ -2,8 +2,11 @@ package com.example.courtney.calvarychapel;
 
 import android.app.Fragment;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +33,9 @@ public class FirstFragment extends Fragment {
 
     View myView;
     TextView txtJson;
-    private static final String TAG_TITLE = "title";
+    private static final String TAG_CONTENT = "content";
+    private static final String TAG_RENDERED = "rendered";
+
 
     @Nullable
     @Override
@@ -55,7 +60,7 @@ public class FirstFragment extends Fragment {
             BufferedReader reader = null;
 
             try {
-                URL url = new URL("https://jsonplaceholder.typicode.com/todos/1");
+                URL url = new URL("https://calvarycorvallis.org/wp-json/wp/v2/pages/1038");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
 
@@ -93,7 +98,8 @@ public class FirstFragment extends Fragment {
 
             if (response != null) {
                 try {
-                    txtJson.setText("Title: " + response.getString(TAG_TITLE));
+                    JSONObject jsonResponse = response.getJSONObject(TAG_CONTENT);
+                    txtJson.setText(fromHtml(jsonResponse.getString(TAG_RENDERED)));
                     Log.e("App", "Success: " + response.getString("yourJsonElement"));
 
                 } catch (JSONException ex) {
@@ -104,4 +110,14 @@ public class FirstFragment extends Fragment {
         }
 
     }
+
+    @SuppressWarnings("deprecation")
+    public static Spanned fromHtml(String source) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            return Html.fromHtml(source);
+        }
+    }
+
 }

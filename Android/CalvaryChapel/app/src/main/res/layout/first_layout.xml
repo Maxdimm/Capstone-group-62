@@ -26,6 +26,7 @@
         android:id="@+id/bulletinText"
         android:textSize="20sp" />
 
+    
 
 
 
