@@ -5,6 +5,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-45dp"
         android:src="@drawable/calvary"/>
     <TextView
         android:text="Messages"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="65dp"
         android:id="@+id/textView2"
         android:textSize="24sp" />
 </RelativeLayout>

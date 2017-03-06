@@ -2,16 +2,13 @@ package com.example.courtney.calvarychapel;
 
 import android.app.Fragment;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Html;
-import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,7 +29,7 @@ import java.net.URL;
 public class FirstFragment extends Fragment {
 
     View myView;
-    TextView txtJson;
+    WebView myWebView;
     private static final String TAG_CONTENT = "content";
     private static final String TAG_RENDERED = "rendered";
 
@@ -42,8 +39,7 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.first_layout, container, false);
 
-        txtJson = (TextView) myView.findViewById(R.id.bulletinText);
-     //   txtJson.setText("Hey there");
+        myWebView = (WebView) myView.findViewById(R.id.bulletinWebView);
 
         new JSONTask().execute();
 
@@ -99,7 +95,9 @@ public class FirstFragment extends Fragment {
             if (response != null) {
                 try {
                     JSONObject jsonResponse = response.getJSONObject(TAG_CONTENT);
-                    txtJson.setText(fromHtml(jsonResponse.getString(TAG_RENDERED)));
+                    String jsonData = jsonResponse.getString(TAG_RENDERED);
+                    myWebView.loadDataWithBaseURL("file;///android_asset/", jsonData, "text/html", "utf-8", null);
+                    myWebView.getSettings().setAllowFileAccess(true);
                     Log.e("App", "Success: " + response.getString("yourJsonElement"));
 
                 } catch (JSONException ex) {
@@ -109,15 +107,6 @@ public class FirstFragment extends Fragment {
 
         }
 
-    }
-
-    @SuppressWarnings("deprecation")
-    public static Spanned fromHtml(String source) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            return Html.fromHtml(source);
-        }
     }
 
 }

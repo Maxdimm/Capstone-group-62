@@ -4,8 +4,9 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-45dp"
         android:src="@drawable/calvary"/>
     <TextView
         android:text="This Week's Bulletin"
@@ -13,20 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="65dp"
         android:id="@+id/textView2"
         android:textSize="24sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <WebView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:id="@+id/bulletinText"
-        android:textSize="20sp" />
-
-    
+        android:id="@+id/bulletinWebView"
+        android:layout_marginTop="110dp"></WebView>
 
 
 
