@@ -8,13 +8,13 @@
 
 import UIKit
 
-class EventsTableViewController: UITableViewController {
+class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     class Event {
         var name: String?
         var month: String?
         var date: String?
-        
+        /*
         init?(name: String, month: String, date: String) {
             self.name = name
             self.month = month
@@ -24,17 +24,23 @@ class EventsTableViewController: UITableViewController {
                 return nil
             }
         }
+        */
     }
     
-    
+    var strXMLData:String = ""
+    var currentElement:String = ""
+    var passData:Bool=false
+    var passName:Bool=false
+    var parser = XMLParser()
     
     //Mark: Properties
-
     var events = [Event]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,7 +49,8 @@ class EventsTableViewController: UITableViewController {
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        loadSampleEvents()
+        //loadSampleEvents()
+        loadXMLData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,6 +79,7 @@ class EventsTableViewController: UITableViewController {
         }
 
         let event = events[indexPath.row]
+        
         
         // Configure the cell...
         cell.eventLabel.text = event.name
@@ -128,7 +136,7 @@ class EventsTableViewController: UITableViewController {
     */
 
     //MARK: Private Methods
-    
+    /*
     private func loadSampleEvents() {
         
         guard let event1 = Event(name: "Sunday Church", month: "February", date: "8") else {
@@ -144,7 +152,105 @@ class EventsTableViewController: UITableViewController {
         }
         
         events += [event1, event2, event3]
+    }
+    */
+    
+    private func loadXMLData() {
+        let userName = "bonncosu"
+        let password = "bonnc123"
+        let https = "https://"
+        let baseURL = "calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start="
         
+        let dateFormatter = DateFormatter()
+        let date = NSDate()
+        
+        // Specify the format for the date since CCB excepts the date as yyyy-MM-dd
+        
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        print(dateFormatter.string(from: date as Date))
+        
+        let formattedDate = dateFormatter.string(from: date as Date)
+        
+        // Append the formatted date to the base URL to have the full URL to connect to CCB
+        
+        
+        // This is the correct url, however it is commented out for testing purposes
+        //let fullURL = https+userName+":"+password+"@"+baseURL+formattedDate
+        
+        let fullURL = "https://bonncosu:bonnc123@calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=2017-03-05"
+        
+        print(fullURL)
+        
+        let urlToSend: NSURL = NSURL(string: fullURL)!
+        
+        do {
+            let test = try String(contentsOf: urlToSend as URL)
+            print(test)
+        } catch let error {
+            print(error)
+        }
+        // Parse the XML
+        parser = XMLParser(contentsOf: urlToSend as URL)!
+        
+        print(parser)
+        
+        parser.delegate = self
+        
+        let success:Bool = parser.parse()
+        
+        let event = events
+        
+        if success {
+            print("parse success!")
+            
+            print(strXMLData)
+            
+            event.name = strXMLData
+            
+        } else {
+            print("parse failure!")
+            let parserError = parser.parserError
+            print(parserError!)
+        }
+    }
+    
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        currentElement=elementName;
+        if(elementName=="event_name" || elementName=="event_name" || elementName=="event_description" || elementName=="start_time" || elementName=="event_name")
+        {
+            if(elementName=="event_name"){
+                passName=true;
+            }
+            passData=true;
+        }
+    }
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        currentElement="";
+        if(elementName=="name" || elementName=="event_name" || elementName=="event_description" || elementName=="start_time" || elementName=="end_time")
+        {
+            if(elementName=="event_name"){
+                passName=false;
+            }
+            passData=false;
+        }
+    }
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        if(passName){
+            strXMLData=strXMLData+"\n\n"+string
+        }
+        
+        if(passData)
+        {
+            print(string)
+        }
+    }
+    
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        print("failure error: ", parseError)
     }
     
 }

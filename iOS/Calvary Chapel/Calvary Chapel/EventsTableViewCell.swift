@@ -8,17 +8,23 @@
 
 import UIKit
 
-class EventsTableViewCell: UITableViewCell {
+class EventsTableViewCell: UITableViewCell, XMLParserDelegate {
     
     //MARK: Properties
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
     
+    var strXMLData:String = ""
+    var currentElement:String = ""
+    var passData:Bool=false
+    var passName:Bool=false
+    var parser = XMLParser()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,4 +33,5 @@ class EventsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
 }
