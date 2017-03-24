@@ -23,6 +23,12 @@ class FifthViewController: UIViewController {
 
 
     
+    @IBAction func pastSermons(_ sender: Any) {
+        
+        if let url = URL(string:"https://livestream.com/calvarycorvallis"){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)}
+        
+    }
     
         
     }
