@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,24 +21,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-mk-rL9">
-                                <rect key="frame" x="37" y="45" width="300" height="70"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4i0-pM-EF8">
-                                <rect key="frame" x="29" y="123" width="317" height="433"/>
+                                <rect key="frame" x="7" y="28" width="360" height="584.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="52L-Ko-EKP">
-                                        <rect key="frame" x="0.0" y="0.0" width="317" height="247"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-mk-rL9">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="70"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                        <rect key="frame" x="0.0" y="255" width="317" height="42"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="52L-Ko-EKP">
+                                        <rect key="frame" x="0.0" y="78" width="360" height="247"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                        <rect key="frame" x="0.0" y="333" width="360" height="115.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J0p-Fe-Ajd">
-                                        <rect key="frame" x="0.0" y="305" width="317" height="128"/>
+                                        <rect key="frame" x="0.0" y="456.5" width="360" height="128"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
@@ -49,20 +47,14 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="4i0-pM-EF8" secondAttribute="height" multiplier="317:433" id="tbE-ew-6ja"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="4i0-pM-EF8" secondAttribute="trailing" constant="13" id="CJ9-p1-Om3"/>
-                            <constraint firstItem="xDw-mk-rL9" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="25" id="K7N-cr-H3a"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="4i0-pM-EF8" secondAttribute="bottom" constant="62" id="QZ7-aA-fje"/>
-                            <constraint firstItem="4i0-pM-EF8" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="13" id="VcT-Mq-9MM"/>
-                            <constraint firstItem="4i0-pM-EF8" firstAttribute="top" secondItem="xDw-mk-rL9" secondAttribute="bottom" constant="8" id="f22-HA-WFI"/>
-                            <constraint firstItem="xDw-mk-rL9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="i9x-bV-bkK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4i0-pM-EF8" secondAttribute="trailing" constant="13" id="lm2-RM-jfF"/>
+                            <constraint firstItem="4i0-pM-EF8" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="7" id="E7j-jW-5xY"/>
+                            <constraint firstAttribute="trailing" secondItem="4i0-pM-EF8" secondAttribute="trailing" constant="8" id="Szi-hk-KGF"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="4i0-pM-EF8" secondAttribute="bottom" constant="5.5" id="V2F-vZ-0j4"/>
+                            <constraint firstItem="4i0-pM-EF8" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="jDQ-ut-pcj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="acW-dT-cKf"/>
@@ -83,26 +75,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-MI-0Lm">
-                                <rect key="frame" x="37" y="45" width="300" height="70"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This Week's Bulletin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9O-RE-JyW">
-                                <rect key="frame" x="87" y="123" width="200" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.55242066062176165" green="0.55242066062176165" blue="0.55242066062176165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wR1-ON-UdY">
-                                <rect key="frame" x="8" y="160" width="360" height="450"/>
-                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hwj-lY-kDf">
+                                <rect key="frame" x="7" y="28" width="360" height="584.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-MI-0Lm">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="70"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Week's Bulletin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9O-RE-JyW">
+                                        <rect key="frame" x="0.0" y="70" width="360" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" red="0.55242066062176165" green="0.55242066062176165" blue="0.55242066062176165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wR1-ON-UdY">
+                                        <rect key="frame" x="0.0" y="96.5" width="360" height="488"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </webView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gb5-MI-0Lm" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="cYb-Us-l01"/>
-                            <constraint firstItem="gb5-MI-0Lm" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="25" id="gGa-HL-T4F"/>
+                            <constraint firstItem="Hwj-lY-kDf" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="4gs-BV-8S4"/>
+                            <constraint firstAttribute="trailing" secondItem="Hwj-lY-kDf" secondAttribute="trailing" constant="8" id="Ugw-Wm-fue"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Hwj-lY-kDf" secondAttribute="bottom" constant="5.5" id="Y3A-bx-kgI"/>
+                            <constraint firstItem="Hwj-lY-kDf" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="7" id="sLW-EA-MhQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bulletin" image="Announcements" id="cPa-gy-q4n"/>
@@ -264,37 +261,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-wy-dNW">
-                                <rect key="frame" x="37" y="45" width="300" height="70"/>
-                            </imageView>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RaI-sf-Gnm">
-                                <rect key="frame" x="32" y="123" width="343" height="189"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Pz-Rfs">
-                                <rect key="frame" x="147" y="492" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Old Button"/>
-                                <connections>
-                                    <segue destination="8pT-Hm-6W4" kind="popoverPresentation" popoverAnchorView="r9a-Pz-Rfs" id="Nbw-wl-Oga">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3do-ye-oHZ">
-                                <rect key="frame" x="137" y="423" width="95" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Past Sermons"/>
-                                <connections>
-                                    <action selector="pastSermons:" destination="drA-Nz-MSK" eventType="touchUpInside" id="bjk-iq-GV7"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RpF-Dm-NT7">
+                                <rect key="frame" x="7" y="8" width="360" height="604.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-wy-dNW">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="70"/>
+                                    </imageView>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaI-sf-Gnm">
+                                        <rect key="frame" x="0.0" y="70" width="360" height="189"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </webView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Pz-Rfs">
+                                        <rect key="frame" x="0.0" y="259" width="360" height="315.5"/>
+                                        <state key="normal" title="Old Button"/>
+                                        <connections>
+                                            <segue destination="8pT-Hm-6W4" kind="popoverPresentation" popoverAnchorView="r9a-Pz-Rfs" id="Nbw-wl-Oga">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3do-ye-oHZ">
+                                        <rect key="frame" x="0.0" y="574.5" width="360" height="30"/>
+                                        <state key="normal" title="Past Sermons"/>
+                                        <connections>
+                                            <action selector="pastSermons:" destination="drA-Nz-MSK" eventType="touchUpInside" id="bjk-iq-GV7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uDF-wy-dNW" firstAttribute="centerX" secondItem="QC7-Rw-pK3" secondAttribute="centerX" id="VcA-IM-J7A"/>
-                            <constraint firstItem="uDF-wy-dNW" firstAttribute="top" secondItem="g5E-Hn-dfZ" secondAttribute="bottom" constant="25" id="xgf-Ns-H96"/>
+                            <constraint firstItem="RpF-Dm-NT7" firstAttribute="leading" secondItem="QC7-Rw-pK3" secondAttribute="leading" constant="7" id="IVt-mM-OMQ"/>
+                            <constraint firstItem="zbB-iz-kAP" firstAttribute="top" secondItem="RpF-Dm-NT7" secondAttribute="bottom" constant="5.5" id="cAo-gC-xj1"/>
+                            <constraint firstAttribute="trailing" secondItem="RpF-Dm-NT7" secondAttribute="trailing" constant="8" id="qTH-8z-Xaq"/>
+                            <constraint firstItem="RpF-Dm-NT7" firstAttribute="top" secondItem="QC7-Rw-pK3" secondAttribute="top" constant="8" id="uR5-77-j2k"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" image="Sermons" id="343-gO-EhR"/>
@@ -319,7 +320,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Ax-yW-sYh">
-                                <rect key="frame" x="37" y="45" width="300" height="70"/>
+                                <rect key="frame" x="37.5" y="45" width="300" height="70"/>
                             </imageView>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-oN-xPH">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>

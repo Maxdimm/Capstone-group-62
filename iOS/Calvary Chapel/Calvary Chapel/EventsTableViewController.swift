@@ -207,7 +207,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
             
             print(strXMLData)
             
-            event.name = strXMLData
+     //       event.name = strXMLData
             
         } else {
             print("parse failure!")
