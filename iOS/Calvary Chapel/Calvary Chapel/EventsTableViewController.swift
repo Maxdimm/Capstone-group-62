@@ -34,7 +34,9 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     var parser = XMLParser()
     
     //Mark: Properties
-    var events = [Event]()
+    var events: [Event] = []
+    var eventName = String()
+    var eventDate = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,34 +183,30 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         
         let fullURL = "https://bonncosu:bonnc123@calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=2017-03-05"
         
-        print(fullURL)
+      //  print(fullURL)
         
         let urlToSend: NSURL = NSURL(string: fullURL)!
         
         do {
             let test = try String(contentsOf: urlToSend as URL)
-            print(test)
+         //   print(test)
         } catch let error {
             print(error)
         }
         // Parse the XML
         parser = XMLParser(contentsOf: urlToSend as URL)!
-        
-        print(parser)
-        
+       // print(parser)
         parser.delegate = self
         
         let success:Bool = parser.parse()
         
-        let event = events
+  //      let event = events
         
         if success {
             print("parse success!")
             
-            print(strXMLData)
-            
-     //       event.name = strXMLData
-            
+       //     print(strXMLData)
+       //     event.name = strXMLData
         } else {
             print("parse failure!")
             let parserError = parser.parserError
@@ -222,23 +220,37 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         {
             if(elementName=="event_name"){
                 passName=true;
+                eventName = String()
             }
             passData=true;
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        currentElement="";
+       // currentElement="";
         if(elementName=="name" || elementName=="event_name" || elementName=="event_description" || elementName=="start_time" || elementName=="end_time")
         {
             if(elementName=="event_name"){
                 passName=false;
+                let event = Event()
+                event.name = eventName
+                event.date = eventDate
+                
+                events.append(event)
             }
             passData=false;
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        
+        if (currentElement == "event_name") {
+            eventName += string
+        } else if (currentElement == "date") {
+            eventDate += string
+        }
+    
+        
         if(passName){
             strXMLData=strXMLData+"\n\n"+string
         }
