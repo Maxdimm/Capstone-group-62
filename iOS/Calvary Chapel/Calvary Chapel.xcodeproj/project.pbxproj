@@ -53,7 +53,7 @@
 		0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		501619F21E64DDB000FA3FAB /* SixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
 		503AA6CE1E80ECB000F67D82 /* donateHTML.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = donateHTML.html; sourceTree = "<group>"; };
-		F172F1691E67EC0300CF90DD /* calvarystyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = calvarystyle.css; sourceTree = "<group>"; };
+		F172F1691E67EC0300CF90DD /* calvarystyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = calvarystyle.css; path = "/Users/Courtney/Documents/Capstone/Github/iOS/Calvary Chapel/Calvary Chapel/calvarystyle.css"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

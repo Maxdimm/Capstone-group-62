@@ -79,7 +79,11 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
                 }
                 
 
-                let htmlCode  = "<!DOCTYPE HTML><html><head><title></title><link rel='stylesheet' href='calvarystyle.css'></head><body>" + bulletinContent + "</body></html>"
+                //let htmlCode  = "<!DOCTYPE HTML><html><head><link rel='stylesheet' type='text/css' href='/Users/Courtney/Documents/Capstone/Github/iOS/Calvary Chapel/Calvary Chapel/calvarystyle.css'></head><body>" + bulletinContent + "</body></html>"
+                
+                
+                let htmlCode = "<!DOCTYPE HTML><html><head><style> body {color: #5b5e5e; font-family: 'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17; text-decoration: none; } .staff a { border-bottom: 0px none; } a:focus, a:hover { border-bottom: 1px solid #fbaf17; color: #b17b0e; }</style></head><body>" + bulletinContent + "</body></html>"
+                
                 self.bulletinWeb.loadHTMLString(htmlCode, baseURL: nil)
                 
             } catch  {
