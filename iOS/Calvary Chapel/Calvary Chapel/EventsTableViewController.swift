@@ -35,6 +35,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     //Mark: Properties
     var events: [Event] = []
+    //I added these two global variables - CB
     var eventName = String()
     var eventDate = String()
 
@@ -220,6 +221,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         {
             if(elementName=="event_name"){
                 passName=true;
+                //assign eventName to String() - CB
                 eventName = String()
             }
             passData=true;
@@ -227,11 +229,13 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-       // currentElement="";
+       // currentElement=""; //i commented out this line because we want to keep the currentElement from above
         if(elementName=="name" || elementName=="event_name" || elementName=="event_description" || elementName=="start_time" || elementName=="end_time")
         {
             if(elementName=="event_name"){
                 passName=false;
+                
+                //I added the following 4 lines of code -CB
                 let event = Event()
                 event.name = eventName
                 event.date = eventDate
@@ -244,6 +248,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
+        //I added this if/else statement - CB
         if (currentElement == "event_name") {
             eventName += string
         } else if (currentElement == "date") {
@@ -251,6 +256,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         }
     
         
+        //Not sure if these two if statements are necessary anymore but I didn't want to delete them in case they were - CB
         if(passName){
             strXMLData=strXMLData+"\n\n"+string
         }
