@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FourthViewController: UIViewController {
+class FourthViewController: UIViewController, UIWebViewDelegate {
     
     
     @IBOutlet var donateView: UIWebView!
@@ -19,10 +19,16 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       let donateURL = "https://www.calvarycorvallis.org/give/"
+        let donateURL = URL (string: "https://www.calvarycorvallis.org/give/")
         
-       donateView.loadHTMLString("<iframe width=\(donateView.frame.width)\" height=\"\(donateView.frame.height)\" src=\"\(donateURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
-       
+        //let donateURL = "https://www.calvarycorvallis.org/give/"
+        
+      // donateView.loadHTMLString("<iframe width=\(donateView.frame.width)\" height=\"\(donateView.frame.height)\" src=\"\(donateURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+        let requestObj = URLRequest(url: donateURL!)
+
+       donateView.loadRequest(requestObj)
+        
+        donateView.delegate = self
      /*
         let myProjectBundle:Bundle = Bundle.main;
         let filePath:String = myProjectBundle.path(forResource: "donateHTML", ofType: "html")!
@@ -36,6 +42,10 @@ class FourthViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        self.donateView.stringByEvaluatingJavaScript(from: "document.getElementsByClassName('site-header')[0].style.display='none';" + "document.getElementsByClassName('footer-widgets')[0].style.display='none';")
+    }
    
     
     override func didReceiveMemoryWarning() {
