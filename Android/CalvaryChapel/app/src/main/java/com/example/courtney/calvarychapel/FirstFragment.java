@@ -96,7 +96,8 @@ public class FirstFragment extends Fragment {
                 try {
                     JSONObject jsonResponse = response.getJSONObject(TAG_CONTENT);
                     String jsonData = jsonResponse.getString(TAG_RENDERED);
-                    myWebView.loadDataWithBaseURL("file;///android_asset/", jsonData, "text/html", "utf-8", null);
+                    String bulletinContent = "<!DOCTYPE HTML><html><head><style> body {color: #5b5e5e; font-family: 'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17; text-decoration: none; } .staff a { border-bottom: 0px none; } a:focus, a:hover { border-bottom: 1px solid #fbaf17; color: #b17b0e; }</style></head><body>" + jsonData + "</body></html>";
+                    myWebView.loadDataWithBaseURL("file:///android_asset/", bulletinContent, "text/html", "utf-8", null);
                     myWebView.getSettings().setAllowFileAccess(true);
                     Log.e("App", "Success: " + response.getString("yourJsonElement"));
 
