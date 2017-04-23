@@ -14,11 +14,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
  * Created by Courtney on 2/4/17.
+ * Tutorial for XML Parsing: http://www.androidbegin.com/tutorial/android-xml-parse-images-and-texts-tutorial/
  */
 
 public class SecondFragment extends Fragment {
@@ -29,17 +32,17 @@ public class SecondFragment extends Fragment {
     ArrayList<HashMap<String,String>> arrayList;
     static String NAME = "event_name";
     static String DATE = "date";
+    private static String timeStamp = new SimpleDateFormat("yyyy.MM.dd").format(new Date());
     private static final String URL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=2017-03-05";
+  //  private static final String URL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=" + timeStamp;
     View myView;
-    private static final String PASSWORD = "bonnc123";
-    private static final String USERNAME = "bonncosu";
-    private static final String CREDENTIALS = USERNAME + ":" + PASSWORD;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.second_layout, container, false);
 
+        System.out.println(timeStamp);
         new DownloadXML().execute();
 
         return myView;
