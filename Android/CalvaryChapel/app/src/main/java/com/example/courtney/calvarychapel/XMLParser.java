@@ -1,14 +1,25 @@
 package com.example.courtney.calvarychapel;
 
-import android.util.Xml;
+import android.util.Base64;
+import android.util.Log;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.StringReader;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by Courtney on 4/13/17.
@@ -16,105 +27,70 @@ import java.util.List;
 
 public class XMLParser {
 
-    private static final String ns = null;
+    private static final String PASSWORD = "bonnc123";
+    private static final String USERNAME = "bonncosu";
+    private static final String CREDENTIALS = USERNAME + ":" + PASSWORD;
 
-    public static class Entry {
-        public final String event_name;
-        public final String date;
+   public XMLParser() {
 
-        private Entry(String event_name, String date) {
-            this.event_name = event_name;
-            this.date = date;
-        }
-    }
+   }
+   public String getXmlFromUrl(String url) {
+       OkHttpClient client = new OkHttpClient();
+           final String basic = "Basic " + Base64.encodeToString(CREDENTIALS.getBytes(), Base64.NO_WRAP);
+           String str = null;
+           Request request = new Request.Builder()
+                   .url(url)
+                   .header("Authorization", basic)
+                   .build();
 
-    public List parse(InputStream in) throws XmlPullParserException, IOException {
-        try {
-            XmlPullParser parser = Xml.newPullParser();
-            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            parser.setInput(in, null);
-            parser.nextTag();
-            return readFeed(parser);
-        } finally {
-            in.close();
-        }
-    }
+           try {
+               Response response = client.newCall(request).execute();
+               str = response.body().string();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
 
-    private List readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
-        List entries = new ArrayList();
+       return str;
+   }
 
-        parser.require(XmlPullParser.START_TAG, ns, "ccb_api");
-        while (parser.next() != XmlPullParser.END_TAG) {
-            if (parser.getEventType() != XmlPullParser.START_TAG) {
-                continue;
-            }
-            String name = parser.getName();
-            if (name.equals("item")) {
-                entries.add(readEntry(parser));
-            } else {
-                skip(parser);
-            }
-        }
-        return entries;
-    }
+   public Document getDomElement(String xml) {
+       Document doc = null;
+       DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+       try {
+           DocumentBuilder db = dbf.newDocumentBuilder();
+           InputSource is = new InputSource();
+           is.setCharacterStream(new StringReader(xml));
+           doc = db.parse(is);
+       } catch (ParserConfigurationException e) {
+           Log.e("Error: ", e.getMessage());
+           return null;
+       } catch (SAXException e) {
+           Log.e("Error: ", e.getMessage());
+           return null;
+       } catch (IOException e) {
+           Log.e("Error: ", e.getMessage());
+           return null;
+       }
 
-    private Entry readEntry(XmlPullParser parser) throws XmlPullParserException, IOException {
-        parser.require(XmlPullParser.START_TAG, ns, "item");
-        String event_name = null;
-        String date = null;
-        while (parser.next() != XmlPullParser.END_TAG) {
-            if (parser.getEventType() != XmlPullParser.START_TAG) {
-                continue;
-            }
-            String name = parser.getName();
-            if(name.equals("event_name")) {
-                event_name = readEventName(parser);
-            } else if (name.equals("date")) {
-                date = readDate(parser);
-            } else {
-                skip(parser);
-            }
-        }
-        return new Entry(event_name, date);
-    }
+       return doc;
+   }
 
-    private String readEventName(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "event_name");
-        String event_name = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "event_name");
-        return event_name;
-    }
+   public final String getElementValue(Node elem) {
+       Node child;
+       if (elem != null) {
+           if (elem.hasChildNodes()) {
+               for (child = elem.getFirstChild(); child != null; child = child.getNextSibling()) {
+                   if (child.getNodeType() == Node.TEXT_NODE) {
+                       return child.getNodeValue();
+                   }
+               }
+           }
+       }
+        return "";
+   }
 
-    private String readDate(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "date");
-        String event_name = readText(parser);
-        parser.require(XmlPullParser.END_TAG, ns, "date");
-        return event_name;
-    }
-
-    private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
-        String result = "";
-        if (parser.next() == XmlPullParser.TEXT) {
-            result = parser.getText();
-            parser.nextTag();
-        }
-        return result;
-    }
-
-    private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
-        if (parser.getEventType() != XmlPullParser.START_TAG) {
-            throw new IllegalStateException();
-        }
-        int depth = 1;
-        while (depth != 0) {
-            switch (parser.next()) {
-                case XmlPullParser.END_TAG:
-                    depth--;
-                    break;
-                case XmlPullParser.START_TAG:
-                    depth++;
-                    break;
-            }
-        }
-    }
+   public String getValue(Element item, String str) {
+       NodeList n = item.getElementsByTagName(str);
+       return this.getElementValue(n.item(0));
+   }
 }
