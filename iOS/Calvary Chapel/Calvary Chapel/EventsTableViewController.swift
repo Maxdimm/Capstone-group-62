@@ -238,7 +238,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
                 //I added the following 4 lines of code -CB
                 let event = Event()
                 event.name = eventName
-                event.date = eventDate
+                event.month = eventDate
                 
                 events.append(event)
             }
