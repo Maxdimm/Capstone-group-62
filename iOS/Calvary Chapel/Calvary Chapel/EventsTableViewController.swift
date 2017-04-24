@@ -252,7 +252,50 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         if (currentElement == "event_name") {
             eventName += string
         } else if (currentElement == "date") {
-            eventDate += string
+            
+            let date_string = "2017-04-24" as String
+            let startIndex = date_string.index(date_string.startIndex, offsetBy: 5)
+            let endIndex = date_string.index(date_string.startIndex, offsetBy: 2)
+
+            let day = date_string.substring(to: startIndex)
+            print("day: ", day)
+            let month = date_string.substring(from: startIndex)
+            print("month: ", month)
+            
+            var month_int = month.substring(to: endIndex)
+            print ("day substring: ", month_int)
+            
+            var month_value = ""
+            
+            if month_int == "01" {
+                month_value = "January"
+            } else if month_int == "02" {
+                month_value = "February"
+            } else if month_int == "03" {
+                month_value = "March"
+            } else if month_int == "04" {
+                month_value = "April"
+            } else if month_int == "05" {
+                month_value = "May"
+            } else if month_int == "06" {
+                month_value = "June"
+            } else if month_int == "07" {
+                month_value = "July"
+            } else if month_int == "08" {
+                month_value = "August"
+            } else if month_int == "09" {
+                month_value = "September"
+            } else if month_int == "10" {
+                month_value = "October"
+            } else if month_int == "11" {
+                month_value = "November"
+            } else if month_int == "12" {
+                month_value = "December"
+            } else {
+                month_value = "N/A"
+            }
+            
+            eventDate = month_value
         }
     
         
