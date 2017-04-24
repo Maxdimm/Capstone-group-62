@@ -217,7 +217,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         currentElement=elementName;
-        if(elementName=="event_name" || elementName=="event_name" || elementName=="event_description" || elementName=="start_time" || elementName=="event_name")
+        if(elementName=="event_name" || elementName=="date" || elementName=="location" || elementName=="start_time" || elementName=="event_name")
         {
             if(elementName=="event_name"){
                 passName=true;
@@ -230,7 +230,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
        // currentElement=""; //i commented out this line because we want to keep the currentElement from above
-        if(elementName=="name" || elementName=="event_name" || elementName=="event_description" || elementName=="start_time" || elementName=="end_time")
+        if(elementName=="date" || elementName=="event_name" || elementName=="location" || elementName=="start_time" || elementName=="end_time")
         {
             if(elementName=="event_name"){
                 passName=false;
@@ -250,10 +250,12 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         
         //I added this if/else statement - CB
         if (currentElement == "event_name") {
+            print("Stopped in event name")
             eventName += string
         } else if (currentElement == "date") {
-            
-            let date_string = "2017-04-24" as String
+            print("Stopped in date")
+            print("String: ", string)
+            let date_string = string
             let startIndex = date_string.index(date_string.startIndex, offsetBy: 5)
             let endIndex = date_string.index(date_string.startIndex, offsetBy: 2)
 
@@ -292,13 +294,12 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
             } else if month_int == "12" {
                 month_value = "December"
             } else {
-                month_value = "N/A"
+                return
             }
-            
             eventDate = month_value
         }
     
-        
+        /*
         //Not sure if these two if statements are necessary anymore but I didn't want to delete them in case they were - CB
         if(passName){
             strXMLData=strXMLData+"\n\n"+string
@@ -308,6 +309,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         {
             print(string)
         }
+        */
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
