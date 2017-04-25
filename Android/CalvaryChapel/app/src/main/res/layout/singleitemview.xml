@@ -15,7 +15,7 @@
         android:id="@+id/logo" />
 
     <TextView
-        android:text="Event Information"
+        android:text="@string/eventInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

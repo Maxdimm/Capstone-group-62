@@ -18,7 +18,7 @@
         android:src="@drawable/welcomepage"/>
 
     <TextView
-        android:text="Welcome!"
+        android:text="@string/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

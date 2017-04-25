@@ -9,7 +9,7 @@
         android:layout_marginTop="-45dp"
         android:src="@drawable/calvary"/>
     <TextView
-        android:text="This Week's Bulletin"
+        android:text="@string/bulletins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

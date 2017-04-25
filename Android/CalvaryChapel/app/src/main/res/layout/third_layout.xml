@@ -8,7 +8,7 @@
         android:layout_marginTop="-45dp"
         android:src="@drawable/calvary"/>
     <TextView
-        android:text="Donations"
+        android:text="@string/donations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
