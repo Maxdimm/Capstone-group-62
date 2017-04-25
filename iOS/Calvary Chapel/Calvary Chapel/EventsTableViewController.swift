@@ -93,72 +93,6 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    //MARK: Private Methods
-    /*
-    private func loadSampleEvents() {
-        
-        guard let event1 = Event(name: "Sunday Church", month: "February", date: "8") else {
-            fatalError("Unable to instatitate event1")
-        }
-        
-        guard let event2 = Event(name: "Life Group", month: "February", date: "10") else {
-            fatalError("Unable to instatiate event2")
-        }
-        
-        guard let event3 = Event(name: "Worship Practice", month: "February", date: "12") else {
-            fatalError("Unable to instantiate event3")
-        }
-        
-        events += [event1, event2, event3]
-    }
-    */
-    
     private func loadXMLData() {
         let userName = "bonncosu"
         let password = "bonnc123"
@@ -170,43 +104,23 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         // Specify the format for the date since CCB excepts the date as yyyy-MM-dd
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        print(dateFormatter.string(from: date as Date))
         let formattedStart = dateFormatter.string(from: date as Date)
-        
         var components = DateComponents()
         components.setValue(1, for: .month)
-        
         let month_from_now = Calendar.current.date(byAdding: components, to: date as Date)
-        
         let formattedEnd = dateFormatter.string(from: month_from_now!)
-        print("month from now: ", formattedEnd)
-        
-        // Append the formatted date to the base URL to have the full URL to connect to CCB
-        
-        
-        // This is the correct url, however it is commented out for testing purposes
         let fullURL = https+userName+":"+password+"@"+baseURL+formattedStart+"&date_end="+formattedEnd
-        
-        //let fullURL = "https://bonncosu:bonnc123@calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=2017-03-05&date_end=2017-05-05"
-        
-      //  print(fullURL)
-        
         let urlToSend: NSURL = NSURL(string: fullURL)!
         
         do {
             let test = try String(contentsOf: urlToSend as URL)
-         //   print(test)
         } catch let error {
             print(error)
         }
         // Parse the XML
         parser = XMLParser(contentsOf: urlToSend as URL)!
-       // print(parser)
         parser.delegate = self
-        
         let success:Bool = parser.parse()
-        
-  //      let event = events
         
         if success {
             print("parse success!")
@@ -264,7 +178,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
             let dayIndex = date_string.index(date_string.startIndex, offsetBy: 8)
             let day = date_string.substring(from: dayIndex)
             let month = date_string.substring(from: startIndex)
-            var month_int = month.substring(to: endIndex)
+            let month_int = month.substring(to: endIndex)
             var month_value = ""
             
             if month_int == "01" {
@@ -298,17 +212,6 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
             eventDate = day
         }
     
-        /*
-        //Not sure if these two if statements are necessary anymore but I didn't want to delete them in case they were - CB
-        if(passName){
-            strXMLData=strXMLData+"\n\n"+string
-        }
-        
-        if(passData)
-        {
-            print(string)
-        }
-        */
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
