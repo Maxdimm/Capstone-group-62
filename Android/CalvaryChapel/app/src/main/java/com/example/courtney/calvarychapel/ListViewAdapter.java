@@ -87,6 +87,7 @@ public class ListViewAdapter extends BaseAdapter {
                 FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, fragment)
+                        .addToBackStack("single_item_fragment")
                         .commit();
             }
         });

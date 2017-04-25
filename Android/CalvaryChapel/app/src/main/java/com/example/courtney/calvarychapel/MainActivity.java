@@ -39,8 +39,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if ((drawer.isDrawerOpen(GravityCompat.START)) && (getFragmentManager().getBackStackEntryCount() > 0)) {
             drawer.closeDrawer(GravityCompat.START);
+            getFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
         }
@@ -70,26 +71,31 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
                             , new HomeFragment())
+                    .addToBackStack("home_fragment")
                     .commit();
         } else if (id == R.id.nav_first_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
                             , new FirstFragment())
+                    .addToBackStack("bulletin_fragment")
                     .commit();
         } else if (id == R.id.nav_second_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
                             , new SecondFragment())
+                    .addToBackStack("event_fragment")
                     .commit();
         } else if (id == R.id.nav_third_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
                             , new ThirdFragment())
+                    .addToBackStack("donation_fragment")
                     .commit();
         } else if (id == R.id.nav_fourth_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
                             , new FourthFragment())
+                    .addToBackStack("messages_fragment")
                     .commit();
         }
 
