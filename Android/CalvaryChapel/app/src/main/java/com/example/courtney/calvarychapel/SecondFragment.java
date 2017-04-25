@@ -61,6 +61,7 @@ public class SecondFragment extends Fragment {
 
 
     protected class DownloadXML extends AsyncTask<Void, Void, Void> {
+
         @Override
         protected Void doInBackground(Void... params) {
             arrayList = new ArrayList<HashMap<String, String>>();
