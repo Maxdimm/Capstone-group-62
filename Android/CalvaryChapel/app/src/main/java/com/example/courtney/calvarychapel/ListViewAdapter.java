@@ -1,7 +1,10 @@
 package com.example.courtney.calvarychapel;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +48,8 @@ public class ListViewAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         TextView eventName;
         TextView eventDate;
+        TextView month;
+        TextView day;
 
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,19 +59,35 @@ public class ListViewAdapter extends BaseAdapter {
         resultp = data.get(position);
 
         eventName = (TextView) itemView.findViewById(R.id.eventname);
-        eventDate = (TextView) itemView.findViewById(R.id.eventdate);
+        month = (TextView) itemView.findViewById(R.id.month);
+        day = (TextView) itemView.findViewById(R.id.day);
 
         eventName.setText(resultp.get(SecondFragment.NAME));
-        eventDate.setText((resultp.get(SecondFragment.DATE)));
+        month.setText(resultp.get(SecondFragment.MONTH));
+        day.setText(resultp.get(SecondFragment.DAY));
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resultp = data.get(position);
-                Intent intent = new Intent(context, SingleItemView.class);
-                intent.putExtra("eventname", resultp.get(SecondFragment.NAME));
-                intent.putExtra("eventdate", resultp.get(SecondFragment.DATE));
-                context.startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putString("eventname", resultp.get(SecondFragment.NAME));
+                bundle.putString("month", resultp.get(SecondFragment.MONTH));
+                bundle.putString("day", resultp.get(SecondFragment.DAY));
+                bundle.putString("starttime", resultp.get(SecondFragment.START_TIME));
+                bundle.putString("endtime", resultp.get(SecondFragment.END_TIME));
+                bundle.putString("location", resultp.get(SecondFragment.LOCATION));
+                bundle.putString("groupname", resultp.get(SecondFragment.GROUP_NAME));
+                bundle.putString("leadername", resultp.get(SecondFragment.LEADER_NAME));
+                bundle.putString("leaderphone", resultp.get(SecondFragment.LEADER_PHONE));
+                bundle.putString("leaderemail", resultp.get(SecondFragment.LEADER_EMAIL));
+
+                Fragment fragment = new SingleItemFragment();
+                fragment.setArguments(bundle);
+                FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, fragment)
+                        .commit();
             }
         });
 

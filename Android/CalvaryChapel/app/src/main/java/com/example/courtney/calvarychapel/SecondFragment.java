@@ -14,8 +14,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -32,9 +35,18 @@ public class SecondFragment extends Fragment {
     ArrayList<HashMap<String,String>> arrayList;
     static String NAME = "event_name";
     static String DATE = "date";
-    private static String timeStamp = new SimpleDateFormat("yyyy.MM.dd").format(new Date());
-    private static final String URL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=2017-03-05";
-  //  private static final String URL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=" + timeStamp;
+    static String MONTH = "month";
+    static String DAY = "day";
+    static String START_TIME = "start_time";
+    static String END_TIME = "end_time";
+    static String LOCATION = "location";
+    static String GROUP_NAME = "group_name";
+    static String LEADER_NAME = "leader_name";
+    static String LEADER_PHONE = "leader_phone";
+    static String LEADER_EMAIL = "leader_email";
+    private static String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+    private static String oneMonth = addOneMonth(timeStamp);
+    private static final String URL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=" + timeStamp + "&date_end=" + oneMonth;
     View myView;
 
     @Nullable
@@ -42,7 +54,6 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.second_layout, container, false);
 
-        System.out.println(timeStamp);
         new DownloadXML().execute();
 
         return myView;
@@ -57,6 +68,9 @@ public class SecondFragment extends Fragment {
             XMLParser parser = new XMLParser();
             String xml = parser.getXmlFromUrl(URL);
             Document doc = parser.getDomElement(xml);
+            String month;
+            String date;
+            String day;
 
             try {
                 NodeList nl = doc.getElementsByTagName("item");
@@ -64,7 +78,18 @@ public class SecondFragment extends Fragment {
                     HashMap<String, String> map = new HashMap<String, String>();
                     Element e = (Element) nl.item(i);
                     map.put(NAME, parser.getValue(e, NAME));
-                    map.put(DATE, parser.getValue(e, DATE));
+                    date = parser.getValue(e, DATE);
+                    month = date.substring(5,7);
+                    day = date.substring(8,10);
+                    map.put(MONTH, getMonth(month));
+                    map.put(DAY, day);
+                    map.put(START_TIME, parser.getValue(e, START_TIME));
+                    map.put(END_TIME, parser.getValue(e, END_TIME));
+                    map.put(LOCATION, parser.getValue(e, LOCATION));
+                    map.put(GROUP_NAME, parser.getValue(e, GROUP_NAME));
+                    map.put(LEADER_NAME, parser.getValue(e, LEADER_NAME));
+                    map.put(LEADER_PHONE, parser.getValue(e, LEADER_PHONE));
+                    map.put(LEADER_EMAIL, parser.getValue(e, LEADER_EMAIL));
                     arrayList.add(map);
                 }
             } catch (Exception e) {
@@ -84,5 +109,56 @@ public class SecondFragment extends Fragment {
 
     }
 
+
+    public static String addOneMonth (String date) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date sDate;
+        String newDate;
+        try {
+            sDate = df.parse(date);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(sDate);
+            calendar.add(Calendar.MONTH, 1);
+            newDate = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+            return newDate;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static String getMonth (String month_int) {
+        String month_value;
+        if (month_int.equals("01")) {
+            month_value = "January";
+        } else if (month_int.equals("02")) {
+            month_value = "February";
+        } else if (month_int.equals("03")) {
+            month_value = "March";
+        } else if (month_int.equals("04")) {
+            month_value = "April";
+        } else if (month_int.equals("05")) {
+            month_value = "May";
+        } else if (month_int.equals("06")) {
+            month_value = "June";
+        } else if (month_int.equals("07")) {
+            month_value = "July";
+        } else if (month_int.equals("08")) {
+            month_value = "August";
+        } else if (month_int.equals("09")) {
+            month_value = "September";
+        } else if (month_int.equals("10")) {
+            month_value = "October";
+        } else if (month_int.equals("11")) {
+            month_value = "November";
+        } else if (month_int.equals("12")) {
+            month_value = "December";
+        } else {
+            return null;
+        }
+
+        return month_value;
+    }
 
 }
