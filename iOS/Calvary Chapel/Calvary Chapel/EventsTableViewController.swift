@@ -38,6 +38,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     //I added these two global variables - CB
     var eventName = String()
     var eventDate = String()
+    var eventMonth = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,26 +164,30 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         let password = "bonnc123"
         let https = "https://"
         let baseURL = "calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start="
-        
         let dateFormatter = DateFormatter()
         let date = NSDate()
         
         // Specify the format for the date since CCB excepts the date as yyyy-MM-dd
-        
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        
         print(dateFormatter.string(from: date as Date))
+        let formattedStart = dateFormatter.string(from: date as Date)
         
-        let formattedDate = dateFormatter.string(from: date as Date)
+        var components = DateComponents()
+        components.setValue(1, for: .month)
+        
+        let month_from_now = Calendar.current.date(byAdding: components, to: date as Date)
+        
+        let formattedEnd = dateFormatter.string(from: month_from_now!)
+        print("month from now: ", formattedEnd)
         
         // Append the formatted date to the base URL to have the full URL to connect to CCB
         
         
         // This is the correct url, however it is commented out for testing purposes
-        //let fullURL = https+userName+":"+password+"@"+baseURL+formattedDate
+        let fullURL = https+userName+":"+password+"@"+baseURL+formattedStart+"&date_end="+formattedEnd
         
-        let fullURL = "https://bonncosu:bonnc123@calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=2017-03-05"
+        //let fullURL = "https://bonncosu:bonnc123@calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=2017-03-05&date_end=2017-05-05"
         
       //  print(fullURL)
         
@@ -238,7 +243,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
                 //I added the following 4 lines of code -CB
                 let event = Event()
                 event.name = eventName
-                event.month = eventDate
+                event.month = eventMonth
+                event.date = eventDate
                 
                 events.append(event)
             }
@@ -250,23 +256,15 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         
         //I added this if/else statement - CB
         if (currentElement == "event_name") {
-            print("Stopped in event name")
             eventName += string
         } else if (currentElement == "date") {
-            print("Stopped in date")
-            print("String: ", string)
             let date_string = string
             let startIndex = date_string.index(date_string.startIndex, offsetBy: 5)
             let endIndex = date_string.index(date_string.startIndex, offsetBy: 2)
-
-            let day = date_string.substring(to: startIndex)
-            print("day: ", day)
+            let dayIndex = date_string.index(date_string.startIndex, offsetBy: 8)
+            let day = date_string.substring(from: dayIndex)
             let month = date_string.substring(from: startIndex)
-            print("month: ", month)
-            
             var month_int = month.substring(to: endIndex)
-            print ("day substring: ", month_int)
-            
             var month_value = ""
             
             if month_int == "01" {
@@ -296,7 +294,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
             } else {
                 return
             }
-            eventDate = month_value
+            eventMonth = month_value
+            eventDate = day
         }
     
         /*
