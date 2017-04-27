@@ -14,10 +14,17 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var bulletinWeb: UIWebView!
     
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bulletinWeb.delegate = self
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
         
         restapisample()
         
@@ -93,8 +100,16 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
         }
         task.resume()
     }
-
-
+    
+  /*  func webViewDidStartLoad(_ webView: UIWebView) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+*/
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
