@@ -8,24 +8,16 @@
 
 import UIKit
 
+class Event {
+    var name: String?
+    var month: String?
+    var date: String?
+    var location: String?
+}
+
 class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
-    class Event {
-        var name: String?
-        var month: String?
-        var date: String?
-        /*
-        init?(name: String, month: String, date: String) {
-            self.name = name
-            self.month = month
-            self.date = date
-            
-            if name.isEmpty {
-                return nil
-            }
-        }
-        */
-    }
+    
     
     var strXMLData:String = ""
     var currentElement:String = ""
@@ -34,12 +26,16 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     var parser = XMLParser()
     
     //Mark: Properties
-    var events: [Event] = []
+    //var events: [Event] = []
+    var events = [Event]()
+    
     //I added these two global variables - CB
     var eventName = String()
     var eventDate = String()
     var eventMonth = String()
-
+    var eventLocation = String()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -91,6 +87,15 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         cell.dateLabel.text = event.date
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let event = events[indexPath.row]
+        
+        let destinationVC = EventDetailViewController()
+        destinationVC.eventDetail = event
+        destinationVC.performSegue(withIdentifier: "eventsToDetail", sender: self)
     }
     
     private func loadXMLData() {
@@ -159,7 +164,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
                 event.name = eventName
                 event.month = eventMonth
                 event.date = eventDate
-                
+                event.location = eventLocation
                 events.append(event)
             }
             passData=false;
