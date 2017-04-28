@@ -13,6 +13,10 @@
     <string name="donations">Donations</string>
     <string name="messages">Messages</string>
 
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="month">Month</string>
+
     <string name="eventLabel">Event Name:</string>
     <string name="dateLabel">Date:</string>
     <string name="startLabel">Start Time:</string>

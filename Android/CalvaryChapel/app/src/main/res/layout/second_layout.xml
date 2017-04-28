@@ -17,9 +17,38 @@
         android:id="@+id/textView2"
         android:textSize="24sp" />
 
+
+    <TextView
+        android:text="@string/month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:id="@+id/month"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/month"
+        android:layout_below="@+id/textView2"
+        android:text="@string/previous"
+        android:id="@+id/previous"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/month"
+        android:layout_below="@+id/textView2"
+        android:text="@string/next"
+        android:id="@+id/next"
+        android:textSize="10sp"/>
+
     <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="125dp"/>
 </RelativeLayout>

@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -29,7 +31,11 @@ import java.util.HashMap;
 
 public class SecondFragment extends Fragment {
 
-
+    TextView monthTxt;
+    TextView previous;
+    TextView next;
+    TextView txt;
+    Button button;
     ListView listView;
     ListViewAdapter adapter;
     ArrayList<HashMap<String,String>> arrayList;
@@ -44,15 +50,87 @@ public class SecondFragment extends Fragment {
     static String LEADER_NAME = "leader_name";
     static String LEADER_PHONE = "leader_phone";
     static String LEADER_EMAIL = "leader_email";
-    private static String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-    private static String oneMonth = addOneMonth(timeStamp);
-    private static final String URL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=" + timeStamp + "&date_end=" + oneMonth;
+    private static String startDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+    private static String endDate;
+    private static String baseURL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=";
+    private static String endDateChoice = "&date_end=";
+    private static String fullURL;
+    static String chosenDate;
     View myView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.second_layout, container, false);
+
+        Calendar calendar = Calendar.getInstance();
+        String currentMonthName = new SimpleDateFormat("MMMM").format(calendar.getTime());
+        int currentMonth = calendar.get(Calendar.MONTH) + 1;
+        monthTxt = (TextView) myView.findViewById(R.id.month);
+        monthTxt.setText(currentMonthName);
+
+        endDate = getLastDayofMonth(currentMonth);
+
+        fullURL = baseURL + startDate + endDateChoice + endDate;
+
+
+        previous = (TextView) myView.findViewById(R.id.previous);
+        next = (TextView) myView.findViewById(R.id.next);
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String month = startDate.substring(5,7);
+                String year = startDate.substring(0,4);
+                Calendar c = Calendar.getInstance();
+                c.set(Integer.parseInt(year), Integer.parseInt(month), 01);
+                c.add(Calendar.MONTH, -1);
+                int newMonth = c.get(Calendar.MONTH);
+
+                String monthName = String.valueOf(newMonth);
+                if (monthName.length() == 1) {
+                    monthName = "0" + monthName;
+                }
+
+                startDate = year + "-" + monthName + "-" + "01";
+                endDate = getLastDayofMonth(newMonth);
+                monthTxt.setText(getMonth(monthName));
+
+                fullURL = baseURL + startDate + endDateChoice + endDate;
+
+                new DownloadXML().execute();
+
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String month = startDate.substring(5,7);
+                String year = startDate.substring(0,4);
+                Calendar c = Calendar.getInstance();
+                c.set(Integer.parseInt(year), Integer.parseInt(month), 01);
+                c.add(Calendar.MONTH, 1);
+                int newMonth = c.get(Calendar.MONTH);
+
+                String monthName = String.valueOf(newMonth);
+                if (monthName.length() == 1) {
+                    monthName = "0" + monthName;
+                }
+
+                startDate = year + "-" + monthName + "-" + "01";
+                endDate = getLastDayofMonth(newMonth);
+                monthTxt.setText(getMonth(monthName));
+
+                fullURL = baseURL + startDate + endDateChoice + endDate;
+
+                new DownloadXML().execute();
+
+
+            }
+        });
+
+
 
         new DownloadXML().execute();
 
@@ -67,7 +145,7 @@ public class SecondFragment extends Fragment {
             arrayList = new ArrayList<HashMap<String, String>>();
 
             XMLParser parser = new XMLParser();
-            String xml = parser.getXmlFromUrl(URL);
+            String xml = parser.getXmlFromUrl(fullURL);
             Document doc = parser.getDomElement(xml);
             String month;
             String date;
@@ -129,6 +207,26 @@ public class SecondFragment extends Fragment {
         return null;
     }
 
+    public static String getLastDayofMonth (int month) {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        calendar.set(year, month - 1, 1);
+        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
+        Date date = calendar.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(date);
+    }
+
+    public static String getFirstDayofMonth (int month) {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        calendar.set(year, month - 1, 1);
+        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE));
+        Date date = calendar.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(date);
+    }
+
     public static String getMonth (String month_int) {
         String month_value;
         if (month_int.equals("01")) {
@@ -153,7 +251,7 @@ public class SecondFragment extends Fragment {
             month_value = "October";
         } else if (month_int.equals("11")) {
             month_value = "November";
-        } else if (month_int.equals("12")) {
+        } else if (month_int.equals("12") || month_int.equals("00")) {
             month_value = "December";
         } else {
             return null;
@@ -163,3 +261,5 @@ public class SecondFragment extends Fragment {
     }
 
 }
+
+
