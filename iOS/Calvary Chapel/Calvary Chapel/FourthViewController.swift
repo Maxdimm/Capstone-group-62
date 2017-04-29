@@ -49,7 +49,7 @@ class FourthViewController: UIViewController, UIWebViewDelegate {
     
 
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        self.donateView.stringByEvaluatingJavaScript(from: "document.getElementsByClassName('site-header')[0].style.display='none';" + "document.getElementsByClassName('footer-widgets')[0].style.display='none';")
+        self.donateView.stringByEvaluatingJavaScript(from: "document.getElementsByClassName('site-header')[0].style.display='none';" + "document.getElementsByClassName('footer-widgets')[0].style.display='none';" + "document.getElementsByClassName('content')[0].style.display='none';")
         
         activityIndicator.isHidden = true
         activityIndicator.stopAnimating()
