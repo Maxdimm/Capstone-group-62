@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -129,7 +129,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCA-0H-lsf">
-                                            <rect key="frame" x="346.5" y="49.5" width="58.5" height="21.5"/>
+                                            <rect key="frame" x="346" y="49" width="58.5" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -143,7 +143,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBK-5Q-4lc">
-                                            <rect key="frame" x="354" y="4" width="51" height="41"/>
+                                            <rect key="frame" x="354" y="4" width="50.5" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
@@ -155,7 +155,7 @@
                                     <outlet property="dateLabel" destination="zBK-5Q-4lc" id="rAw-a1-2B6"/>
                                     <outlet property="eventLabel" destination="tDT-R8-YVw" id="bTx-Hp-hFD"/>
                                     <outlet property="monthLabel" destination="gCA-0H-lsf" id="Ncn-ou-gTZ"/>
-                                    <segue destination="gD7-AL-bi3" kind="show" id="Su3-eh-zyQ"/>
+                                    <segue destination="gD7-AL-bi3" kind="show" identifier="eventsToDetail" id="Su3-eh-zyQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="2197.5999999999999" y="-2.2488755622188905"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Detail View Controller-->
         <scene sceneID="VCC-dP-OcV">
             <objects>
-                <viewController id="gD7-AL-bi3" sceneMemberID="viewController">
+                <viewController id="gD7-AL-bi3" customClass="EventDetailViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lV1-TR-mpN"/>
                         <viewControllerLayoutGuide type="bottom" id="EpY-fh-sYS"/>
@@ -194,6 +194,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bvP-Kx-cgq"/>
+                    <connections>
+                        <outlet property="eventName" destination="3bm-ka-QEm" id="TJ0-Ad-lAf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="104-eL-l6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
