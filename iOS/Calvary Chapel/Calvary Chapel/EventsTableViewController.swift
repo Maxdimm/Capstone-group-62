@@ -36,6 +36,9 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     //var events: [Event] = []
     var events = [Event]()
     
+    @IBOutlet weak var changeDate: UITextField!
+    let datePicker = UIDatePicker()
+    
     //I added these two global variables - CB
     var eventName = String()
     var eventDate = String()
@@ -63,10 +66,10 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.monthSelection.dataSource = self;
-        self.monthSelection.delegate = self;
+        //self.monthSelection.dataSource = self;
+        //self.monthSelection.delegate = self;
         
-        
+        createDatePicker()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,7 +82,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         loadXMLData()
         
         let row = beginningMonth - 1
-        self.monthSelection.selectRow(row, inComponent: 0, animated: true)
+        //self.monthSelection.selectRow(row, inComponent: 0, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,6 +157,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         var fullURL = ""
         
         if (pickerTracker == true) {
+            print("Picker tracker is: ", pickerTracker)
+            print("Start date: ", startDate)
             fullURL = https+userName+":"+password+"@"+baseURL+startDate+"&date_end="+endDate
         } else {
             fullURL = https+userName+":"+password+"@"+baseURL+formattedStart+"&date_end="+formattedEnd
@@ -332,27 +337,32 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         } else if (component == 3) {
             year = "2019"*/
     
-        updateTable()
+        //updateTable()
     }
 
     func updateTable() {
-        pickerTracker = true
-        let monthComp = pickerDataSource[monthComponent][monthSelection.selectedRow(inComponent: monthComponent)]
-        let yearComp = pickerDataSource[yearComponent][monthSelection.selectedRow(inComponent: yearComponent)]
+        //pickerTracker = true
         
-        let monthInt = getMonthInt(monthName: monthComp)
+        endDate = getEndDate(startDate: startDate)
+        //print("month int: ", month_int)
         
+        //let monthComp = pickerDataSource[monthComponent][monthSelection.selectedRow(inComponent: monthComponent)]
+        //let yearComp = pickerDataSource[yearComponent][monthSelection.selectedRow(inComponent: yearComponent)]
+        
+        //let monthInt = getMonthInt(monthName: monthComp)
+        
+        /*
         startDate = getStartDate(month_int: String(monthInt), year_int: yearComp)
         endDate = getEndDate(month_int: monthInt, year_int: yearComp)
-        
+        */
         //Wait 4 seconds before updating the events table to allow the users long enough to change both the month and the year if they choose
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
             print(self.startDate + " " + self.endDate)
             self.events.removeAll()
             self.loadXMLData()
             self.tableView.reloadData()
         })
-     
+ 
         
     }
     
@@ -362,7 +372,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         
         return startDate
     }
-    
+    /*
     func getEndDate(month_int: String, year_int: String) -> String {
         let stringDate = getStartDate(month_int: month_int, year_int: year_int)
         let dateFormatter = DateFormatter()
@@ -370,6 +380,20 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let newDate = dateFormatter.date(from: stringDate)
         
+        var components = DateComponents()
+        components.setValue(1, for: .month)
+        let month_from_now = Calendar.current.date(byAdding: components, to: newDate!)
+        
+        let endDate = dateFormatter.string(from: (month_from_now!-1))
+        
+        return endDate
+    }
+    */
+    func getEndDate(startDate: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let newDate = dateFormatter.date(from: startDate)
         var components = DateComponents()
         components.setValue(1, for: .month)
         let month_from_now = Calendar.current.date(byAdding: components, to: newDate!)
@@ -409,4 +433,33 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         return "";
     }
     
+    func createDatePicker() {
+        // format the picker 
+        //datePicker.datePickerMode = .date
+        datePicker.datePickerMode = UIDatePickerMode.date
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // bar button item 
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneButton], animated: false)
+        
+        changeDate.inputAccessoryView = toolbar
+        
+        changeDate.inputView = datePicker
+    }
+    
+    func donePressed() {
+        // format date 
+        let dateFormatter = DateFormatter()
+        //dateFormatter.dateStyle = .full
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        //dateFormatter.timeStyle = .none
+        pickerTracker = true
+        changeDate.text = dateFormatter.string(from: datePicker.date)
+        startDate = dateFormatter.string(from: datePicker.date)
+        updateTable()
+        self.view.endEditing(true)
+    }
 }
