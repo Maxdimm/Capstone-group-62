@@ -29,6 +29,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     //var events: [Event] = []
     var events = [Event]()
     
+    let segueIdentifier = "ShowSegue"
+    
     //I added these two global variables - CB
     var eventName = String()
     var eventDate = String()
@@ -56,6 +58,15 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? EventDetailViewController {
+                let eventIndex = tableView.indexPathForSelectedRow?.row
+                let event = events[eventIndex!]
+                destinationVC.destinationEvent = event
+        }
     }
 
     // MARK: - Table view data source
@@ -90,12 +101,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let event = events[indexPath.row]
-        
-        let destinationVC = EventDetailViewController()
-        destinationVC.eventDetail = event
-        destinationVC.performSegue(withIdentifier: "eventsToDetail", sender: self)
+       
     }
     
     private func loadXMLData() {
@@ -176,6 +182,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         //I added this if/else statement - CB
         if (currentElement == "event_name") {
             eventName += string
+        } else if (currentElement == "location") {
+            eventLocation += string
         } else if (currentElement == "date") {
             let date_string = string
             let startIndex = date_string.index(date_string.startIndex, offsetBy: 5)

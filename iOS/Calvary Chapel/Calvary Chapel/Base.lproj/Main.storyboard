@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -121,15 +121,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventsTableViewCell" rowHeight="80" id="CYR-xr-JXl" customClass="EventsTableViewCell" customModule="Calvary_Chapel" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EventsTableViewCell" rowHeight="80" id="CYR-xr-JXl" customClass="EventsTableViewCell" customModule="Calvary_Chapel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYR-xr-JXl" id="kVm-0b-oeT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCA-0H-lsf">
-                                            <rect key="frame" x="346" y="49" width="58.5" height="21.5"/>
+                                            <rect key="frame" x="313" y="48.5" width="58" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -143,7 +143,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBK-5Q-4lc">
-                                            <rect key="frame" x="354" y="4" width="50.5" height="41"/>
+                                            <rect key="frame" x="320.5" y="3" width="50.5" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
@@ -155,7 +155,7 @@
                                     <outlet property="dateLabel" destination="zBK-5Q-4lc" id="rAw-a1-2B6"/>
                                     <outlet property="eventLabel" destination="tDT-R8-YVw" id="bTx-Hp-hFD"/>
                                     <outlet property="monthLabel" destination="gCA-0H-lsf" id="Ncn-ou-gTZ"/>
-                                    <segue destination="gD7-AL-bi3" kind="show" identifier="eventsToDetail" id="Su3-eh-zyQ"/>
+                                    <segue destination="gD7-AL-bi3" kind="show" identifier="eventDetailSegue" id="nuh-4J-KWd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -174,7 +174,7 @@
         <!--Event Detail View Controller-->
         <scene sceneID="VCC-dP-OcV">
             <objects>
-                <viewController id="gD7-AL-bi3" customClass="EventDetailViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gD7-AL-bi3" customClass="EventDetailViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lV1-TR-mpN"/>
                         <viewControllerLayoutGuide type="bottom" id="EpY-fh-sYS"/>
@@ -184,7 +184,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bm-ka-QEm">
-                                <rect key="frame" x="16" y="72" width="125" height="21"/>
+                                <rect key="frame" x="96" y="72" width="298" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ant-uO-lll">
+                                <rect key="frame" x="96" y="101" width="298" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlb-cp-wtc">
+                                <rect key="frame" x="96" y="130" width="298" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -195,12 +209,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="bvP-Kx-cgq"/>
                     <connections>
-                        <outlet property="eventName" destination="3bm-ka-QEm" id="TJ0-Ad-lAf"/>
+                        <outlet property="eventDateLabel" destination="Ant-uO-lll" id="MmA-I0-h2M"/>
+                        <outlet property="eventLocationLabel" destination="zlb-cp-wtc" id="5kf-t1-skV"/>
+                        <outlet property="eventNameLabel" destination="3bm-ka-QEm" id="01z-8Q-fxw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="104-eL-l6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2941.5" y="-1.5"/>
+            <point key="canvasLocation" x="2940.579710144928" y="-1.6304347826086958"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

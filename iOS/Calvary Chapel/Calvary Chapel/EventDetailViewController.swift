@@ -10,16 +10,23 @@ import UIKit
 
 class EventDetailViewController: UIViewController {
 
-    @IBOutlet weak var eventName: UILabel!
-    var eventDetail: Event?
-    //var eventDetail: String?
+    // Labels
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var eventDateLabel: UILabel!
+    @IBOutlet weak var eventLocationLabel: UILabel!
+    
+    // Data Passed
+    var destinationEvent = Event()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("event detail: ", eventDetail)
+    
+        eventNameLabel.text = destinationEvent.name!
+        eventDateLabel.text = destinationEvent.month! + " " + destinationEvent.date!
+        eventLocationLabel.text = destinationEvent.location!
 
-        // Do any additional setup after loading the view.
+       print(destinationEvent.location!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +34,6 @@ class EventDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
