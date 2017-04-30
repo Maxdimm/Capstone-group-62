@@ -8,24 +8,22 @@
 
 import UIKit
 
+class Event {
+    var name: String?
+    var month: String?
+    var date: String?
+    var location: String?
+    var startTime: String?
+    var endTime: String?
+    var groupName: String?
+    var leaderName: String?
+    var leaderEmail: String?
+    var leaderPhone: String?
+}
+
 class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
-    class Event {
-        var name: String?
-        var month: String?
-        var date: String?
-        /*
-        init?(name: String, month: String, date: String) {
-            self.name = name
-            self.month = month
-            self.date = date
-            
-            if name.isEmpty {
-                return nil
-            }
-        }
-        */
-    }
+    
     
     var strXMLData:String = ""
     var currentElement:String = ""
@@ -34,12 +32,22 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     var parser = XMLParser()
     
     //Mark: Properties
-    var events: [Event] = []
+    //var events: [Event] = []
+    var events = [Event]()
+    
     //I added these two global variables - CB
     var eventName = String()
     var eventDate = String()
     var eventMonth = String()
-
+    var eventLocation = String()
+    var eventStartTime = String()
+    var eventEndTime = String()
+    var eventGroupName = String()
+    var eventLeaderName = String()
+    var eventLeaderEmail = String()
+    var eventLeaderPhone = String()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,6 +68,15 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? EventDetailViewController {
+                let eventIndex = tableView.indexPathForSelectedRow?.row
+                let event = events[eventIndex!]
+                destinationVC.destinationEvent = event
+        }
     }
 
     // MARK: - Table view data source
@@ -93,6 +110,10 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+    }
+    
     private func loadXMLData() {
         let userName = "bonncosu"
         let password = "bonnc123"
@@ -124,9 +145,6 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         
         if success {
             print("parse success!")
-            
-       //     print(strXMLData)
-       //     event.name = strXMLData
         } else {
             print("parse failure!")
             let parserError = parser.parserError
@@ -136,33 +154,36 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         currentElement=elementName;
-        if(elementName=="event_name" || elementName=="date" || elementName=="location" || elementName=="start_time" || elementName=="event_name")
-        {
-            if(elementName=="event_name"){
-                passName=true;
-                //assign eventName to String() - CB
-                eventName = String()
-            }
-            passData=true;
+        if (elementName == "item") {
+            eventName = String()
+            eventDate = String()
+            eventMonth = String()
+            eventLocation = String()
+            eventStartTime = String()
+            eventEndTime = String()
+            eventGroupName = String()
+            eventLeaderName = String()
+            eventLeaderEmail = String()
+            eventLeaderPhone = String()
+            
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-       // currentElement=""; //i commented out this line because we want to keep the currentElement from above
-        if(elementName=="date" || elementName=="event_name" || elementName=="location" || elementName=="start_time" || elementName=="end_time")
-        {
-            if(elementName=="event_name"){
-                passName=false;
-                
+        if (elementName == "item") {
                 //I added the following 4 lines of code -CB
-                let event = Event()
-                event.name = eventName
-                event.month = eventMonth
-                event.date = eventDate
-                
-                events.append(event)
-            }
-            passData=false;
+            let event = Event()
+            event.name = eventName
+            event.month = eventMonth
+            event.date = eventDate
+            event.location = eventLocation
+            event.startTime = eventStartTime
+            event.endTime = eventEndTime
+            event.groupName = eventGroupName
+            event.leaderName = eventLeaderName
+            event.leaderPhone = eventLeaderPhone
+            event.leaderEmail = eventLeaderEmail
+            events.append(event)
         }
     }
     
@@ -171,6 +192,20 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         //I added this if/else statement - CB
         if (currentElement == "event_name") {
             eventName += string
+        } else if (currentElement == "location") {
+            eventLocation += string
+        } else if (currentElement == "start_time") {
+            eventStartTime += string
+        } else if (currentElement == "end_time") {
+            eventEndTime += string
+        } else if (currentElement == "group_name") {
+            eventGroupName += string
+        } else if (currentElement == "leader_name") {
+            eventLeaderName += string
+        } else if (currentElement == "leader_phone") {
+            eventLeaderPhone += string
+        } else if (currentElement == "leader_email") {
+            eventLeaderEmail += string
         } else if (currentElement == "date") {
             let date_string = string
             let startIndex = date_string.index(date_string.startIndex, offsetBy: 5)
