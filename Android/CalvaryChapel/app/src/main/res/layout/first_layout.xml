@@ -14,9 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="70dp"
         android:id="@+id/textView2"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/header"/>
 
     <WebView
         android:layout_width="match_parent"

@@ -19,9 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="70dp"
         android:id="@+id/textView6"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/header"
+        android:paddingBottom="10dp"/>
 
     <TextView
         android:id="@+id/eventnamelabel"
@@ -30,13 +33,16 @@
         android:text="@string/eventLabel"
         android:layout_below="@+id/textView6"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/eventname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/eventnamelabel"
+        android:paddingBottom="10dp"
         android:layout_below="@+id/textView6"/>
 
     <TextView
@@ -46,13 +52,16 @@
         android:layout_below="@id/eventnamelabel"
         android:text="@string/dateLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/eventname"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@id/dateLabel"/>
 
     <TextView
@@ -61,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/month"
         android:layout_below="@+id/eventname"
+        android:paddingBottom="10dp"
         android:paddingLeft="5dp"/>
 
     <TextView
@@ -70,13 +80,16 @@
         android:layout_below="@id/dateLabel"
         android:text="@string/startLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/starttime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/month"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@+id/startLabel"/>
 
     <TextView
@@ -86,13 +99,16 @@
         android:layout_below="@id/startLabel"
         android:text="@string/endLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/endtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/starttime"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@+id/endLabel"/>
 
     <TextView
@@ -102,13 +118,16 @@
         android:layout_below="@id/endLabel"
         android:text="@string/locationLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/endtime"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@+id/locationLabel"/>
 
     <TextView
@@ -118,13 +137,16 @@
         android:layout_below="@id/locationLabel"
         android:text="@string/groupLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/groupname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/location"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@+id/groupLabel"/>
 
     <TextView
@@ -134,13 +156,16 @@
         android:layout_below="@id/groupLabel"
         android:text="@string/leaderLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/leadername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/groupname"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@+id/leaderLabel"/>
 
     <TextView
@@ -150,13 +175,16 @@
         android:layout_below="@id/leaderLabel"
         android:text="@string/phoneLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/leaderphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/leadername"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@+id/phoneLabel"/>
 
     <TextView
@@ -166,12 +194,15 @@
         android:layout_below="@id/phoneLabel"
         android:text="@string/emailLabel"
         android:paddingRight="5dp"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/leaderemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/leaderphone"
+        android:paddingBottom="10dp"
         android:layout_toRightOf="@+id/emailLabel"/>
 </RelativeLayout>
