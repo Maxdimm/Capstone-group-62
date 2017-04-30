@@ -34,6 +34,8 @@ public class ThirdFragment extends Fragment {
                 public void onPageFinished(WebView view, String url) {
             myWebView.loadUrl("javascript:(function() { " + "document.getElementsByClassName('site-header')[0].style.display='none'; " + "document.getElementsByClassName('footer-widgets')[0].style.display='none'; " + "document.getElementsByClassName('content')[0].style.display='none'; " + "})()");
             myWebView.setVisibility(View.VISIBLE);
+            myWebView.getSettings().setLoadWithOverviewMode(true);
+            myWebView.getSettings().setUseWideViewPort(true);
         }
         });
 
