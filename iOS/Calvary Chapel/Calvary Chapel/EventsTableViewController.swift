@@ -21,9 +21,10 @@ class Event {
     var leaderPhone: String?
 }
 
-class EventsTableViewController: UITableViewController, XMLParserDelegate {
+class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
+    @IBOutlet weak var monthSelection: UIPickerView!
     
     var strXMLData:String = ""
     var currentElement:String = ""
@@ -47,10 +48,20 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     var eventLeaderEmail = String()
     var eventLeaderPhone = String()
     
+    var month = String()
+    var beginningMonth = Int()
+    var startDate = String()
+    var endDate = String()
+    var pickerTracker = Bool()
+    
+    var pickerDataSource = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.monthSelection.dataSource = self;
+        self.monthSelection.delegate = self;
+        
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -63,6 +74,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         
         //loadSampleEvents()
         loadXMLData()
+        
+        self.monthSelection.selectRow((beginningMonth-1), inComponent: 0, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -130,11 +143,23 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         components.setValue(1, for: .month)
         let month_from_now = Calendar.current.date(byAdding: components, to: date as Date)
         let formattedEnd = dateFormatter.string(from: month_from_now!)
-        let fullURL = https+userName+":"+password+"@"+baseURL+formattedStart+"&date_end="+formattedEnd
+        var fullURL = ""
+        
+        if (pickerTracker == true) {
+            fullURL = https+userName+":"+password+"@"+baseURL+startDate+"&date_end="+endDate
+        } else {
+            fullURL = https+userName+":"+password+"@"+baseURL+formattedStart+"&date_end="+formattedEnd
+        }
+        
         let urlToSend: NSURL = NSURL(string: fullURL)!
         
+        let startIndex = formattedStart.index(formattedStart.startIndex, offsetBy: 5)
+        let endIndex = formattedStart.index(formattedStart.startIndex, offsetBy: 2)
+        let month_name = formattedStart.substring(from: startIndex)
+        beginningMonth = Int(month_name.substring(to: endIndex))!
+        
         do {
-            let test = try String(contentsOf: urlToSend as URL)
+            _ = try String(contentsOf: urlToSend as URL)
         } catch let error {
             print(error)
         }
@@ -145,6 +170,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
         
         if success {
             print("parse success!")
+    //        print(strXMLData)
         } else {
             print("parse failure!")
             let parserError = parser.parserError
@@ -188,6 +214,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        
+        strXMLData=strXMLData+"\n\n"+string
         
         //I added this if/else statement - CB
         if (currentElement == "event_name") {
@@ -251,6 +279,79 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         print("failure error: ", parseError)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerDataSource.count;
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerDataSource[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (row == 0) {
+            month = "01"
+        } else if (row == 1) {
+            month = "02"
+        } else if (row == 2) {
+            month = "03"
+        } else if (row == 3) {
+            month = "04"
+        } else if (row == 4) {
+            month = "05"
+        } else if (row == 5) {
+            month = "06"
+        } else if (row == 6) {
+            month = "07"
+        } else if (row == 7) {
+            month = "08"
+        } else if (row == 8) {
+            month = "09"
+        } else if (row == 9) {
+            month = "10"
+        } else if (row == 10) {
+            month = "11"
+        } else if (row == 11) {
+            month = "12"
+        }
+        
+        pickerTracker = true
+        startDate = getStartDate(month_int: month)
+        endDate = getEndDate(month_int: month)
+        events.removeAll()
+        loadXMLData()
+        self.tableView.reloadData()
+    }
+    
+    func getStartDate(month_int: String) -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let currentYear = String(calendar.component(.year, from: date))
+        let startDate = currentYear + "-" + month_int + "-01";
+        
+        return startDate
+    }
+    
+    func getEndDate(month_int: String) -> String {
+        let stringDate = getStartDate(month_int: month_int)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let newDate = dateFormatter.date(from: stringDate)
+        
+        var components = DateComponents()
+        components.setValue(1, for: .month)
+        let month_from_now = Calendar.current.date(byAdding: components, to: newDate!)
+        
+        let endDate = dateFormatter.string(from: (month_from_now!-1))
+        
+        return endDate
     }
     
 }
