@@ -14,12 +14,12 @@ class FifthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let youtubeURL = "https://livestream.com/accounts/18343788/events/6975672/videos/148653091/player?width=640&height=360&enableInfo=true&defaultDrawer=&autoPlay=true&mute=false"
+        let youtubeURL = "https://livestream.com/accounts/18343788/events/6975672/videos/148653091/player?width=960&height=540&enableInfo=true&defaultDrawer=&autoPlay=true&mute=false"
         
         videoViewer.allowsInlineMediaPlayback = true
         videoViewer.scalesPageToFit = true
         
-        videoViewer.loadHTMLString("<iframe width= \"960\" height= \"540\" src=\"(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+        videoViewer.loadHTMLString("<iframe width= \"960\" height= \"540\" src=\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
     }
 
 
