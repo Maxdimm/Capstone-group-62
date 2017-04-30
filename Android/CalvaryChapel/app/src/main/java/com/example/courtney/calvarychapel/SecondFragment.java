@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,13 +31,11 @@ import java.util.HashMap;
 public class SecondFragment extends Fragment {
 
     TextView monthTxt;
-    TextView previous;
-    TextView next;
-    TextView txt;
-    Button button;
-    ListView listView;
-    ListViewAdapter adapter;
-    ArrayList<HashMap<String,String>> arrayList;
+    private TextView previous;
+    private TextView next;
+    private ListView listView;
+    private ListViewAdapter adapter;
+    private ArrayList<HashMap<String,String>> arrayList;
     static String NAME = "event_name";
     static String DATE = "date";
     static String MONTH = "month";
@@ -55,7 +52,7 @@ public class SecondFragment extends Fragment {
     private static String baseURL = "https://calvarycorvallis.ccbchurch.com/api.php?srv=public_calendar_listing&date_start=";
     private static String endDateChoice = "&date_end=";
     private static String fullURL;
-    static String chosenDate;
+    private static String chosenMonthName;
     View myView;
 
     @Nullable
@@ -67,11 +64,13 @@ public class SecondFragment extends Fragment {
         String currentMonthName = new SimpleDateFormat("MMMM").format(calendar.getTime());
         int currentMonth = calendar.get(Calendar.MONTH) + 1;
         monthTxt = (TextView) myView.findViewById(R.id.month);
-        monthTxt.setText(currentMonthName);
+     //   chosenMonthName = currentMonthName;
+     //   monthTxt.setText(currentMonthName);
+      //  monthTxt.setText(chosenMonthName);
+
+        monthTxt.setText(chosenMonthName);
 
         endDate = getLastDayofMonth(currentMonth);
-
-        fullURL = baseURL + startDate + endDateChoice + endDate;
 
 
         previous = (TextView) myView.findViewById(R.id.previous);
@@ -95,6 +94,7 @@ public class SecondFragment extends Fragment {
                 startDate = year + "-" + monthName + "-" + "01";
                 endDate = getLastDayofMonth(newMonth);
                 monthTxt.setText(getMonth(monthName));
+                chosenMonthName = getMonth(monthName);
 
                 fullURL = baseURL + startDate + endDateChoice + endDate;
 
@@ -121,6 +121,7 @@ public class SecondFragment extends Fragment {
                 startDate = year + "-" + monthName + "-" + "01";
                 endDate = getLastDayofMonth(newMonth);
                 monthTxt.setText(getMonth(monthName));
+                chosenMonthName = getMonth(monthName);
 
                 fullURL = baseURL + startDate + endDateChoice + endDate;
 
@@ -131,12 +132,32 @@ public class SecondFragment extends Fragment {
         });
 
 
+        if (savedInstanceState != null) {
+            chosenMonthName = savedInstanceState.getString("MONTH");
+            fullURL = savedInstanceState.getString("FULLURL");
+            monthTxt.setText(chosenMonthName);
+        } else {
+            if (fullURL != null) {
+                // do nothing
+            } else {
+                monthTxt.setText(currentMonthName);
+                fullURL = baseURL + startDate + endDateChoice + endDate;
+            }
+        }
+
+
 
         new DownloadXML().execute();
 
         return myView;
     }
 
+    @Override
+    public void onSaveInstanceState (final Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("FULLURL", fullURL);
+        outState.putString("MONTH", chosenMonthName);
+    }
 
     protected class DownloadXML extends AsyncTask<Void, Void, Void> {
 
