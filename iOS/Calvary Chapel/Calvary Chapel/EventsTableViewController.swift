@@ -154,39 +154,36 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         currentElement=elementName;
-        if(elementName=="event_name" || elementName=="date" || elementName=="location" || elementName=="start_time" || elementName=="end_time" || elementName=="group_name" || elementName == "leader_name" || elementName == "leader_phone" || elementName == "leader_email")
-        {
-            if(elementName=="event_name"){
-                passName=true;
-                //assign eventName to String() - CB
-                eventName = String()
-            }
-            passData=true;
+        if (elementName == "item") {
+            eventName = String()
+            eventDate = String()
+            eventMonth = String()
+            eventLocation = String()
+            eventStartTime = String()
+            eventEndTime = String()
+            eventGroupName = String()
+            eventLeaderName = String()
+            eventLeaderEmail = String()
+            eventLeaderPhone = String()
+            
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-       // currentElement=""; //i commented out this line because we want to keep the currentElement from above
-        if(elementName=="date" || elementName=="event_name" || elementName=="location" || elementName=="start_time" || elementName=="end_time" || elementName=="group_name" || elementName == "leader_name" || elementName == "leader_phone" || elementName == "leader_email")
-        {
-            if(elementName=="event_name"){
-                passName=false;
-                
+        if (elementName == "item") {
                 //I added the following 4 lines of code -CB
-                let event = Event()
-                event.name = eventName
-                event.month = eventMonth
-                event.date = eventDate
-                event.location = eventLocation
-                event.startTime = eventStartTime
-                event.endTime = eventEndTime
-                event.groupName = eventGroupName
-                event.leaderName = eventLeaderName
-                event.leaderPhone = eventLeaderPhone
-                event.leaderEmail = eventLeaderEmail
-                events.append(event)
-            }
-            passData=false;
+            let event = Event()
+            event.name = eventName
+            event.month = eventMonth
+            event.date = eventDate
+            event.location = eventLocation
+            event.startTime = eventStartTime
+            event.endTime = eventEndTime
+            event.groupName = eventGroupName
+            event.leaderName = eventLeaderName
+            event.leaderPhone = eventLeaderPhone
+            event.leaderEmail = eventLeaderEmail
+            events.append(event)
         }
     }
     
