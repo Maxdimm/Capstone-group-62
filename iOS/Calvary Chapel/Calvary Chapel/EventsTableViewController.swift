@@ -49,12 +49,16 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     var eventLeaderPhone = String()
     
     var month = String()
+    var year = String()
     var beginningMonth = Int()
     var startDate = String()
     var endDate = String()
     var pickerTracker = Bool()
     
     var pickerDataSource = [["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],["2017","2018","2019"]]
+    
+    let monthComponent = 0
+    let yearComponent = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +77,8 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
    
         loadXMLData()
+        
         let row = beginningMonth - 1
-        
-        print(row)
-        
         self.monthSelection.selectRow(row, inComponent: 0, animated: true)
     }
 
@@ -297,7 +299,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (row == 0) {
+        /*if (row == 0) {
             month = "01"
         } else if (row == 1) {
             month = "02"
@@ -323,26 +325,46 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
             month = "12"
         }
         
+        if (component == 1) {
+            year = "2017"
+        } else if (component == 2) {
+            year = "2018"
+        } else if (component == 3) {
+            year = "2019"*/
+    
+        updateTable()
+    }
+
+    func updateTable() {
         pickerTracker = true
-        startDate = getStartDate(month_int: month)
-        endDate = getEndDate(month_int: month)
-        events.removeAll()
-        loadXMLData()
-        self.tableView.reloadData()
+        let monthComp = pickerDataSource[monthComponent][monthSelection.selectedRow(inComponent: monthComponent)]
+        let yearComp = pickerDataSource[yearComponent][monthSelection.selectedRow(inComponent: yearComponent)]
+        
+        let monthInt = getMonthInt(monthName: monthComp)
+        
+        startDate = getStartDate(month_int: String(monthInt), year_int: yearComp)
+        endDate = getEndDate(month_int: monthInt, year_int: yearComp)
+        
+        //Wait 4 seconds before updating the events table to allow the users long enough to change both the month and the year if they choose
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+            print(self.startDate + " " + self.endDate)
+            self.events.removeAll()
+            self.loadXMLData()
+            self.tableView.reloadData()
+        })
+     
+        
     }
     
-    func getStartDate(month_int: String) -> String {
-        let date = Date()
-        let calendar = Calendar.current
-        
-        let currentYear = String(calendar.component(.year, from: date))
-        let startDate = currentYear + "-" + month_int + "-01";
+    func getStartDate(month_int: String, year_int: String) -> String {
+
+        let startDate = year_int + "-" + month_int + "-01";
         
         return startDate
     }
     
-    func getEndDate(month_int: String) -> String {
-        let stringDate = getStartDate(month_int: month_int)
+    func getEndDate(month_int: String, year_int: String) -> String {
+        let stringDate = getStartDate(month_int: month_int, year_int: year_int)
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -355,6 +377,36 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         let endDate = dateFormatter.string(from: (month_from_now!-1))
         
         return endDate
+    }
+    
+    func getMonthInt(monthName: String) -> String {
+        if (monthName == "January") {
+            return "01"
+        } else if (monthName == "February") {
+            return "02"
+        } else if (monthName == "March") {
+            return "03"
+        } else if (monthName == "April") {
+            return "04"
+        } else if (monthName == "May") {
+            return "05"
+        } else if (monthName == "June") {
+            return "06"
+        } else if (monthName == "July") {
+            return "07"
+        } else if (monthName == "August") {
+            return "08"
+        } else if (monthName == "September") {
+            return "09"
+        } else if (monthName == "October") {
+            return "10"
+        } else if (monthName == "November") {
+            return "11"
+        } else if (monthName == "December") {
+            return "12"
+        }
+        
+        return "";
     }
     
 }
