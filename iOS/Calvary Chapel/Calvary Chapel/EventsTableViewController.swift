@@ -54,7 +54,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     var endDate = String()
     var pickerTracker = Bool()
     
-    var pickerDataSource = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    var pickerDataSource = [["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],["2017","2018","2019"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,11 +71,13 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        //loadSampleEvents()
+   
         loadXMLData()
+        let row = beginningMonth - 1
         
-        self.monthSelection.selectRow((beginningMonth-1), inComponent: 0, animated: false)
+        print(row)
+        
+        self.monthSelection.selectRow(row, inComponent: 0, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -143,6 +145,10 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         components.setValue(1, for: .month)
         let month_from_now = Calendar.current.date(byAdding: components, to: date as Date)
         let formattedEnd = dateFormatter.string(from: month_from_now!)
+        let startIndex = formattedStart.index(formattedStart.startIndex, offsetBy: 5)
+        let endIndex = formattedStart.index(formattedStart.startIndex, offsetBy: 2)
+        let month_name = formattedStart.substring(from: startIndex)
+        beginningMonth = Int(month_name.substring(to: endIndex))!
         var fullURL = ""
         
         if (pickerTracker == true) {
@@ -153,10 +159,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         
         let urlToSend: NSURL = NSURL(string: fullURL)!
         
-        let startIndex = formattedStart.index(formattedStart.startIndex, offsetBy: 5)
-        let endIndex = formattedStart.index(formattedStart.startIndex, offsetBy: 2)
-        let month_name = formattedStart.substring(from: startIndex)
-        beginningMonth = Int(month_name.substring(to: endIndex))!
+    
         
         do {
             _ = try String(contentsOf: urlToSend as URL)
@@ -282,15 +285,15 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerDataSource.count;
+        return pickerDataSource[component].count;
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerDataSource[row]
+        return pickerDataSource[component][row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
