@@ -14,6 +14,12 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventDateLabel: UILabel!
     @IBOutlet weak var eventLocationLabel: UILabel!
+    @IBOutlet weak var eventStartLabel: UILabel!
+    @IBOutlet weak var eventEndLabel: UILabel!
+    @IBOutlet weak var eventGroupLabel: UILabel!
+    @IBOutlet weak var leaderNameLabel: UILabel!
+    @IBOutlet weak var leaderEmailLabel: UILabel!
+    @IBOutlet weak var leaderPhoneLabel: UILabel!
     
     // Data Passed
     var destinationEvent = Event()
@@ -24,9 +30,15 @@ class EventDetailViewController: UIViewController {
     
         eventNameLabel.text = destinationEvent.name!
         eventDateLabel.text = destinationEvent.month! + " " + destinationEvent.date!
+        eventStartLabel.text = destinationEvent.startTime!
+        eventEndLabel.text = destinationEvent.endTime!
+        eventGroupLabel.text = destinationEvent.groupName!
+        leaderNameLabel.text = destinationEvent.leaderName!
+        leaderEmailLabel.text = destinationEvent.leaderEmail!
+        leaderPhoneLabel.text = destinationEvent.leaderPhone!
         eventLocationLabel.text = destinationEvent.location!
+        
 
-       print(destinationEvent.location!)
     }
 
     override func didReceiveMemoryWarning() {

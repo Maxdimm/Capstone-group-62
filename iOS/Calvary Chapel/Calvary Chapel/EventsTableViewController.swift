@@ -13,6 +13,12 @@ class Event {
     var month: String?
     var date: String?
     var location: String?
+    var startTime: String?
+    var endTime: String?
+    var groupName: String?
+    var leaderName: String?
+    var leaderEmail: String?
+    var leaderPhone: String?
 }
 
 class EventsTableViewController: UITableViewController, XMLParserDelegate {
@@ -29,13 +35,17 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     //var events: [Event] = []
     var events = [Event]()
     
-    let segueIdentifier = "ShowSegue"
-    
     //I added these two global variables - CB
     var eventName = String()
     var eventDate = String()
     var eventMonth = String()
     var eventLocation = String()
+    var eventStartTime = String()
+    var eventEndTime = String()
+    var eventGroupName = String()
+    var eventLeaderName = String()
+    var eventLeaderEmail = String()
+    var eventLeaderPhone = String()
     
     
     override func viewDidLoad() {
@@ -147,7 +157,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         currentElement=elementName;
-        if(elementName=="event_name" || elementName=="date" || elementName=="location" || elementName=="start_time" || elementName=="event_name")
+        if(elementName=="event_name" || elementName=="date" || elementName=="location" || elementName=="start_time" || elementName=="end_time" || elementName=="group_name" || elementName == "leader_name" || elementName == "leader_phone" || elementName == "leader_email")
         {
             if(elementName=="event_name"){
                 passName=true;
@@ -160,7 +170,7 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
        // currentElement=""; //i commented out this line because we want to keep the currentElement from above
-        if(elementName=="date" || elementName=="event_name" || elementName=="location" || elementName=="start_time" || elementName=="end_time")
+        if(elementName=="date" || elementName=="event_name" || elementName=="location" || elementName=="start_time" || elementName=="end_time" || elementName=="group_name" || elementName == "leader_name" || elementName == "leader_phone" || elementName == "leader_email")
         {
             if(elementName=="event_name"){
                 passName=false;
@@ -171,6 +181,12 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
                 event.month = eventMonth
                 event.date = eventDate
                 event.location = eventLocation
+                event.startTime = eventStartTime
+                event.endTime = eventEndTime
+                event.groupName = eventGroupName
+                event.leaderName = eventLeaderName
+                event.leaderPhone = eventLeaderPhone
+                event.leaderEmail = eventLeaderEmail
                 events.append(event)
             }
             passData=false;
@@ -184,6 +200,18 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate {
             eventName += string
         } else if (currentElement == "location") {
             eventLocation += string
+        } else if (currentElement == "start_time") {
+            eventStartTime += string
+        } else if (currentElement == "end_time") {
+            eventEndTime += string
+        } else if (currentElement == "group_name") {
+            eventGroupName += string
+        } else if (currentElement == "leader_name") {
+            eventLeaderName += string
+        } else if (currentElement == "leader_phone") {
+            eventLeaderPhone += string
+        } else if (currentElement == "leader_email") {
+            eventLeaderEmail += string
         } else if (currentElement == "date") {
             let date_string = string
             let startIndex = date_string.index(date_string.startIndex, offsetBy: 5)
