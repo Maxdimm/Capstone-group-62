@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ import java.util.HashMap;
 public class SecondFragment extends Fragment {
 
     TextView monthTxt;
+    private ImageView backArrow;
+    private ImageView forwardArrow;
     private TextView previous;
     private TextView next;
     private ListView listView;
@@ -73,10 +76,13 @@ public class SecondFragment extends Fragment {
         endDate = getLastDayofMonth(currentMonth);
 
 
-        previous = (TextView) myView.findViewById(R.id.previous);
-        next = (TextView) myView.findViewById(R.id.next);
+       // previous = (TextView) myView.findViewById(R.id.previous);
+       // next = (TextView) myView.findViewById(R.id.next);
 
-        previous.setOnClickListener(new View.OnClickListener() {
+        backArrow = (ImageView) myView.findViewById(R.id.arrowBack);
+        forwardArrow = (ImageView) myView.findViewById(R.id.arrowForward);
+
+        backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String month = startDate.substring(5,7);
@@ -103,7 +109,7 @@ public class SecondFragment extends Fragment {
             }
         });
 
-        next.setOnClickListener(new View.OnClickListener() {
+        forwardArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String month = startDate.substring(5,7);

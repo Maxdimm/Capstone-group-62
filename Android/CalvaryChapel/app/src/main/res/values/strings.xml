@@ -14,7 +14,7 @@
     <string name="messages">Messages</string>
 
     <string name="previous">Previous</string>
-    <string name="next">Next</string>
+    <string name="next">\u2B62</string>
     <string name="month">Month</string>
 
     <string name="eventLabel">Event Name:</string>
@@ -26,6 +26,5 @@
     <string name="leaderLabel">Leader Name:</string>
     <string name="phoneLabel">Leader Phone:</string>
     <string name="emailLabel">Leader Email:</string>
-
 
 </resources>
