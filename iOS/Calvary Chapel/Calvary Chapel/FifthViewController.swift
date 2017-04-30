@@ -19,7 +19,7 @@ class FifthViewController: UIViewController {
         videoViewer.allowsInlineMediaPlayback = true
         videoViewer.scalesPageToFit = true
         
-        videoViewer.loadHTMLString("<iframe width=\(videoViewer.frame.width)\" height=\"\(videoViewer.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+        videoViewer.loadHTMLString("<iframe width= \"960\" height= \"540\" src=\"(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
     }
 
 
