@@ -21,10 +21,7 @@ class Event {
     var leaderPhone: String?
 }
 
-class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
-    @IBOutlet weak var monthSelection: UIPickerView!
+class EventsTableViewController: UITableViewController, XMLParserDelegate {
     
     var strXMLData:String = ""
     var currentElement:String = ""
@@ -33,8 +30,10 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     var parser = XMLParser()
     
     //Mark: Properties
-    //var events: [Event] = []
     var events = [Event]()
+    
+    @IBOutlet weak var changeDate: UITextField!
+    let datePicker = UIDatePicker()
     
     //I added these two global variables - CB
     var eventName = String()
@@ -55,18 +54,10 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
     var endDate = String()
     var pickerTracker = Bool()
     
-    var pickerDataSource = [["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],["2017","2018","2019"]]
-    
-    let monthComponent = 0
-    let yearComponent = 1
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.monthSelection.dataSource = self;
-        self.monthSelection.delegate = self;
         
-        
+        createDatePicker()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -77,9 +68,6 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
    
         loadXMLData()
-        
-        let row = beginningMonth - 1
-        self.monthSelection.selectRow(row, inComponent: 0, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,18 +84,11 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         }
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return events.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "EventsTableViewCell"
@@ -118,17 +99,12 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
 
         let event = events[indexPath.row]
         
-        
         // Configure the cell...
         cell.eventLabel.text = event.name
         cell.monthLabel.text = event.month
         cell.dateLabel.text = event.date
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
     }
     
     private func loadXMLData() {
@@ -161,8 +137,6 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         
         let urlToSend: NSURL = NSURL(string: fullURL)!
         
-    
-        
         do {
             _ = try String(contentsOf: urlToSend as URL)
         } catch let error {
@@ -175,7 +149,6 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         
         if success {
             print("parse success!")
-    //        print(strXMLData)
         } else {
             print("parse failure!")
             let parserError = parser.parserError
@@ -286,74 +259,16 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         print("failure error: ", parseError)
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerDataSource[component].count;
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerDataSource[component][row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        /*if (row == 0) {
-            month = "01"
-        } else if (row == 1) {
-            month = "02"
-        } else if (row == 2) {
-            month = "03"
-        } else if (row == 3) {
-            month = "04"
-        } else if (row == 4) {
-            month = "05"
-        } else if (row == 5) {
-            month = "06"
-        } else if (row == 6) {
-            month = "07"
-        } else if (row == 7) {
-            month = "08"
-        } else if (row == 8) {
-            month = "09"
-        } else if (row == 9) {
-            month = "10"
-        } else if (row == 10) {
-            month = "11"
-        } else if (row == 11) {
-            month = "12"
-        }
-        
-        if (component == 1) {
-            year = "2017"
-        } else if (component == 2) {
-            year = "2018"
-        } else if (component == 3) {
-            year = "2019"*/
-    
-        updateTable()
-    }
-
     func updateTable() {
-        pickerTracker = true
-        let monthComp = pickerDataSource[monthComponent][monthSelection.selectedRow(inComponent: monthComponent)]
-        let yearComp = pickerDataSource[yearComponent][monthSelection.selectedRow(inComponent: yearComponent)]
-        
-        let monthInt = getMonthInt(monthName: monthComp)
-        
-        startDate = getStartDate(month_int: String(monthInt), year_int: yearComp)
-        endDate = getEndDate(month_int: monthInt, year_int: yearComp)
-        
+        endDate = getEndDate(start_date: startDate)
+
         //Wait 4 seconds before updating the events table to allow the users long enough to change both the month and the year if they choose
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
             print(self.startDate + " " + self.endDate)
             self.events.removeAll()
             self.loadXMLData()
             self.tableView.reloadData()
         })
-     
-        
     }
     
     func getStartDate(month_int: String, year_int: String) -> String {
@@ -363,50 +278,42 @@ class EventsTableViewController: UITableViewController, XMLParserDelegate, UIPic
         return startDate
     }
     
-    func getEndDate(month_int: String, year_int: String) -> String {
-        let stringDate = getStartDate(month_int: month_int, year_int: year_int)
+    func getEndDate(start_date: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let newDate = dateFormatter.date(from: stringDate)
-        
-        var components = DateComponents()
-        components.setValue(1, for: .month)
-        let month_from_now = Calendar.current.date(byAdding: components, to: newDate!)
-        
-        let endDate = dateFormatter.string(from: (month_from_now!-1))
-        
+        let newDate = dateFormatter.date(from: start_date)
+        var start_components = DateComponents()
+        var end_components = DateComponents()
+        start_components.setValue(-1, for: .month)
+        end_components.setValue(1, for: .month)
+        let selected_month_from_start = Calendar.current.date(bySetting: .day, value: 1, of: newDate!)
+        let month_prior = Calendar.current.date(byAdding: start_components, to: selected_month_from_start!)
+        startDate = dateFormatter.string(from: month_prior!)
+        let endDate = dateFormatter.string(from: (selected_month_from_start!-1))
         return endDate
     }
     
-    func getMonthInt(monthName: String) -> String {
-        if (monthName == "January") {
-            return "01"
-        } else if (monthName == "February") {
-            return "02"
-        } else if (monthName == "March") {
-            return "03"
-        } else if (monthName == "April") {
-            return "04"
-        } else if (monthName == "May") {
-            return "05"
-        } else if (monthName == "June") {
-            return "06"
-        } else if (monthName == "July") {
-            return "07"
-        } else if (monthName == "August") {
-            return "08"
-        } else if (monthName == "September") {
-            return "09"
-        } else if (monthName == "October") {
-            return "10"
-        } else if (monthName == "November") {
-            return "11"
-        } else if (monthName == "December") {
-            return "12"
-        }
-        
-        return "";
+    func createDatePicker() {
+        // format the picker
+        datePicker.datePickerMode = UIDatePickerMode.date
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        // bar button item 
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneButton], animated: false)
+        changeDate.inputAccessoryView = toolbar
+        changeDate.inputView = datePicker
     }
     
+    func donePressed() {
+        // format date 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        pickerTracker = true
+        startDate = dateFormatter.string(from: datePicker.date)
+        updateTable()
+        self.view.endEditing(true)
+    }
 }
