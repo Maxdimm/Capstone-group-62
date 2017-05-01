@@ -13,8 +13,6 @@
     <string name="donations">Donations</string>
     <string name="messages">Messages</string>
 
-    <string name="previous">Previous</string>
-    <string name="next">\u2B62</string>
     <string name="month">Month</string>
 
     <string name="eventLabel">Event Name:</string>
@@ -26,5 +24,21 @@
     <string name="leaderLabel">Leader Name:</string>
     <string name="phoneLabel">Leader Phone:</string>
     <string name="emailLabel">Leader Email:</string>
+
+    <string name="month_prompt">Choose a Date</string>
+    <string-array name="month_names">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 
 </resources>

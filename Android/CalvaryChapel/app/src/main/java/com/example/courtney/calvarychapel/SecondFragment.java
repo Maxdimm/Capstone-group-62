@@ -8,8 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.w3c.dom.Document;
@@ -17,21 +21,23 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Courtney on 2/4/17.
  * Tutorial for XML Parsing: http://www.androidbegin.com/tutorial/android-xml-parse-images-and-texts-tutorial/
  */
 
-public class SecondFragment extends Fragment {
+public class SecondFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
     TextView monthTxt;
+    Spinner spinner1, spinner2;
+    Button btnSubmit;
     private ImageView backArrow;
     private ImageView forwardArrow;
     private TextView previous;
@@ -66,20 +72,28 @@ public class SecondFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         String currentMonthName = new SimpleDateFormat("MMMM").format(calendar.getTime());
         int currentMonth = calendar.get(Calendar.MONTH) + 1;
-        monthTxt = (TextView) myView.findViewById(R.id.month);
-     //   chosenMonthName = currentMonthName;
-     //   monthTxt.setText(currentMonthName);
-      //  monthTxt.setText(chosenMonthName);
+        int currentYear = calendar.get(Calendar.YEAR);
+       // monthTxt = (TextView) myView.findViewById(R.id.month);
 
-        monthTxt.setText(chosenMonthName);
+     //   monthTxt.setText(chosenMonthName);
 
-        endDate = getLastDayofMonth(currentMonth);
+        endDate = getLastDayofMonth(currentMonth, currentYear);
 
 
-       // previous = (TextView) myView.findViewById(R.id.previous);
-       // next = (TextView) myView.findViewById(R.id.next);
+        spinner1 = (Spinner) myView.findViewById(R.id.spinner1);
+        spinner2 = (Spinner) myView.findViewById(R.id.spinner2);
+        btnSubmit = (Button) myView.findViewById(R.id.btnSubmit);
 
-        backArrow = (ImageView) myView.findViewById(R.id.arrowBack);
+        spinner1.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.month_names, android.R.layout.simple_spinner_item);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(arrayAdapter);
+
+        CustomAddYears();
+     //   addListenerOnButton();
+
+    /*    backArrow = (ImageView) myView.findViewById(R.id.arrowBack);
         forwardArrow = (ImageView) myView.findViewById(R.id.arrowForward);
 
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +112,8 @@ public class SecondFragment extends Fragment {
                 }
 
                 startDate = year + "-" + monthName + "-" + "01";
-                endDate = getLastDayofMonth(newMonth);
-                monthTxt.setText(getMonth(monthName));
+           //     endDate = getLastDayofMonth(newMonth);
+            //    monthTxt.setText(getMonth(monthName));
                 chosenMonthName = getMonth(monthName);
 
                 fullURL = baseURL + startDate + endDateChoice + endDate;
@@ -125,8 +139,8 @@ public class SecondFragment extends Fragment {
                 }
 
                 startDate = year + "-" + monthName + "-" + "01";
-                endDate = getLastDayofMonth(newMonth);
-                monthTxt.setText(getMonth(monthName));
+               // endDate = getLastDayofMonth(newMonth, year);
+             //   monthTxt.setText(getMonth(monthName));
                 chosenMonthName = getMonth(monthName);
 
                 fullURL = baseURL + startDate + endDateChoice + endDate;
@@ -135,28 +149,73 @@ public class SecondFragment extends Fragment {
 
 
             }
+        }); */
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String year = String.valueOf(spinner2.getSelectedItem());
+                int month = (int) spinner1.getSelectedItemId() + 1;
+                startDate = year + "-" + String.valueOf(month) + "-01";
+                endDate = getLastDayofMonth(month, Integer.parseInt(year));
+
+                String url = baseURL + startDate + endDateChoice + endDate;
+
+                System.out.println(url);
+
+                new DownloadXML().execute(url);
+            }
         });
 
 
         if (savedInstanceState != null) {
             chosenMonthName = savedInstanceState.getString("MONTH");
             fullURL = savedInstanceState.getString("FULLURL");
-            monthTxt.setText(chosenMonthName);
+        //    monthTxt.setText(chosenMonthName);
         } else {
             if (fullURL != null) {
                 // do nothing
             } else {
-                monthTxt.setText(currentMonthName);
+             //   monthTxt.setText(currentMonthName);
                 fullURL = baseURL + startDate + endDateChoice + endDate;
             }
         }
 
+        fullURL = baseURL + startDate + endDateChoice + endDate;
 
 
-        new DownloadXML().execute();
+        new DownloadXML().execute(fullURL);
 
         return myView;
     }
+
+    @Override
+    public void onItemSelected (AdapterView<?> parent, View view, int position, long id) {
+       // Toast.makeText(parent.getContext(), "OnItemSelected Listener : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+    public void CustomAddYears() {
+        spinner2 = (Spinner) myView.findViewById(R.id.spinner2);
+        List<String> list = new ArrayList<String>();
+
+        Calendar calendar = Calendar.getInstance();
+        int currentYear = calendar.get(Calendar.YEAR);
+        list.add(String.valueOf(currentYear));
+
+        for (int i = 0; i < 5; i++) {
+            currentYear += 1;
+            list.add(String.valueOf(currentYear));
+        }
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(dataAdapter);
+    }
+
 
     @Override
     public void onSaveInstanceState (final Bundle outState) {
@@ -165,14 +224,16 @@ public class SecondFragment extends Fragment {
         outState.putString("MONTH", chosenMonthName);
     }
 
-    protected class DownloadXML extends AsyncTask<Void, Void, Void> {
+    protected class DownloadXML extends AsyncTask<String, Void, Void> {
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(String... url) {
+            Log.v("AsyncTask", "doInBackground");
+
             arrayList = new ArrayList<HashMap<String, String>>();
 
             XMLParser parser = new XMLParser();
-            String xml = parser.getXmlFromUrl(fullURL);
+            String xml = parser.getXmlFromUrl(url[0]);
             Document doc = parser.getDomElement(xml);
             String month;
             String date;
@@ -198,6 +259,8 @@ public class SecondFragment extends Fragment {
                     map.put(LEADER_EMAIL, parser.getValue(e, LEADER_EMAIL));
                     arrayList.add(map);
                 }
+
+                Log.v("AsyncTask","end of doInBackground");
             } catch (Exception e) {
                 Log.e("Error: ", e.getMessage());
                 e.printStackTrace();
@@ -208,6 +271,7 @@ public class SecondFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Void args) {
+            Log.v("AsyncTask","onPostExecute");
             listView = (ListView) myView.findViewById(R.id.listview);
             adapter = new ListViewAdapter(getActivity(), arrayList);
             listView.setAdapter(adapter);
@@ -216,39 +280,10 @@ public class SecondFragment extends Fragment {
     }
 
 
-    public static String addOneMonth (String date) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date sDate;
-        String newDate;
-        try {
-            sDate = df.parse(date);
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(sDate);
-            calendar.add(Calendar.MONTH, 1);
-            newDate = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
-            return newDate;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public static String getLastDayofMonth (int month) {
+    public static String getLastDayofMonth (int month, int year) {
         Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
         calendar.set(year, month - 1, 1);
         calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
-        Date date = calendar.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return dateFormat.format(date);
-    }
-
-    public static String getFirstDayofMonth (int month) {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        calendar.set(year, month - 1, 1);
-        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE));
         Date date = calendar.getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);

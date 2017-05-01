@@ -51,9 +51,34 @@
         android:layout_marginLeft="5dp"
         android:id="@+id/arrowForward"/>
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:entries="@array/month_names"
+        android:prompt="@string/month_prompt"
+        android:layout_below="@id/month"/>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="wrap_content"
+        android:spinnerMode="dialog"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/month"
+        android:layout_toRightOf="@id/spinner1"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_below="@id/month"
+        android:layout_toRightOf="@id/spinner2"/>
+
     <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="125dp"/>
+        android:layout_marginTop="180dp"/>
 </RelativeLayout>

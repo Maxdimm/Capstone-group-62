@@ -47,7 +47,6 @@ public class ListViewAdapter extends BaseAdapter {
 
     public View getView(final int position, View convertView, ViewGroup parent) {
         TextView eventName;
-        TextView eventDate;
         TextView month;
         TextView day;
 
