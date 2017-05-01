@@ -364,35 +364,6 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Sixth View Controller-->
-        <scene sceneID="p3j-2w-r6y">
-            <objects>
-                <viewController id="8pT-Hm-6W4" customClass="SixthViewController" customModule="Calvary_Chapel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U4W-Wf-I3c"/>
-                        <viewControllerLayoutGuide type="bottom" id="uVg-NI-f6K"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="usP-dg-yYm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXz-Sr-iQe">
-                                <rect key="frame" x="16" y="56" width="343" height="224"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eoH-h3-ZjZ"/>
-                    <connections>
-                        <outlet property="LastWeek" destination="dXz-Sr-iQe" id="jXD-sy-BTY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cDZ-xv-G0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-402.39999999999998" y="1019.640179910045"/>
-        </scene>
         <!--Fifth-->
         <scene sceneID="Xhb-SC-Buw">
             <objects>

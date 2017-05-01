@@ -21,7 +21,6 @@
 		0AC6328E1EB292520073C46A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6328D1EB292520073C46A /* EventDetailViewController.swift */; };
 		0AD02A7E1EAE69C7007BBA6E /* calvarystyle.css in Resources */ = {isa = PBXBuildFile; fileRef = 0AD02A7D1EAE69C7007BBA6E /* calvarystyle.css */; };
 		0AE09C171E57865C00F00D31 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */; };
-		501619F31E64DDB000FA3FAB /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501619F21E64DDB000FA3FAB /* SixthViewController.swift */; };
 		503AA6CF1E80ECB000F67D82 /* donateHTML.html in Resources */ = {isa = PBXBuildFile; fileRef = 503AA6CE1E80ECB000F67D82 /* donateHTML.html */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		0AC6328D1EB292520073C46A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		0AD02A7D1EAE69C7007BBA6E /* calvarystyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = calvarystyle.css; sourceTree = "<group>"; };
 		0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
-		501619F21E64DDB000FA3FAB /* SixthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
 		503AA6CE1E80ECB000F67D82 /* donateHTML.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = donateHTML.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +102,6 @@
 				0A44E38F1E26AC680066E65C /* FourthViewController.swift */,
 				0A44E3911E26AC7D0066E65C /* FifthViewController.swift */,
 				0A44E3711E26A86D0066E65C /* Main.storyboard */,
-				501619F21E64DDB000FA3FAB /* SixthViewController.swift */,
 				0AE09C161E57865C00F00D31 /* EventsTableViewController.swift */,
 				0AB79EC71E412B1000A2ADC2 /* EventsTableViewCell.swift */,
 				0AC6328D1EB292520073C46A /* EventDetailViewController.swift */,
@@ -234,7 +231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A44E3921E26AC7D0066E65C /* FifthViewController.swift in Sources */,
-				501619F31E64DDB000FA3FAB /* SixthViewController.swift in Sources */,
 				0AE09C171E57865C00F00D31 /* EventsTableViewController.swift in Sources */,
 				0AB79EC81E412B1000A2ADC2 /* EventsTableViewCell.swift in Sources */,
 				0A44E3701E26A86D0066E65C /* SecondViewController.swift in Sources */,
