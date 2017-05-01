@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.content.Intent;
-import android.net.Uri;
 
 /**
  * Created by Courtney on 2/4/17.
@@ -30,25 +27,17 @@ public class FourthFragment extends Fragment {
 
         String videoLink = "<html><iframe id=\"ls_embed_1493363421\" src=\"https://livestream.com/accounts/18343788/events/7279945/videos/154327352/player?width=960&height=540&enableInfo=false&defaultDrawer=&autoPlay=true&mute=false\" width=\"960\" height=\"540\" frameborder=\"0\" scrolling=\"no\" allowfullscreen> </iframe></html>";
 
-       // new DownloadXML().execute();
         myWebView = (WebView) myView.findViewById(R.id.messagesView);
-
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         myWebView.getSettings().setLoadWithOverviewMode(true);
         myWebView.getSettings().setUseWideViewPort(true);
         myWebView.getSettings().setBuiltInZoomControls(true);
-        myWebView.loadUrl("https://www.calvarycorvallis.org/give/");
         myWebView.loadData(videoLink, "text/html", "utf-8");
 
         return myView;
     }
-
-   // public void browser1(View view) {
-  //  Intent browserIntent=new Intent(Intent.ACTION_VIEW,Uri.parse("https://livestream.com/calvarycorvallis"));
-//
-   // }
 }
 
 

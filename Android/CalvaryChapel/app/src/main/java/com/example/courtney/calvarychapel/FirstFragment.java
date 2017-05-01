@@ -47,6 +47,7 @@ public class FirstFragment extends Fragment {
     }
 
 
+    //Call the URL and parse the JSON response
     protected class JSONTask extends AsyncTask<Void, Void, JSONObject> {
 
         @Override
@@ -89,6 +90,7 @@ public class FirstFragment extends Fragment {
             return null;
         }
 
+        //display the response on the UI
         @Override
         protected void onPostExecute(JSONObject response) {
 

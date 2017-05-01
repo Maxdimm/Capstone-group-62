@@ -17,7 +17,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -67,17 +66,9 @@ public class SecondFragment extends Fragment {
         String currentMonthName = new SimpleDateFormat("MMMM").format(calendar.getTime());
         int currentMonth = calendar.get(Calendar.MONTH) + 1;
         monthTxt = (TextView) myView.findViewById(R.id.month);
-     //   chosenMonthName = currentMonthName;
-     //   monthTxt.setText(currentMonthName);
-      //  monthTxt.setText(chosenMonthName);
-
         monthTxt.setText(chosenMonthName);
 
         endDate = getLastDayofMonth(currentMonth);
-
-
-       // previous = (TextView) myView.findViewById(R.id.previous);
-       // next = (TextView) myView.findViewById(R.id.next);
 
         backArrow = (ImageView) myView.findViewById(R.id.arrowBack);
         forwardArrow = (ImageView) myView.findViewById(R.id.arrowForward);
@@ -215,40 +206,11 @@ public class SecondFragment extends Fragment {
 
     }
 
-
-    public static String addOneMonth (String date) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date sDate;
-        String newDate;
-        try {
-            sDate = df.parse(date);
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(sDate);
-            calendar.add(Calendar.MONTH, 1);
-            newDate = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
-            return newDate;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
     public static String getLastDayofMonth (int month) {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         calendar.set(year, month - 1, 1);
         calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
-        Date date = calendar.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return dateFormat.format(date);
-    }
-
-    public static String getFirstDayofMonth (int month) {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        calendar.set(year, month - 1, 1);
-        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE));
         Date date = calendar.getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
