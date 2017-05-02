@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UIWebViewDelegate {
+class SecondViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
 
     
     
@@ -21,6 +21,7 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         bulletinWeb.delegate = self
+        bulletinWeb.scrollView.delegate = self
         
         activityIndicator.center = self.view.center
         activityIndicator.startAnimating()
@@ -29,6 +30,14 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
         restapisample()
         
         
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if (scrollView.contentOffset.y < 0 ) {
+            bulletinWeb.reload()
+            restapisample()
+            
+        }
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {

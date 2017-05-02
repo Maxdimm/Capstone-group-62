@@ -90,7 +90,7 @@
                                     </label>
                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wR1-ON-UdY">
                                         <rect key="frame" x="0.0" y="96" width="399" height="558"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </webView>
                                 </subviews>
                             </stackView>
@@ -139,7 +139,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="September" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCA-0H-lsf">
-                                            <rect key="frame" x="305" y="46.5" width="88" height="22"/>
+                                            <rect key="frame" x="304" y="46.5" width="88.5" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -153,7 +153,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBK-5Q-4lc">
-                                            <rect key="frame" x="318.5" y="1" width="52.5" height="40.5"/>
+                                            <rect key="frame" x="318.5" y="0.5" width="52" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
@@ -446,7 +446,7 @@
                                     </label>
                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-oN-xPH">
                                         <rect key="frame" x="0.0" y="96" width="399" height="607"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </webView>
                                 </subviews>
                             </stackView>
