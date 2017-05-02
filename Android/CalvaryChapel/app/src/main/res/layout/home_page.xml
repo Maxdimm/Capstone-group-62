@@ -27,6 +27,15 @@
         android:id="@+id/main1"
         android:textSize="24sp" />
 
+    <TextView
+        android:text="@string/welcomeMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:id="@+id/main2"
+        android:textSize="15sp" />
 
 
 

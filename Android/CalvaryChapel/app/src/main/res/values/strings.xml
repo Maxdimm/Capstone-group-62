@@ -6,7 +6,7 @@
 
     <string name="action_settings">Settings</string>
     
-    <string name="welcome">Welcome!</string>
+    <string name="welcome">Welcome to Calvary Corvallis!</string>
     <string name="bulletins">This Week\'s Bulletin</string>
     <string name="events">Events</string>
     <string name="eventInfo">Event Information</string>
@@ -26,5 +26,7 @@
     <string name="leaderLabel">Leader Name:</string>
     <string name="phoneLabel">Leader Phone:</string>
     <string name="emailLabel">Leader Email:</string>
+
+    <string name="welcomeMessage">Check out our most current teachings, see what is happening at Calvary Corvallis this week and in weeks to come, give, or find a place to connect with other believers in the church!</string>
 
 </resources>
