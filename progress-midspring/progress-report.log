@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 MAY 2017 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 MAY 2017 16:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -655,7 +655,44 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 44.
 LaTeX Warning: Unused global option(s):
     [titlepage].
 
-(./progress-report.aux)
+(./progress-report.aux
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+)
 \openout1 = `progress-report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
@@ -781,85 +818,140 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 143.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 146.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 146.
 
-Overfull \hbox (124.11641pt too wide) in paragraph at lines 145--146
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+Overfull \hbox (22.11537pt too wide) in paragraph at lines 148--149
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[3] <pictures/androidevents.png, id=56, 352.6776pt x 650.43pt>
+[3] <pictures/androidevents.png, id=55, 352.6776pt x 650.43pt>
 File: pictures/androidevents.png Graphic file (type png)
 
 <use pictures/androidevents.png>
-Package pdftex.def Info: pictures/androidevents.png used on input line 171.
+Package pdftex.def Info: pictures/androidevents.png used on input line 175.
 (pdftex.def)             Requested size: 101.17645pt x 186.59521pt.
 
-<pictures/androiddetails.png, id=58, 344.0052pt x 650.43pt>
+<pictures/androiddetails.png, id=57, 344.0052pt x 650.43pt>
 File: pictures/androiddetails.png Graphic file (type png)
 
 <use pictures/androiddetails.png>
-Package pdftex.def Info: pictures/androiddetails.png used on input line 177.
+Package pdftex.def Info: pictures/androiddetails.png used on input line 181.
 (pdftex.def)             Requested size: 101.17645pt x 191.29955pt.
  [4 <./pictures/androidevents.png> <./pictures/androiddetails.png>]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 211.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 215.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 211.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 215.
 
-Overfull \hbox (10.11525pt too wide) in paragraph at lines 237--238
+Overfull \hbox (10.11525pt too wide) in paragraph at lines 241--242
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [5]
-Overfull \hbox (4.11519pt too wide) in paragraph at lines 270--271
+Overfull \hbox (4.11519pt too wide) in paragraph at lines 274--275
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (76.11592pt too wide) in paragraph at lines 271--272
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][] 
- []
-
-
-Overfull \hbox (34.1155pt too wide) in paragraph at lines 272--273
+Overfull \hbox (34.1155pt too wide) in paragraph at lines 277--278
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][] 
  []
 
 
-Overfull \hbox (4.11519pt too wide) in paragraph at lines 281--282
+Overfull \hbox (4.11519pt too wide) in paragraph at lines 286--287
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
 
  []
 
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 341.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 341.
+<pictures/androidbulletin.png, id=124, 345.9324pt x 650.43pt>
+File: pictures/androidbulletin.png Graphic file (type png)
+
+<use pictures/androidbulletin.png>
+Package pdftex.def Info: pictures/androidbulletin.png used on input line 303.
+(pdftex.def)             Requested size: 101.17645pt x 190.22768pt.
+
+<pictures/iosbulletin.png, id=125, 353.1594pt x 650.43pt>
+File: pictures/iosbulletin.png Graphic file (type png)
+
+<use pictures/iosbulletin.png>
+Package pdftex.def Info: pictures/iosbulletin.png used on input line 309.
+(pdftex.def)             Requested size: 101.17645pt x 186.33717pt.
+ [6]
+Overfull \hbox (22.11537pt too wide) in paragraph at lines 333--334
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (40.11555pt too wide) in paragraph at lines 334--335
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (52.11568pt too wide) in paragraph at lines 335--336
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+<pictures/androiddonate.png, id=166, 342.5598pt x 650.43pt>
+File: pictures/androiddonate.png Graphic file (type png)
+
+<use pictures/androiddonate.png>
+Package pdftex.def Info: pictures/androiddonate.png used on input line 351.
+(pdftex.def)             Requested size: 101.17645pt x 192.10345pt.
+
+<pictures/iosdonate.png, id=167, 351.714pt x 650.43pt>
+File: pictures/iosdonate.png Graphic file (type png)
+
+<use pictures/iosdonate.png>
+Package pdftex.def Info: pictures/iosdonate.png used on input line 357.
+(pdftex.def)             Requested size: 101.17645pt x 187.10138pt.
+ [7 <./pictures/androidbulletin.png> <./pictures/iosbulletin.png>] <pictures/an
+droidmessages.png, id=192, 345.4506pt x 650.43pt>
+File: pictures/androidmessages.png Graphic file (type png)
+
+<use pictures/androidmessages.png>
+Package pdftex.def Info: pictures/androidmessages.png used on input line 375.
+(pdftex.def)             Requested size: 101.17645pt x 190.49564pt.
+
+<pictures/iosmessages.png, id=193, 353.1594pt x 650.43pt>
+File: pictures/iosmessages.png Graphic file (type png)
+
+<use pictures/iosmessages.png>
+Package pdftex.def Info: pictures/iosmessages.png used on input line 381.
+(pdftex.def)             Requested size: 101.17645pt x 186.33717pt.
+ [8 <./pictures/androiddonate.png> <./pictures/iosdonate.png> <./pictures/andro
+idmessages.png> <./pictures/iosmessages.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 426.
+
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 426.
  (./progress-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 341.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 341.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 426.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 426.
 Package rerunfilecheck Info: File `progress-report.out' has not changed.
 (rerunfilecheck)             Checksum: CD80FFE8FA1D7449DD8DB523E0127E81;292.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 341.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
  ) 
 Here is how much of TeX's memory you used:
- 17629 strings out of 493014
- 293531 string characters out of 6133351
- 423682 words of memory out of 5000000
- 20845 multiletter control sequences out of 15000+600000
+ 17683 strings out of 493014
+ 294681 string characters out of 6133351
+ 425809 words of memory out of 5000000
+ 20872 multiletter control sequences out of 15000+600000
  34630 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,8n,92p,571b,1616s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -869,10 +961,10 @@ xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on progress-report.pdf (7 pages, 458416 bytes).
+Output written on progress-report.pdf (9 pages, 1965995 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
- 109 named destinations out of 1000 (max. 500000)
- 59 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -134,6 +134,9 @@
 On the iOS app, an XML Parser was used to request and parse the public calendar from Church Community Builder.
 		The parsed information was then presented in a UITableView. 
 		When a user clicks on each event, they can see an additional view with more details, like time, location, group leader, and contact information.
+		
+		--iOS interesting code here
+		
 		The Android app is very similar, though with the language difference, a new XML Parser was needed. 
 		Again the information is requested and parsed from the public calendar, and then presented in a List View. 
 		Users are also able to click on each event and view additional details. 
@@ -142,7 +145,8 @@ On the iOS app, an XML Parser was used to request and parse the public calendar 
 		\begin{lstlisting}
  public String getXmlFromUrl(String url) {
        OkHttpClient client = new OkHttpClient();
-           final String basic = "Basic " + Base64.encodeToString(CREDENTIALS.getBytes(), Base64.NO_WRAP);
+           final String basic = "Basic " + Base64.encodeToString(CREDENTIALS.getBytes(), 
+           Base64.NO_WRAP);
            String str = null;
            Request request = new Request.Builder()
                    .url(url)
@@ -162,7 +166,7 @@ On the iOS app, an XML Parser was used to request and parse the public calendar 
 		
 		We used OkHttpClient in order to request the XML response from the URL. 
 		Once we received the response, we parsed it using a Document Builder Factory. 
-		The end results on how this response is displayed on the app can be seen in Figure ~\ref{fig:test}.
+		The end results on how this response is displayed on the app can be seen in Figure ~\ref{fig:event}.
 		
 		\begin{figure}[H]
 			\centering
@@ -179,7 +183,7 @@ On the iOS app, an XML Parser was used to request and parse the public calendar 
  				 \label{fig:sub2}
 			\end{subfigure}
 			\caption{Android Event Page}
-			\label{fig:test}
+			\label{fig:event}
 		\end{figure}
 		
 		The Bulletin page is an exact replica of the corresponding page on Calvary's website on both the iOS and Android app. 
@@ -268,7 +272,8 @@ if (response != null) {
 		For iOS, loading into a UIWebView was as follows: 
 		\begin{lstlisting}
 let htmlCode = "<!DOCTYPE HTML><html><head><style> body {color: #5b5e5e; font-family: 
-'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17; text-decoration: none; } 
+'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17; 
+text-decoration: none; } 
 .staff a { border-bottom: 0px none; } a:focus, a:hover { border-bottom: 1px solid #fbaf17; 
 color: #b17b0e; }</style></head><body>" + bulletinContent + "</body></html>"
                 
@@ -289,7 +294,26 @@ myWebView.getSettings().setAllowFileAccess(true);
 		\end{lstlisting}
 		
 		With the above listed code, the bulletin page was rendered on the app and styled to look almost exactly as it does on the website. 
+		The resulting bulletin page on both devices can be seen in Figure ~\ref{fig:bulletin}.
 		
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androidbulletin}
+ 				 \caption{Android}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{iosbulletin}
+ 				 \caption{iOS}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Bulletin Page}
+			\label{fig:bulletin}
+		\end{figure}
+
 		
 		
 		
@@ -297,9 +321,70 @@ myWebView.getSettings().setAllowFileAccess(true);
 		Instead, the entire donation page was loaded into a UIWebView from the Calvary website. 
 		The header, footer, and additional content, were removed and now user's will have the ability to donate quickly while still protecting their credit card and personal information. 
 		
+		On the iOS app, the code that was used to load this page is listed below: 
+		--ios code here
+		
+		
+		The code for handling the loading of this page for Android is listed below:
+		\begin{lstlisting}
+@Override
+    public void onPageFinished(WebView view, String url) {
+            myWebView.loadUrl("javascript:(function() { " + 
+            "document.getElementsByClassName('site-header')[0].style.display='none'; " + 	   	                      
+            "document.getElementsByClassName('footer-widgets')[0].style.display='none'; " + 
+            "document.getElementsByClassName('content')[0].style.display='none'; " + "})()");
+            myWebView.setVisibility(View.VISIBLE);
+            myWebView.getSettings().setLoadWithOverviewMode(true);
+            myWebView.getSettings().setUseWideViewPort(true);
+   	}
+   });
+        myWebView.setVisibility(View.GONE);
+        myWebView.loadUrl("https://www.calvarycorvallis.org/give/");
+        		\end{lstlisting}
+		
+		The donation page on both devices can be seen in Figure ~\ref{fig:donation}.
+		
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androiddonate}
+ 				 \caption{Android}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{iosdonate}
+ 				 \caption{iOS}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Donation Page}
+			\label{fig:donation}
+		\end{figure}
+
+		
 		The messages page is a hard coded video from Calvary's LiveStream account, along with a button to access previous videos. 
 		Issues with the client's LiveStream account will be discussed further below, but they did cause this page to not be exactly what we need. 
 		
+		The messages page on both devices can be seen in Figure ~\ref{fig:message}.
+		
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androidmessages}
+ 				 \caption{Android}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{iosmessages}
+ 				 \caption{iOS}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Messages Page}
+			\label{fig:message}
+		\end{figure}
 
 
 \section{Problems Encountered}
