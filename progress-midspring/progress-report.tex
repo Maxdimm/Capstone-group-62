@@ -12,12 +12,16 @@
 \usepackage{pstricks, pst-node}
 \usepackage{geometry}
 \usepackage{array}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
 
 
 \geometry{margin = .75in}
 
 \usepackage{hyperref}
 
+\graphicspath{{figures/}{pictures/}{images/}{./}}
 
 
 \newcommand*{\signature}[1]{%
@@ -88,9 +92,215 @@
 \section{Winter 2017}
 		Most of the implementation of the iOS implementation was done during Winter term. 
 		The first couple weeks were spent continuing to learn how Xcode and Android Studio worked and getting our base applications up and running. 
+		Once we grasped the basic development concepts, we began working on our individual pieces.
+		Originally, the project was divided the following way: 
+		\begin {itemize}
+			\item Bulletin Page and iOS Interface: Courtney
+			\item Events Page and Android Interface: Kevin
+			\item Messages and Donations: Max
+		\end {itemize}
+		However, assignments were shifted when individual pieces were more difficult than we originally thought. 
+		Throughout the development process, the project shifted in the following way: 
+		\begin {itemize}
+			\item Bulletin Page, Events Page (Android), Donation Page (Android): Courtney
+			\item Events Page (iOS): Kevin
+			\item Donation Page (iOS), Messages Page: Max
+		\end {itemize}
+			
+		We discovered that the Events page was more involved than we planned for and ended up needing to split the responsibilities in order to have this page finished on time. 
+		The specifics of each page will be described below. 
+		
+				
+		By the end of Winter term, we had two almost completed applications.
+		We focused on the iOS implementation because that was the one we began first and spent the most time on. 
+		The iOS app had the home page, bulletin page, donation page, and most of the messages page finished at this point. 
+		The events page was still being worked on but it was in progress. 
+		
+		The Android implementation was slower to begin and was about halfway done at the end of this term. 
+		Only the bulletin and the donation pages were finished by this point. 
+		
 		
 		
 \section{Current Status}
+		Beginning Spring term, we still had quite a bit of work to finish before the apps were completed. 
+		Though the goal was to finish development by Winter term, this did not happen. 
+		We focused on finishing the Android app as it had the furthest to go before being done. 
+		At the same time, we did continue to work on the iOS app to try and get them both complete as soon as possible. 
+		
+		As of now, both apps are finished, though neither are available for download in their respective stores.
+		The client has decided to continue working on the app and adding additional information, which is discussed below, and they want to hold off on publishing the applications. 
+		However, our original requirements have been met with the apps as they are. 
+
+On the iOS app, an XML Parser was used to request and parse the public calendar from Church Community Builder.
+		The parsed information was then presented in a UITableView. 
+		When a user clicks on each event, they can see an additional view with more details, like time, location, group leader, and contact information.
+		The Android app is very similar, though with the language difference, a new XML Parser was needed. 
+		Again the information is requested and parsed from the public calendar, and then presented in a List View. 
+		Users are also able to click on each event and view additional details. 
+		A code snippet from the XML Parser is listed below: 
+		
+		\begin{lstlisting}
+ public String getXmlFromUrl(String url) {
+       OkHttpClient client = new OkHttpClient();
+           final String basic = "Basic " + Base64.encodeToString(CREDENTIALS.getBytes(), Base64.NO_WRAP);
+           String str = null;
+           Request request = new Request.Builder()
+                   .url(url)
+                   .header("Authorization", basic)
+                   .build();
+
+           try {
+               Response response = client.newCall(request).execute();
+               str = response.body().string();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+
+       return str;
+   }
+   		\end{lstlisting}
+		
+		We used OkHttpClient in order to request the XML response from the URL. 
+		Once we received the response, we parsed it using a Document Builder Factory. 
+		The end results on how this response is displayed on the app can be seen in Figure ~\ref{fig:test}.
+		
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androidevents}
+ 				 \caption{A List of Events}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{androiddetails}
+ 				 \caption{An Event Details}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Android Event Page}
+			\label{fig:test}
+		\end{figure}
+		
+		The Bulletin page is an exact replica of the corresponding page on Calvary's website on both the iOS and Android app. 
+		The church was in the process of creating a new website that was powered by Wordpress. 
+		Wordpress sites can be parsed using JSON and REST API. 
+		The response from the request is a JSON Object that can be parsed and information can be pulled from the response.
+		A JSON Parser was used to request the bulletin page on the website and the response we received was the content of the page. 
+		A sample response from the JSON request was: 
+		
+		\begin{lstlisting}
+		
+{
+  "id": 1038,
+  "date": "2016-10-27T19:22:53",
+  "date_gmt": "2016-10-27T19:22:53",
+  "guid": {
+    "rendered": "http://www.calvarycorvallis.org/?page_id=1038"
+  },
+  "modified": "2017-03-18T11:48:50",
+  "modified_gmt": "2017-03-18T18:48:50",
+  "slug": "bulletin",
+  "status": "publish",
+  "type": "page",
+  "link": "https://www.calvarycorvallis.org/bulletin/",
+  "title": {
+    "rendered": "This Week&#8217;s Bulletin"
+  },
+  "content": {
+    "rendered": "<p>all bulletin content would be here...
+    ...
+    },
+    Additional, unrelated JSON returned below here...
+ }
+    
+		
+		
+		\end{lstlisting}
+
+		From this response, the "content": \{ "rendered": .. \} was the part that contained that actual bulletin content that would need to be displayed on the application. 
+		The parsing for iOS is listed below: 
+		
+		\begin{lstlisting}
+ do {
+ 	guard let bulletin = try JSONSerialization.jsonObject(with: responseData, 
+	options: []) as? [String: AnyObject] else {			
+	         print("error trying to convert data to JSON")
+                 return
+         }
+                
+        	guard let bulletinContent = bulletin["content"]?["rendered"] as? 
+	String else {
+                  print("Could not get bulletin content from JSON")
+                  return
+         }
+         let actualContent = bulletinContent.replacingOccurrences(of: "<[^>]*.", with: 
+         "", options: .regularExpression, range: nil)
+             
+         DispatchQueue.main.async{		            
+ 	          self.jsontext.text = actualContent
+         }		                   
+} catch  {
+         print("error trying to convert data to JSON")
+         return
+}
+\end{lstlisting}
+
+		The parsing for Android, which was simpler to extract the needed information is below: 
+		
+		\begin{lstlisting}
+if (response != null) {
+	try {
+		JSONObject jsonResponse = response.getJSONObject(TAG_CONTENT);
+                 String jsonData = jsonResponse.getString(TAG_RENDERED);
+		 textView.setText(jsonData);                   
+                  Log.e("App", "Success: " + response.getString("yourJsonElement"));
+	} catch (JSONException ex) {
+                    Log.e("App", "Failure", ex);
+        }
+}
+	\end{lstlisting}
+	
+
+		In order to style the content similarly to the way the website is styled, the response was wrapped in HTML and CSS and loaded into a Web View.
+		This was done slightly differently but very similarly within each app. 
+
+		For iOS, loading into a UIWebView was as follows: 
+		\begin{lstlisting}
+let htmlCode = "<!DOCTYPE HTML><html><head><style> body {color: #5b5e5e; font-family: 
+'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17; text-decoration: none; } 
+.staff a { border-bottom: 0px none; } a:focus, a:hover { border-bottom: 1px solid #fbaf17; 
+color: #b17b0e; }</style></head><body>" + bulletinContent + "</body></html>"
+                
+self.bulletinWeb.loadHTMLString(htmlCode, baseURL: nil)
+		\end{lstlisting}
+		
+		For Android, loading into a Web View is listed below: 
+		\begin{lstlisting}
+String bulletinContent = "<!DOCTYPE HTML><html><head><style> body {color: #5b5e5e; 
+font-family: 'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17; 
+text-decoration: none; } .staff a { border-bottom: 0px none; } a:focus, a:hover { 
+border-bottom: 1px solid #fbaf17; color: #b17b0e; }</style></head><body>" + 
+jsonData + "</body></html>";
+
+myWebView.loadDataWithBaseURL("file:///android_asset/", bulletinContent, 
+"text/html", "utf-8", null);
+myWebView.getSettings().setAllowFileAccess(true);
+		\end{lstlisting}
+		
+		With the above listed code, the bulletin page was rendered on the app and styled to look almost exactly as it does on the website. 
+		
+		
+		
+		
+		Because the Donation page handles sensitive information, we decided with our client not to have the application handle the private information. 
+		Instead, the entire donation page was loaded into a UIWebView from the Calvary website. 
+		The header, footer, and additional content, were removed and now user's will have the ability to donate quickly while still protecting their credit card and personal information. 
+		
+		The messages page is a hard coded video from Calvary's LiveStream account, along with a button to access previous videos. 
+		Issues with the client's LiveStream account will be discussed further below, but they did cause this page to not be exactly what we need. 
+		
+
 
 \section{Problems Encountered}
 
