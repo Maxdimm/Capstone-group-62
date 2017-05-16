@@ -356,7 +356,14 @@ myWebView.getSettings().setAllowFileAccess(true);
 		The header, footer, and additional content, were removed and now user's will have the ability to donate quickly while still protecting their credit card and personal information.
 
 		On the iOS app, the code that was used to load this page is listed below:
-		--ios code here
+		\begin{lstlisting}
+ 	let donateURL = URL (string: "https://www.calvarycorvallis.org/give/")
+        let requestObj = URLRequest(url: donateURL!)
+        donateView.loadRequest(requestObj)      
+        donateView.delegate = self     
+        donateView.scrollView.delegate = self     
+        donateView.scrollView.isScrollEnabled = false
+        	\end{lstlisting}
 
 
 		The code for handling the loading of this page for Android is listed below:
@@ -410,13 +417,15 @@ myWebView.getSettings().setAllowFileAccess(true);
 		Below is the code used on the fourth fragment which is the messages page.
 		This is from the android version which is almost identical to the IOS version save a few changes due to the differences between java and swift.
 		\begin{lstlisting}
-public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+public View onCreateView(LayoutInflater inflater, ViewGroup container, 
+Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.fourth_layout, container, false);
 
-        String videoLink = "<html><iframe id=\"ls_embed_1493363421\" src=\"https://livestream
-	.com/accounts/18343788/events/7279945/videos/154327352/player?width=960&height=
-	540&enableInfo=false&defaultDrawer=&autoPlay=true&mute=false\" width=\"960\" heig
-	ht=\"540\" frameborder=\"0\" scrolling=\"no\" allowfullscreen> </iframe></html>";
+        String videoLink = "<html><iframe id=\"ls_embed_1493363421\" src=\"
+        https://livestream.com/accounts/18343788/events/7279945/videos/154327352/player
+        ?width=960&height=540&enableInfo=false&defaultDrawer=&autoPlay=true&
+        mute=false\" width=\"960\" height=\"540\" frameborder=\"0\" scrolling=\"no\" 
+        allowfullscreen> </iframe></html>";
 
         myWebView = (WebView) myView.findViewById(R.id.messagesView);
 
@@ -434,7 +443,8 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
 		Below is a function that I made that is tied to the button on the messages page, this links to the livestream page on their default browser.
 		\begin{lstlisting}
 public void browser1(View view) {
-        Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://livestream.com/calvarycorvallis"));
+        Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("
+        https://livestream.com/calvarycorvallis"));
         startActivity(browserIntent);
     }
 
@@ -464,30 +474,30 @@ public void browser1(View view) {
 
 
 \section{Problems Encountered}
-		We encountered quite a few stumbling blocks throughout the project that caught a lot of our time. 
-		There were many small issues that arised throughout the project but that is to be exected when you are working on a type of project you never have before.
-		The first issue we ran into was a problem linking the main storyboard to the viewcontrollers. 
-		The problem arose when we tried to link visual components to the viewcontrollers and then write the code.
-		X-Code did not like this when they wernt linked and threw a couple errors and mainly wouldnt work.
-		Now, this sounds like a pretty simple issue, but when you havnt worked with x-code before, it takes a while to figure out.
+		We encountered quite a few stumbling blocks throughout the project that took a lot of our time. 
+		There were many small issues that arose throughout the project but that is to be expected when you are working on a type of project you never have before.
+		The first issue we ran into was a problem linking the main storyboard to the view controllers. 
+		The problem arose when we tried to link visual components to the view controllers and then write the code.
+		X-Code did not like this when they were not linked and threw a couple errors and mainly would not work.
+		Now, this sounds like a pretty simple issue, but when you have not worked with x-code before, it takes a while to figure out.
 		Once the issue was diagnosed it only took a few hours to fix, it was understanding the issue that took us a long time to figure out.
-		The issue was hard to figure out because most tutorials online were single page apps and did not need to link aditional view controllers.
+		The issue was hard to figure out because most tutorials online were single page apps and did not need to link additional view controllers.
 		However when we fixed the problem we had the sermons page functional within a day or two.
 
-		Another issue that we had was with the calendar page on both IOS and Android.
+		Another issue that we had was with the calendar page on both iOS and Android.
 		We were working on it for a long time using the CCB API.
 		The issue was that the login cannot have the "@" symbol within the username.
 		The usernames issued to us by our client had that symbol within them and created a big issue for us.
-		The error that we recieved was not clear enough for us to diagnose the problem quickly and ended up taking us a few weeks to resolve.
+		The error that we received was not clear enough for us to diagnose the problem quickly and ended up taking us a few weeks to resolve.
 
 		A third issue we ran into was the donations page.
 		We decided to use the existing web donation platform that our client was already using except displayed through the app.
 		The reasoning behind this was so that we would not have to handle any of the churches private banking information.
-		The other reason being that the users would already be framiliar and comfortable with this method.
-		We displayed the donations page within a webview in the app, however this created an unforseen issue. 
-		Because of the nature of HTML pages and how they display, we had the whole website being displayed on the webview, navigation, header, and footer included.
+		The other reason being that the users would already be familiar and comfortable with this method.
+		We displayed the donations page within a WebView in the app, however this created an unforeseen issue. 
+		Because of the nature of HTML pages and how they display, we had the whole website being displayed on the WebView, navigation, header, and footer included.
 		We wanted just to have the donation link and nothing else from that page displayed.
-		It was a headscratcher but eventually we were able to figure out a javascript command that was able to strip all the undesired content away so that just the donation fields were displayed.
+		It was a head-scratcher but eventually we were able to figure out a javascript command that was able to strip all the undesired content away so that just the donation fields were displayed.
 
 \section{Future Work}
 		Within the last few weeks, the client has realized there are additional features they would like to be present on the applications.
