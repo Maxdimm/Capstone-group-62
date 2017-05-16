@@ -398,7 +398,49 @@ myWebView.getSettings().setAllowFileAccess(true);
 
 
 		The messages page is a hard coded video from Calvary's LiveStream account, along with a button to access previous videos.
-		Issues with the client's LiveStream account will be discussed further below, but they did cause this page to not be exactly what we need.
+		With the system our client is using we had two options to when it came to implementing the video viewer, either to use livestreams API and stream key, or to embed the video and use livestreams live link to keep the video current.
+		The issue we ran into when going the livestream API route, is that we need the calvary corvalis unique key that would give us access to the developer tools.
+		When asked about this our client looked but was unable to provide the key for us.
+		The second option is what we were left with.
+		We explained that in order to stream their live video we would need one of two things.
+		The could either upgrade their livestream account which would open up the live embed link, or host their sermons on multiple platforms such as youtube which allow for free live streaming on different devices.
+		Our client was not able to provide us with either of the above options so we were left with a hard coded link that just displays a past sermon.
+		If they are able to do either of the above steps, changing a single line of code can easily set up livestreaming in the future.
+
+		Below is the code used on the fourth fragment which is the messages page.
+		This is from the android version which is almost identical to the IOS version save a few changes due to the differences between java and swift.
+		\begin{lstlisting}
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.fourth_layout, container, false);
+
+        String videoLink = "<html><iframe id=\"ls_embed_1493363421\" src=\"https://livestream
+	.com/accounts/18343788/events/7279945/videos/154327352/player?width=960&height=
+	540&enableInfo=false&defaultDrawer=&autoPlay=true&mute=false\" width=\"960\" heig
+	ht=\"540\" frameborder=\"0\" scrolling=\"no\" allowfullscreen> </iframe></html>";
+
+        myWebView = (WebView) myView.findViewById(R.id.messagesView);
+
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        myWebView.getSettings().setLoadWithOverviewMode(true);
+        myWebView.getSettings().setUseWideViewPort(true);
+        myWebView.getSettings().setBuiltInZoomControls(true);
+        myWebView.loadData(videoLink, "text/html", "utf-8");
+
+        return myView;
+		\end{lstlisting}
+		The button on the botton opens up a link to the livestream page in the users default browser.
+		This gives the user the ability to search for past sermons so long as they still exist on the livestream page.
+		Below is a function that I made that is tied to the button on the messages page, this links to the livestream page on their default browser.
+		\begin{lstlisting}
+public void browser1(View view) {
+        Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://livestream.com/calvarycorvallis"));
+        startActivity(browserIntent);
+    }
+
+		\end{lstlisting}
+
+	
 
 		The messages page on both devices can be seen in Figure ~\ref{fig:message}.
 
@@ -422,6 +464,30 @@ myWebView.getSettings().setAllowFileAccess(true);
 
 
 \section{Problems Encountered}
+		We encountered quite a few stumbling blocks throughout the project that caught a lot of our time. 
+		There were many small issues that arised throughout the project but that is to be exected when you are working on a type of project you never have before.
+		The first issue we ran into was a problem linking the main storyboard to the viewcontrollers. 
+		The problem arose when we tried to link visual components to the viewcontrollers and then write the code.
+		X-Code did not like this when they wernt linked and threw a couple errors and mainly wouldnt work.
+		Now, this sounds like a pretty simple issue, but when you havnt worked with x-code before, it takes a while to figure out.
+		Once the issue was diagnosed it only took a few hours to fix, it was understanding the issue that took us a long time to figure out.
+		The issue was hard to figure out because most tutorials online were single page apps and did not need to link aditional view controllers.
+		However when we fixed the problem we had the sermons page functional within a day or two.
+
+		Another issue that we had was with the calendar page on both IOS and Android.
+		We were working on it for a long time using the CCB API.
+		The issue was that the login cannot have the "@" symbol within the username.
+		The usernames issued to us by our client had that symbol within them and created a big issue for us.
+		The error that we recieved was not clear enough for us to diagnose the problem quickly and ended up taking us a few weeks to resolve.
+
+		A third issue we ran into was the donations page.
+		We decided to use the existing web donation platform that our client was already using except displayed through the app.
+		The reasoning behind this was so that we would not have to handle any of the churches private banking information.
+		The other reason being that the users would already be framiliar and comfortable with this method.
+		We displayed the donations page within a webview in the app, however this created an unforseen issue. 
+		Because of the nature of HTML pages and how they display, we had the whole website being displayed on the webview, navigation, header, and footer included.
+		We wanted just to have the donation link and nothing else from that page displayed.
+		It was a headscratcher but eventually we were able to figure out a javascript command that was able to strip all the undesired content away so that just the donation fields were displayed.
 
 \section{Future Work}
 		Within the last few weeks, the client has realized there are additional features they would like to be present on the applications.
