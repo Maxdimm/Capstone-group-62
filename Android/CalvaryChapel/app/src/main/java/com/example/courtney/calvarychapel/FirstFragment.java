@@ -1,6 +1,7 @@
 package com.example.courtney.calvarychapel;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,6 +31,7 @@ public class FirstFragment extends Fragment {
 
     View myView;
     WebView myWebView;
+    ProgressDialog progressDialog;
     private static final String TAG_CONTENT = "content";
     private static final String TAG_RENDERED = "rendered";
 
@@ -49,6 +51,15 @@ public class FirstFragment extends Fragment {
 
     //Call the URL and parse the JSON response
     protected class JSONTask extends AsyncTask<Void, Void, JSONObject> {
+
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Loading...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
 
         @Override
         protected JSONObject doInBackground(Void... params) {
@@ -93,6 +104,10 @@ public class FirstFragment extends Fragment {
         //display the response on the UI
         @Override
         protected void onPostExecute(JSONObject response) {
+
+            if (progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
 
             if (response != null) {
                 try {

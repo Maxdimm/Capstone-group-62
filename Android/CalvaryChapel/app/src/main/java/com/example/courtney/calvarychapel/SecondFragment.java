@@ -1,6 +1,7 @@
 package com.example.courtney.calvarychapel;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 public class SecondFragment extends Fragment {
 
     TextView monthTxt;
+    ProgressDialog progressDialog;
     private ImageView backArrow;
     private ImageView forwardArrow;
     private TextView previous;
@@ -65,6 +67,7 @@ public class SecondFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         String currentMonthName = new SimpleDateFormat("MMMM").format(calendar.getTime());
         int currentMonth = calendar.get(Calendar.MONTH) + 1;
+        chosenMonthName = currentMonthName;
         monthTxt = (TextView) myView.findViewById(R.id.month);
         monthTxt.setText(chosenMonthName);
 
@@ -136,6 +139,7 @@ public class SecondFragment extends Fragment {
         } else {
             if (fullURL != null) {
                 // do nothing
+                monthTxt.setText(chosenMonthName);
             } else {
                 monthTxt.setText(currentMonthName);
                 fullURL = baseURL + startDate + endDateChoice + endDate;
@@ -157,6 +161,15 @@ public class SecondFragment extends Fragment {
     }
 
     protected class DownloadXML extends AsyncTask<Void, Void, Void> {
+
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Loading...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -199,6 +212,10 @@ public class SecondFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Void args) {
+            if (progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+
             listView = (ListView) myView.findViewById(R.id.listview);
             adapter = new ListViewAdapter(getActivity(), arrayList);
             listView.setAdapter(adapter);
