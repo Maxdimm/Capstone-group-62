@@ -18,6 +18,7 @@
 \usepackage{import}
 \usepackage[final]{pdfpages}
 
+\renewcommand{\lstlistingname}{Code}
 
 \geometry{margin = .75in}
 
@@ -228,6 +229,276 @@ Our assigned teacher's assistant, Vedanth, did provide some suggestions to help 
 	
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEabrv,finalreport}
+	
+	\appendices
+	
+	\section{Essential Code Listings}
+	
+	\begin{lstlisting}[caption=iOS EventViewController Snippet]
+func createDatePicker() {
+    // format the picker
+    datePicker.datePickerMode = UIDatePickerMode.date
+    //toolbar
+    let toolbar = UIToolbar()
+    toolbar.sizeToFit()
+    // bar button item
+    let doneButton = UIBarButtonItem(barButtonSystemItem:
+			.done, target: nil, action: #selector(donePressed))
+    toolbar.setItems([doneButton], animated: false)
+    changeDate.inputAccessoryView = toolbar
+    changeDate.inputView = datePicker
+}
+\end{lstlisting}
+		
+This code creates the datePicker which allows the user to select the month, day and year.
+
+\begin{lstlisting}[caption=iOS EventViewController Snippet]
+func donePressed() {
+    // format date
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    pickerTracker = true
+    startDate = dateFormatter.string(from: datePicker.date)
+    updateTable()
+    self.view.endEditing(true)
+}
+\end{lstlisting}
+
+This code is the selected action for the DatePicker.
+
+\begin{lstlisting}[caption=Android XML Parser]
+ public String getXmlFromUrl(String url) {
+       OkHttpClient client = new OkHttpClient();
+           final String basic = "Basic " + Base64.encodeToString(CREDENTIALS.getBytes(),
+           Base64.NO_WRAP);
+           String str = null;
+           Request request = new Request.Builder()
+                   .url(url)
+                   .header("Authorization", basic)
+                   .build();
+
+           try {
+               Response response = client.newCall(request).execute();
+               str = response.body().string();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+
+       return str;
+   }
+\end{lstlisting}
+
+\begin{lstlisting}[caption=iOS JSON Response]
+
+{
+  "id": 1038,
+  "date": "2016-10-27T19:22:53",
+  "date_gmt": "2016-10-27T19:22:53",
+  "guid": {
+    "rendered": "http://www.calvarycorvallis.org/?page_id=1038"
+  },
+  "modified": "2017-03-18T11:48:50",
+  "modified_gmt": "2017-03-18T18:48:50",
+  "slug": "bulletin",
+  "status": "publish",
+  "type": "page",
+  "link": "https://www.calvarycorvallis.org/bulletin/",
+  "title": {
+    "rendered": "This Week&#8217;s Bulletin"
+  },
+  "content": {
+    "rendered": "<p>all bulletin content would be here...
+    ...
+    },
+    Additional, unrelated JSON returned below here...
+ }
+
+\end{lstlisting}
+		
+\begin{lstlisting}[caption=iOS JSON Parser]
+ do {
+ 	guard let bulletin = try JSONSerialization.jsonObject(with: responseData,
+	options: []) as? [String: AnyObject] else {
+	         print("error trying to convert data to JSON")
+                 return
+         }
+
+        	guard let bulletinContent = bulletin["content"]?["rendered"] as?
+	String else {
+                  print("Could not get bulletin content from JSON")
+                  return
+         }
+         let actualContent = bulletinContent.replacingOccurrences(of: "<[^>]*.", with:
+         "", options: .regularExpression, range: nil)
+
+         DispatchQueue.main.async{
+ 	          self.jsontext.text = actualContent
+         }
+} catch  {
+         print("error trying to convert data to JSON")
+         return
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Android JSON Parser]
+if (response != null) {
+	try {
+		JSONObject jsonResponse = response.getJSONObject(TAG_CONTENT);
+                 String jsonData = jsonResponse.getString(TAG_RENDERED);
+		 textView.setText(jsonData);
+                  Log.e("App", "Success: " + response.getString("yourJsonElement"));
+	} catch (JSONException ex) {
+                    Log.e("App", "Failure", ex);
+        }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=iOS Load into WebView]
+let htmlCode = "<!DOCTYPE HTML><html><head><style> body {color: #5b5e5e; font-family:
+'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17;
+text-decoration: none; }
+.staff a { border-bottom: 0px none; } a:focus, a:hover { border-bottom: 1px solid #fbaf17;
+color: #b17b0e; }</style></head><body>" + bulletinContent + "</body></html>"
+
+self.bulletinWeb.loadHTMLString(htmlCode, baseURL: nil)
+		\end{lstlisting}
+
+\begin{lstlisting}[caption=Android Load into WebView]
+String bulletinContent = "<!DOCTYPE HTML><html><head><style> body {color: #5b5e5e;
+font-family: 'Lora', Palatino;} a { border-bottom: 1px solid #fbaf17; color: #fbaf17;
+text-decoration: none; } .staff a { border-bottom: 0px none; } a:focus, a:hover {
+border-bottom: 1px solid #fbaf17; color: #b17b0e; }</style></head><body>" +
+jsonData + "</body></html>";
+
+myWebView.loadDataWithBaseURL("file:///android_asset/", bulletinContent,
+"text/html", "utf-8", null);
+myWebView.getSettings().setAllowFileAccess(true);
+\end{lstlisting}
+
+	
+\begin{lstlisting}[caption=iOS Donation Page]
+ 	let donateURL = URL (string: "https://www.calvarycorvallis.org/give/")
+        let requestObj = URLRequest(url: donateURL!)
+        donateView.loadRequest(requestObj)      
+        donateView.delegate = self     
+        donateView.scrollView.delegate = self     
+        donateView.scrollView.isScrollEnabled = false
+\end{lstlisting}
+	
+\begin{lstlisting}[caption=Android Donation Page]
+@Override
+    public void onPageFinished(WebView view, String url) {
+            myWebView.loadUrl("javascript:(function() { " +
+            "document.getElementsByClassName('site-header')[0].style.display='none'; " +
+            "document.getElementsByClassName('footer-widgets')[0].style.display='none'; " +
+            "document.getElementsByClassName('content')[0].style.display='none'; " + "})()");
+            myWebView.setVisibility(View.VISIBLE);
+            myWebView.getSettings().setLoadWithOverviewMode(true);
+            myWebView.getSettings().setUseWideViewPort(true);
+   	}
+   });
+        myWebView.setVisibility(View.GONE);
+        myWebView.loadUrl("https://www.calvarycorvallis.org/give/");
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Android Messages Page]
+public View onCreateView(LayoutInflater inflater, ViewGroup container, 
+Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.fourth_layout, container, false);
+
+        String videoLink = "<html><iframe id=\"ls_embed_1493363421\" src=\"
+        https://livestream.com/accounts/18343788/events/7279945/videos/154327352/player
+        ?width=960&height=540&enableInfo=false&defaultDrawer=&autoPlay=true&
+        mute=false\" width=\"960\" height=\"540\" frameborder=\"0\" scrolling=\"no\" 
+        allowfullscreen> </iframe></html>";
+
+        myWebView = (WebView) myView.findViewById(R.id.messagesView);
+
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        myWebView.getSettings().setLoadWithOverviewMode(true);
+        myWebView.getSettings().setUseWideViewPort(true);
+        myWebView.getSettings().setBuiltInZoomControls(true);
+        myWebView.loadData(videoLink, "text/html", "utf-8");
+
+        return myView;
+		\end{lstlisting}
+
+	
+	\section{Photos}
+	
+	\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androidevents}
+ 				 \caption{A List of Events}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{androiddetails}
+ 				 \caption{An Event Details}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Android Event Page}
+			\label{fig:event}
+		\end{figure}
+
+
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androidbulletin}
+ 				 \caption{Android}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{iosbulletin}
+ 				 \caption{iOS}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Bulletin Page}
+			\label{fig:bulletin}
+		\end{figure}
+
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androiddonate}
+ 				 \caption{Android}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{iosdonate}
+ 				 \caption{iOS}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Donation Page}
+			\label{fig:donation}
+		\end{figure}
+
+	\begin{figure}[H]
+			\centering
+			\begin{subfigure}{.5\textwidth}
+ 				 \centering
+  				 \includegraphics[width=.4\linewidth]{androidmessages}
+ 				 \caption{Android}
+  				 \label{fig:sub1}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+		         	\centering
+ 				 \includegraphics[width=.4\linewidth]{iosmessages}
+ 				 \caption{iOS}
+ 				 \label{fig:sub2}
+			\end{subfigure}
+			\caption{Messages Page}
+			\label{fig:message}
+		\end{figure}
 
 
 \end{document}
