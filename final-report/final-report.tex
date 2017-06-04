@@ -86,23 +86,56 @@
 
 \section{Introduction}
 
+Our project centered around a local church in Corvallis, Oregon, Calvary Chapel of Corvallis. 
+The church requested our help in creating a mobile application that would work together with their existing website and be used by the members of the congregation. 
+Our main goal was to create an application that was compatible with both iOS and Android smart phones, had a simple design and functionality so all people could use it easily, and incorporated the most important pieces of their current website.
+It was decided that the main sections the church wanted to see on the applications were the bulletins, events, the ability to donate, and the most recent message video. 
+
+The client team was led by project manager, Desiree Gorham. 
+She acted as a channel of communication between us and the senior staff at the church to make sure we were designing the app in the way they had intended. 
+The church was not involved in development, but did offer advice and ideas as to how they wanted the final product to look and function. 
+
+The members of our team were Courtney Bonn, Maxwell Dimm, and Kevin Stine. 
+The project requirements were spread among us, though we did change those assignments throughout the process as well as helped each other when needed. 
+The roles were as follows: 
+
+\begin{itemize}
+	\item Courtney Bonn: iOS - Bulletin Page; Android - Bulletin, Donation, Events Page
+	\item Max Dimm: iOS - Donation, Messages Page; Android - Messages Page
+	\item Kevin Stine: iOS - Events Page
+\end{itemize}
+
 \section{Original Requirements}
 
-	\includepdf[pages={-}]{originals/requirements.pdf}
+	\includepdf[pages={2-8}]{originals/requirements.pdf}
 
 \section{Requirement Changes}
 
 \section{Original Design Document}
 
-	\includepdf[pages={-}]{originals/design.pdf}
+	\includepdf[pages={2-12}]{originals/design.pdf}
 	
 	\subsection{Design Changes}
 	
 \section{Original Technology Review}
 
-	\includepdf[pages={-}]{originals/tech-review.pdf}
+	\includepdf[pages={2-23}]{originals/tech-review.pdf}
 
 	\subsection{Technology Changes}
+	Throughout the process of building our applications, the church was also busy working on their own website. 
+	The new church website used Wordpress as the software backing the entire site. 
+	Because we wanted to limit the amount of extra work required to maintain the application, it made sense to change the way we were incorporating the bulletin page into the app. 
+	
+	Originally, we proposed to incorporate the bulletin page using the database, Church Community Builder. 
+	The bulletin announcements were going to be handled in this database, which we could then request through the API. 
+	However, with the new website, the bulletins were no longer going to be updated on the database. 
+	This meant, should we choose to use this database, the church would have to update the database as well as the website in order to update the app. 
+	
+	Because their new website used Wordpress, we were able to make use of the Wordpress REST API. 
+	By utilizing this API, we could request the content on the bulletin page and using a JSON parser, we could display the results on the application. 
+	Now, whenever the website updates, the app will update as well. 
+	
+	There were no other technology changes. 
 	
 \section{Weekly Blog Posts}
 
@@ -113,6 +146,26 @@
 \includepdf[pages={-}]{originals/poster.pdf}
 
 \section{Project Documentation}
+
+Our project works in two different ways, depending on it is begin ran as a developer or as a consumer. 
+Because the end result is an application, available on both iOS and Android platforms, the project's structure is very simple. 
+There are two sets of project files, one for each platform, and within the files the code that can be executed in order to run the application is available. 
+
+As a consumer, one can download the application from the app store once it has been published. 
+After downloading, it will be available to use on the corresponding phone. 
+The app itself takes up less than 40 MB of space on a phone. 
+
+As a developer, the applications can be ran on a computer using two different softwares: Xcode and Android Studio. 
+These softwares are required in order to run the code.
+They can be downloaded from \url{https://developer.apple.com/xcode/} or \url{https://developer.android.com/studio/index.html}. 
+One caveat, though, is that to be eligible to download Xcode, one must be on a Mac computer. 
+Android Studio can be downloaded from both Mac and Windows computers. 
+
+Once the required software is installed, the code can be downloaded from \url{https://github.com/ikaikastine/capstone-group-62} with the code living in the folders iOS and Android. 
+The projects can then be opened in the corresponding software and ran accordingly. 
+The software allows one to run the code on either a built in simulator or an actual device if it is connected to the computer. 
+
+
 
 \section{Learning New Technology}
 
