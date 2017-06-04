@@ -41,6 +41,7 @@
 
 
 
+
 \graphicspath{{figures/}{pictures/}{images/}{./}}
 
 
@@ -71,7 +72,7 @@
 
 	\maketitle
 
-		\begin{abstract}The purpose of this project is to produce an iOS/Android application for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
+		\begin{abstract}The purpose of this project is to produce an \gls{iOS}/\gls{Android} application for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
 		The Church's current website does not provide an interface where current members of the church can very quickly access important information such as events, bulletins, and messages from the service.
 		The desired application will be simple enough for anyone to use while providing back end access for staff to easily upload new information to the app.
 		The priorities lie in maximizing the usability of the app and providing bulletin, schedule, video, and giving functionality.
@@ -126,7 +127,7 @@ The roles were as follows:
 	The new church website used Wordpress as the software backing the entire site. 
 	Because we wanted to limit the amount of extra work required to maintain the application, it made sense to change the way we were incorporating the bulletin page into the app. 
 	
-	Originally, we proposed to incorporate the bulletin page using the database, Church Community Builder. 
+	Originally, we proposed to incorporate the bulletin page using the database, \gls{ccb}. 
 	The bulletin announcements were going to be handled in this database, which we could then request through the API. 
 	However, with the new website, the bulletins were no longer going to be updated on the database. 
 	This meant, should we choose to use this database, the church would have to update the database as well as the website in order to update the app. 
@@ -168,15 +169,65 @@ The software allows one to run the code on either a built in simulator or an act
 
 
 \section{Learning New Technology}
+Because mobile development was new to all of us, we had to spend a good portion of our time researching and becoming accustomed to using the mobile development software, Xcode and Android Studio.
+The main sources which we used to learn these platforms, were produced by Apple and Android Studio. 
+Apple had a website in which it walked us through how to begin developing an iOS App on Xcode. 
+It taught us how to develop in Swift as well as how to use the program \cite{AppleSwift}.
+Android Studio had a similar website, as well as sample apps we could walk through designing \cite{AndroidStudio}. 
+
+Besides learning the main platforms, we had to do a copious amount of research on how to implement each part of the app. 
+A website that was instrumental in learning how to parse the Wordpress pages into JSON objects and display the JSON response was Grok Swift \cite{JSONSwift}. Because we also needed to know how to handle JSON in Android, a thread on Stackoverflow was very helpful \cite{JSONAndroid}. 
+
+A tutorial on \url{www.androidbegin.com} was used to understand how to handle XML parsing and displaying the data on an Android app \cite{XMLAndroid}. 
+We needed this information to handle the events calendar through \gls{ccb}. 
+
+While there were other websites that we searched and read, the above websites were the most helpful in learning the new technology. 
+As far as print documentation, we did not utilize any reference books in our learning. 
+Our assigned teacher's assistant, Vedanth, did provide some suggestions to help us with our learning, as he had some experience in mobile development from his own senior project. 
+
 
 \section{Team Reflection}
 
 	\subsection{Courtney Bonn}
 	
+		Because I had no worked with mobile development before I decided to choose this project, I was given the opportunity to learn an abundance of technical information. 
+		I went into this project with little understanding as to how an app worked and how to create my own. 
+		Fast forward to the end of the year and I know feel comfortable developing in both iOS and Android platforms, a skillset I am excited to get to add to my resume.
+		Specifically, I learned how to code in Swift and brushed up on my Java language skills.
+		I learned two new platforms to code in, Xcode and Android Studio. 
+		I also learned how to work with a REST API and JSON objects, as well as XML parsing and responses. 
+		Finally, I learned the whole process of creating an app from start to finish. 
+		
+		The main non-technical bit of information that I learned this year was how to produce accurate and helpful documentation for a large project. 
+		While documentation can feel time-consuming, it ends up saving a lot of time because there is already a roadmap for the project. 
+		Beginning development with no documentation would have felt overwhelming and chaotic and more likely than not would have caused development to take at least twice the amount of time. 
+		Knowing how to produce the necessary documentation is something I am very grateful to have learned in this course.
+		
+		Until this class, most assignments I had worked on were weekly assignments, with a few term projects here and there. 
+		Even then, term projects did not usually take up the entire term, but perhaps the last couple of weeks. 
+		I have never experienced working on the same project for a year before. 
+		Learning to keep focus and interest in a project for this amount of time, was a valuable skill that I am taking away from this project.
+		
+		
+		The biggest lesson I learned about project management, was that it is very easy to fall behind in a project if you go even one week without working on it. 
+		There were times where I could not work on the project for whatever reason, and then I felt I was behind in where I should be in project progression. 
+		The lesson I will take away is that even putting an hour into the project every week or a few minutes a day will help keep the project going smoothly. 
+		
+		In my college career, I have worked in many group projects. 
+		More often than not, these projects lasted a few weeks to a term at most, and then we went our separate ways. 
+		To work with the same group for almost an entire year was a new experience for me and one that I enjoyed. 
+		I learned that you have to help one another because you have to work as a time--you cannot leave anyone behind. 
+		I also learned that you have to be patient with each other because not everyone is going to be able to commit the same amount of time or effort at all times. 
+		Because we all had different classes to focus on as well, we had to work together to make sure our project was not falling behind if we needed to work on other classes. 
+		
+	
 	\subsection{Max Dimm}
 	
 	\subsection{Kevin Stine}
 	
+	
+	\bibliographystyle{IEEEtran}
+	\bibliography{IEEEabrv,finalreport}
 
 
 \end{document}
