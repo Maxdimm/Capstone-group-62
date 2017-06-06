@@ -73,7 +73,7 @@
 
 	\maketitle
 
-		\begin{abstract}The purpose of this project is to produce an \gls{iOS}/\gls{Android} application for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
+		\begin{abstract}The purpose of this project is to produce an iOS/Android application for Calvary Chapel of Corvallis that will allow members to access a plethora of information all in one localized space.
 		The Church's current website does not provide an interface where current members of the church can very quickly access important information such as events, bulletins, and messages from the service.
 		The desired application will be simple enough for anyone to use while providing back end access for staff to easily upload new information to the app.
 		The priorities lie in maximizing the usability of the app and providing bulletin, schedule, video, and giving functionality.
@@ -109,10 +109,12 @@ The roles were as follows:
 
 \section{Original Requirements}
 
+	Please see the following page for our requirements documentation. 
+
 	\includepdf[pages={2-8}]{originals/requirements.pdf}
 
 \section{Requirement Changes}
-	Due to having well established our client’s desires early and maintaining heavy communication fall and early winter term, we were able to make little to no changes to our requirements doc. 
+	Due to having well established our client'��s desires early and maintaining heavy communication fall and early winter term, we were able to make little to no changes to our requirements doc. 
 We made sure to establish exactly what our app should do and look like early on and work towards that same goal throughout our development. 
 Our client towards the end of winter term and in spring term requested a few altercations to the design that we were able to complete such as adding additional navigation to the events page. 
 The only requirement we did not add was the addition of push notifications due to how late in the development process it was requested. 
@@ -125,12 +127,22 @@ Our client requested that we add support for multiple languages, but due to timi
 
 \section{Original Design Document}
 
+	Please see the following page for our design documentation. 
+
 	\includepdf[pages={2-12}]{originals/design.pdf}
 
 	\subsection{Design Changes}
+	
+	Because our original design plan was a very simplistic idea for the applications, we did not end up changing any of our design decisions. 
+	The client wanted a clean looking app that looked similar to their website. 
+	The website has a white background and dark gray headings.
+	The only color on the website is the church's logo, as well as various pictures and logos. 
+	Our application directly reflects the website with the same color scheme and simple, clean design. 
 
 \section{Original Technology Review}
 
+	Please see the following page for our technology documentation.
+	
 	\includepdf[pages={2-23}]{originals/tech-review.pdf}
 
 	\subsection{Technology Changes}
@@ -155,11 +167,13 @@ Our client requested that we add support for multiple languages, but due to timi
 
 \section{Final Poster}
 
+	Please see the following page for our poster that was presented at Engineering Expo 2017.
+
 \includepdf[pages={-}]{originals/poster.pdf}
 
 \section{Project Documentation}
 
-Our project works in two different ways, depending on it is begin ran as a developer or as a consumer.
+Our project works in two different ways, depending on if it is being ran as a developer or as a consumer.
 Because the end result is an application, available on both iOS and Android platforms, the project's structure is very simple.
 There are two sets of project files, one for each platform, and within the files the code that can be executed in order to run the application is available.
 
@@ -192,15 +206,15 @@ A website that was instrumental in learning how to parse the Wordpress pages int
 A tutorial on \url{www.androidbegin.com} was used to understand how to handle XML parsing and displaying the data on an Android app \cite{XMLAndroid}.
 We needed this information to handle the events calendar through \gls{ccb}.
 
-While there were other websites that we searched and read, the above websites were the most helpful in learning the new technology.
-As far as print documentation, we did not utilize any reference books in our learning.
-Our assigned teacher's assistant, Vedanth, did provide some suggestions to help us with our learning, as he had some experience in mobile development from his own senior project.
-
 For the iOS Events page, a lot of time was spent looking at the Apple Developer API reference at \url{developer.apple.com/reference} to get familiar with the references for various portions of the application.
 For the Events page specifically there was a lot of time spent looking at the DateFormatter reference, the NSDate reference, and UIDatePicker reference.
 In addition to utilizing the developer API reference, Stack Overflow at \url{stackoverflow.com} was pretty critical in helping with debugging the code.
 I found a lot of discrepancies between Swift 3.0 and older versions, so when my code had a bug, it was tough to find specific help related to that version of swift.
 However I think that stackoverflow was instrumental in my success in debugging and with adding certain features like the UIDatePicker that utilized a particular type of object with the toolbar.
+
+While there were other websites that we searched and read, the above websites were the most helpful in learning the new technology.
+As far as print documentation, we did not utilize any reference books in our learning.
+Our assigned teacher's assistant, Vedanth, did provide some suggestions to help us with our learning, as he had some experience in mobile development from his own senior project.
 
 \section{Team Reflection}
 
@@ -244,12 +258,12 @@ Secondly, I had never worked on any form of app development before this and it w
 I think learning the fundamentals of building an app is a skill that will come invaluable later on in life and will pay dividends later. 
 I had no idea what language it would be coded in or what tools we would need to use, but that mattered less to me.
 
-	While working on our papers fall term, I learned a lot about the value of version control and how to properly make use of github. 
-Before I had used github to host work for assignments, but I was not using it as it was intended. 
-I would just do all the work locally and copy the files over to github so that I could turn it in on that platform which offered next to zero version control. 
-However, slowly over the term I figured out how to use github and other software that works with it properly. 
+	While working on our papers fall term, I learned a lot about the value of version control and how to properly make use of Github. 
+Before I had used Github to host work for assignments, but I was not using it as it was intended. 
+I would just do all the work locally and copy the files over to Github so that I could turn it in on that platform which offered next to zero version control. 
+However, slowly over the term I figured out how to use Github and other software that works with it properly. 
 This allowed us to not work on the same assignment twice and stay productive without wasting effort. 
-Also, we made use of a software called slack to stay in contact with one another and keep us updated on github commits. 
+Also, we made use of a software called slack to stay in contact with one another and keep us updated on Github commits. 
 
 	I think one of the major benefits of this class is getting work like experience. 
 This project and class as a whole was built to look and feel like a real work assignment with all the same requirements and deadlines. 
@@ -258,8 +272,8 @@ We worked in a team and had a client we answered directly to. I, having not done
 	One of the big things I learned this term was how to diagnose issues when dealing in a subject or language I had not worked in before. 
 I found myself a couple times running into issues that I did not understand without having many resources to go to. 
 I had to try to locate the root of the issue and find similar issues online and how they went about solving them. 
-However the locating of the primary issue was often the hardest part. If you don’t know what you’re dealing with, it will be hard to realize what the problem is.
-On a more specific level, I was able to learn a ton about working in both android studio and xcode. 
+However the locating of the primary issue was often the hardest part. If you do not know what you are dealing with, it will be hard to realize what the problem is.
+On a more specific level, I was able to learn a ton about working in both android studio and Xcode. 
 I had no experience with swift before and minimal with java. 
 Now I feel I could work on either platforms without too much confusion.
 
@@ -268,7 +282,7 @@ I learned a lot about the evolution of projects over the long term.
 It is rare to work on something with others for so long in school so this was unique in that way. 
 I think the key to our success was strong communication and setting out goals for one another. 
 I found that being upfront about what we were doing and what we needed went a long way to help us help each other. 
-We weren’t constantly working on the project due to life happening around us, so we had to have grace in different areas which was nice. 
+We were not constantly working on the project due to life happening around us, so we had to have grace in different areas which was nice. 
 I know I went through rough patches and having partners who understood was a blessing. 
 
 	If I was to do this all over again I would start looking up swift and android studio tutorials earlier. 
@@ -283,16 +297,16 @@ If I was to do this again I would try to be more proactive in taking on differen
 
 	\subsection{Kevin Stine}
 		There were a few reasons why I choose to partake in this project for senior design.
-		Firstly, I really wanted to get some hands on experience with mobile development as that was an area of programming and design I had always wanted to explore, but hadn't really had formal instruction on how to do so.
+		Firstly, I really wanted to get some hands on experience with mobile development as that was an area of programming and design I had always wanted to explore, but had not really had formal instruction on how to do so.
 		I decided that this could be a great opportunity to learn the fundamentals and basics of mobile development to add to my portfolio.
-		Second, this project intrigued me due to the fact that Calvary Corvallis was using Church Community Builder, and the local church plant that I'm a part of also uses that particular backend software.
+		Second, this project intrigued me due to the fact that Calvary Corvallis was using Church Community Builder, and the local church plant that I am a part of also uses that particular backend software.
 		I thought this would be the perfect opportunity to learn how make a mobile app that integrates with CCB in the hopes that one day I could create a similar type of application for my church.
 		This project was a great opportunity for me to learn more about mobile development, and really learn the intricacies of Swift as well as some Java.
 
 		I learned a lot of technical information through this project.
 		I learned how to use Xcode more in depth as well as Android Studio as the platforms in which we developed for.
 		Surprisingly I spent a lot of time with Xcode just learning how to use the inspector to change the various attributes of variables and of elements on the storyboard.
-		While I didn't end up doing too much Android development, I did still learn how to use Android Studio, learned how to utilize the xml files that make up and Android project, and learned how to setup an Android device to use for debugging and demoing purposes.
+		While I did not end up doing too much Android development, I did still learn how to use Android Studio, learned how to utilize the xml files that make up and Android project, and learned how to setup an Android device to use for debugging and demoing purposes.
 		I learned a ton on Swift as I mainly focused on iOS, and really feel like I have a solid foundation now for being able to create my own applications.
 		I learned how to utilize the storyboard, inspector, created a tabbed application, utilize the NSDate and DateFormatter references and create a UIDatePicker with a toolbar.
 		While I obviously learned more than just those few things, I think those are the most notable technical things I learned how to use.
@@ -302,17 +316,17 @@ If I was to do this again I would try to be more proactive in taking on differen
 		With Fall term being mostly centered around writing documents, I found that it also helped enhance my writing skills while improve on my ability to analyze and think through specific processes and ideas.
 		In addition I was able to learn a lot about time management through this project.
 		Having deadlines for documents really helped me set easy goals, however once we got to Winter term where deadlines were more fluid, it really made me have to manage my time well and make sure that I was staying on track to reach our goals.
-		I learned that when it comes to project work, it's really important to make sure you set your requirements and make sure that you have goals to reach throughout the entirety of the project.
+		I learned that when it comes to project work, it is really important to make sure you set your requirements and make sure that you have goals to reach throughout the entirety of the project.
 
 		In terms of project management and working with a team, I learned that communication is key to the success of the project.
 		Utilizing tools such as Slack really helped boost our communication as a team, allowing us to make sure we were all contributing and striving towards the same goals.
 		It also made sharing the work easier as we could just ask for help debugging or to see if someone else could take a look at the code to see if they could figure out what was going wrong.
-		I also found that working with a team really requires everyone to put in their best effort, while we all have different things going on outside of school, it's important to keep in mind that we're on the same team and have the same goals.
+		I also found that working with a team really requires everyone to put in their best effort, while we all have different things going on outside of school, it is important to keep in mind that we are on the same team and have the same goals.
 		It also really helps to designate who will do what parts of the project so everyone has a clear idea of what is required of them.
 		Knowing that we each have a part to play in the whole project really helped us moving forward as we knew that once we all finished our individual pieces, it would come together to make a nice application.
 
 		If I could do it all over again I would definitely do some more research on the front end.
-		While I had a general idea of how to use Xcode and a basic idea of what the format for an iOS app was, I didn't really have a good understanding of how it all fit together.
+		While I had a general idea of how to use Xcode and a basic idea of what the format for an iOS app was, I did not really have a good understanding of how it all fit together.
 		While doing research I learned about the Model View Controller and it really helped me understand more of what was going on behind the scenes.
 		I think if I had known more technical aspects of a mobile app going in, I would have been able to better understand how the various pages linked together.
 		I also would have started development sooner as it seemed we kind of had to rush towards the end to make sure we fixed all of our bugs before the deadline.
@@ -484,8 +498,8 @@ myWebView.getSettings().setAllowFileAccess(true);
     public void onPageFinished(WebView view, String url) {
             myWebView.loadUrl("javascript:(function() { " +
             "document.getElementsByClassName('site-header')[0].style.display='none'; " +
-            "document.getElementsByClassName('footer-widgets')[0].style.display='none'; " +
-            "document.getElementsByClassName('content')[0].style.display='none'; " + "})()");
+            "document.getElementsByClassName('footer-widgets')[0].style.display='none; " +
+            "document.getElementsByClassName(content')[0].style.display='none'; " + "})()");
             myWebView.setVisibility(View.VISIBLE);
             myWebView.getSettings().setLoadWithOverviewMode(true);
             myWebView.getSettings().setUseWideViewPort(true);
